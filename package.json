@@ -1,0 +1,30 @@
+{
+  "name": "saleor-gql-docs",
+  "version": "1.0.0",
+  "description": "Unofficial documentation generator of the GraphQL schema of Saleor.",
+  "main": "index.js",
+  "scripts": {
+    "build-demo": "graphdoc -e https://demo.getsaleor.com/graphql/ -o html/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NyanKiyoshi/saleor-gql-docs.git"
+  },
+  "keywords": [
+    "graphql",
+    "docs",
+    "saleor",
+    "shop",
+    "e-commerce",
+    "schema"
+  ],
+  "author": "NyanKiyoshi",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/NyanKiyoshi/saleor-gql-docs/issues"
+  },
+  "homepage": "https://github.com/NyanKiyoshi/saleor-gql-docs#readme",
+  "dependencies": {
+    "@2fd/graphdoc": "^2.4.0"
+  }
+}

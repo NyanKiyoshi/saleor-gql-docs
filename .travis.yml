@@ -1,0 +1,28 @@
+dist: xenial
+sudo: required
+cache:
+  pip: true
+  directories:
+    - node_modules
+env:
+  global:
+    - BUILD_PATH=gh-pages-build
+    - SRC_BRANCHES='demo master'
+install:
+  - nvm install 10
+  - npm i
+script:
+  - mkdir -pv $BUILD_PATH
+  - ./build.sh "$SRC_BRANCHES" $PWD/$BUILD_PATH
+deploy:
+  provider: pages
+  local-dir: $BUILD_PATH
+  skip-cleanup: true
+  github-token: $GITHUB_TOKEN
+  fqdn: saleor-gql.vanille.bid
+  keep-history: true
+  on:
+    branch: master
+  edge:
+    branch: v1.8.47
+
