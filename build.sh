@@ -42,6 +42,7 @@ for refname in $TARGET_REFS; do
 done
 
 echo 'Generating index.html...'
+cd $BASE_CWD
 cat > ${OUT_DIR_PATH}/index.html <<EOF
 <!doctype html>
   <html>
@@ -55,10 +56,21 @@ cat > ${OUT_DIR_PATH}/index.html <<EOF
     <body class='container'>
        <h2 class='mt-4 mb-4'>Saleor GraphQL documentations</h2>
        <ul class='list-group'>
-          $(for refname in $TARGET_REFS; do
-              echo "<li class='list-group-item'>";
-              echo "<a class='d-block' href='$refname/index.html'>$refname</a>";
-              echo "</li>";
+          $(cd saleor; for refname in $TARGET_REFS; do
+            rev=$(git rev-parse --short origin/${refname})
+            echo "<li class='list-group-item list-group-item-action \
+                             flex-column align-items-start'> \
+                    <a class='d-block text-dark' href='${refname}/index.html'> \
+                      <h4 class='mb-1'>${refname} branch</h4> \
+                      <blockquote class='mb-1 ml-4 pl-2' style='border-left: 4px solid #CCC'> \
+                        $(git log --format=%B -n 1 origin/${refname} | sed 's/$/<br>/') \
+                      </blockquote> \
+                    </a> \
+                    <small><a \
+                      href='https://github.com/mirumee/saleor/commit/$rev'>
+                      $rev \
+                    </a></small> \
+                  </li>";
             done)
        </ul>
     </body>
