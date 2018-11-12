@@ -58,6 +58,7 @@ cat > ${OUT_DIR_PATH}/index.html <<EOF
        <ul class='list-group'>
           $(cd saleor; for refname in $TARGET_REFS; do
             rev=$(git rev-parse --short origin/${refname})
+            date=$(git log -1 --format="%at" origin/${refname} | xargs -I{} date -d @{} +%Y/%m/%d\ %H:%M:%S\ %Z)
             echo "<li class='list-group-item list-group-item-action \
                              flex-column align-items-start'> \
                     <a class='d-block text-dark' href='${refname}/index.html'> \
@@ -66,9 +67,9 @@ cat > ${OUT_DIR_PATH}/index.html <<EOF
                         $(git log --format=%B -n 1 origin/${refname} | sed 's/$/<br>/') \
                       </blockquote> \
                     </a> \
-                    <small><a \
+                    <small>$date on<a \
                       href='https://github.com/mirumee/saleor/commit/$rev'>
-                      $rev \
+                      $rev
                     </a></small> \
                   </li>";
             done)
