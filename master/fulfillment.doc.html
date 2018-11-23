@@ -275,16 +275,6 @@
                 Address
             </a>
         </li>
-        <li  title="AddressCountableConnection">
-            <a href="addresscountableconnection.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
-                AddressCountableConnection
-            </a>
-        </li>
-        <li  title="AddressCountableEdge">
-            <a href="addresscountableedge.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
-                AddressCountableEdge
-            </a>
-        </li>
         <li  title="AddressCreate">
             <a href="addresscreate.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
                 AddressCreate
@@ -645,16 +635,6 @@
                 FulfillmentLine
             </a>
         </li>
-        <li  title="FulfillmentLineCountableConnection">
-            <a href="fulfillmentlinecountableconnection.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
-                FulfillmentLineCountableConnection
-            </a>
-        </li>
-        <li  title="FulfillmentLineCountableEdge">
-            <a href="fulfillmentlinecountableedge.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
-                FulfillmentLineCountableEdge
-            </a>
-        </li>
         <li  title="FulfillmentUpdateTracking">
             <a href="fulfillmentupdatetracking.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
                 FulfillmentUpdateTracking
@@ -958,16 +938,6 @@
         <li  title="ProductImage">
             <a href="productimage.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
                 ProductImage
-            </a>
-        </li>
-        <li  title="ProductImageCountableConnection">
-            <a href="productimagecountableconnection.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
-                ProductImageCountableConnection
-            </a>
-        </li>
-        <li  title="ProductImageCountableEdge">
-            <a href="productimagecountableedge.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
-                ProductImageCountableEdge
             </a>
         </li>
         <li  title="ProductImageCreate">
@@ -1603,7 +1573,7 @@
             </a>
             GraphQL Schema definition
         </h2>
-        <code class="highlight"><ul class="code" style="padding-left:42px"><li><span class="keyword operator ts">type</span> <span class="identifier">Fulfillment</span> <span class="keyword operator ts">implements</span> <a class="support type" href="node.doc.html">Node</a> {</li><li></li><li><span class="tab"><span class="meta">id</span>: <a class="support type" href="id.doc.html">ID</a>! </span></li><li></li><li><span class="tab"><span class="meta">fulfillmentOrder</span>: <a class="support type" href="int.doc.html">Int</a>! </span></li><li></li><li><span class="tab"><span class="meta">status</span>: <a class="support type" href="fulfillmentstatus.doc.html">FulfillmentStatus</a>! </span></li><li></li><li><span class="tab"><span class="meta">trackingNumber</span>: <a class="support type" href="string.doc.html">String</a>! </span></li><li></li><li><span class="tab"><span class="meta">shippingDate</span>: <a class="support type" href="datetime.doc.html">DateTime</a>! </span></li><li></li><li><span class="tab"><span class="comment line"># Arguments</span></span></li><li><span class="tab"><span class="comment line">#   <strong>before</strong>: </span></span></li><li><span class="tab"><span class="comment line">#   <strong>after</strong>: </span></span></li><li><span class="tab"><span class="comment line">#   <strong>first</strong>: </span></span></li><li><span class="tab"><span class="comment line">#   <strong>last</strong>: </span></span></li><li><span class="tab"><span class="meta">lines</span>(<span class="meta">before</span>: <a class="support type" href="string.doc.html">String</a>, <span class="meta">after</span>: <a class="support type" href="string.doc.html">String</a>, <span class="meta">first</span>: <a class="support type" href="int.doc.html">Int</a>, <span class="meta">last</span>: <a class="support type" href="int.doc.html">Int</a>): <a class="support type" href="fulfillmentlinecountableconnection.doc.html">FulfillmentLineCountableConnection</a> </span></li><li></li><li><span class="tab"><span class="meta">statusDisplay</span>: <a class="support type" href="string.doc.html">String</a> </span></li><li>}</li></ul></code>
+        <code class="highlight"><ul class="code" style="padding-left:42px"><li><span class="keyword operator ts">type</span> <span class="identifier">Fulfillment</span> <span class="keyword operator ts">implements</span> <a class="support type" href="node.doc.html">Node</a> {</li><li></li><li><span class="tab"><span class="meta">id</span>: <a class="support type" href="id.doc.html">ID</a>! </span></li><li></li><li><span class="tab"><span class="meta">fulfillmentOrder</span>: <a class="support type" href="int.doc.html">Int</a>! </span></li><li></li><li><span class="tab"><span class="meta">status</span>: <a class="support type" href="fulfillmentstatus.doc.html">FulfillmentStatus</a>! </span></li><li></li><li><span class="tab"><span class="meta">trackingNumber</span>: <a class="support type" href="string.doc.html">String</a>! </span></li><li></li><li><span class="tab"><span class="meta">shippingDate</span>: <a class="support type" href="datetime.doc.html">DateTime</a>! </span></li><li></li><li><span class="tab"><span class="meta">lines</span>: [<a class="support type" href="fulfillmentline.doc.html">FulfillmentLine</a>] </span></li><li></li><li><span class="tab"><span class="meta">statusDisplay</span>: <a class="support type" href="string.doc.html">String</a> </span></li><li>}</li></ul></code>
     </div>
 </section>
 <section>
