@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link type="text/css" rel="stylesheet" href="./styles/graphdoc.css" />
-    <title>FulfillmentLineCountableConnection</title>
+    <title>UserAddressInput</title>
     <link href="https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700" rel="stylesheet"><link type="text/css" rel="stylesheet" href="./assets/code.css" /><link type="text/css" rel="stylesheet" href="./assets/require-by.css" />
 </head>
 <body class="slds-scrollable--y">
@@ -273,16 +273,6 @@
         <li  title="Address">
             <a href="address.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
                 Address
-            </a>
-        </li>
-        <li  title="AddressCountableConnection">
-            <a href="addresscountableconnection.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
-                AddressCountableConnection
-            </a>
-        </li>
-        <li  title="AddressCountableEdge">
-            <a href="addresscountableedge.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
-                AddressCountableEdge
             </a>
         </li>
         <li  title="AddressCreate">
@@ -645,16 +635,6 @@
                 FulfillmentLine
             </a>
         </li>
-        <li class="slds-is-active" title="FulfillmentLineCountableConnection">
-            <a href="fulfillmentlinecountableconnection.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
-                FulfillmentLineCountableConnection
-            </a>
-        </li>
-        <li  title="FulfillmentLineCountableEdge">
-            <a href="fulfillmentlinecountableedge.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
-                FulfillmentLineCountableEdge
-            </a>
-        </li>
         <li  title="FulfillmentUpdateTracking">
             <a href="fulfillmentupdatetracking.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
                 FulfillmentUpdateTracking
@@ -678,6 +658,11 @@
         <li  title="LanguageDisplay">
             <a href="languagedisplay.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
                 LanguageDisplay
+            </a>
+        </li>
+        <li  title="LoggedUserUpdate">
+            <a href="loggeduserupdate.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                LoggedUserUpdate
             </a>
         </li>
         <li  title="Margin">
@@ -953,16 +938,6 @@
         <li  title="ProductImage">
             <a href="productimage.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
                 ProductImage
-            </a>
-        </li>
-        <li  title="ProductImageCountableConnection">
-            <a href="productimagecountableconnection.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
-                ProductImageCountableConnection
-            </a>
-        </li>
-        <li  title="ProductImageCountableEdge">
-            <a href="productimagecountableedge.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
-                ProductImageCountableEdge
             </a>
         </li>
         <li  title="ProductImageCreate">
@@ -1535,6 +1510,11 @@
                 StaffInput
             </a>
         </li>
+        <li class="slds-is-active" title="UserAddressInput">
+            <a href="useraddressinput.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                UserAddressInput
+            </a>
+        </li>
         <li  title="UserCreateInput">
             <a href="usercreateinput.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
                 UserCreateInput
@@ -1580,8 +1560,8 @@
         </div>
     </div>
     <div class="container">
-        <p class="slds-text-title--caps slds-text-color--weak">OBJECT</p>
-        <h1 class="slds-text-heading--large">FulfillmentLineCountableConnection</h1>
+        <p class="slds-text-title--caps slds-text-color--weak">INPUT_OBJECT</p>
+        <h1 class="slds-text-heading--large">UserAddressInput</h1>
         <div class="slds-text-body--regular"></div>
     </div>
 </section>
@@ -1593,7 +1573,7 @@
             </a>
             GraphQL Schema definition
         </h2>
-        <code class="highlight"><ul class="code" style="padding-left:28px"><li><span class="keyword operator ts">type</span> <span class="identifier">FulfillmentLineCountableConnection</span> {</li><li></li><li><span class="tab"><span class="meta">pageInfo</span>: <a class="support type" href="pageinfo.doc.html">PageInfo</a>! </span></li><li></li><li><span class="tab"><span class="meta">edges</span>: [<a class="support type" href="fulfillmentlinecountableedge.doc.html">FulfillmentLineCountableEdge</a>!]! </span></li><li></li><li><span class="tab"><span class="meta">totalCount</span>: <a class="support type" href="int.doc.html">Int</a> </span></li><li>}</li></ul></code>
+        <code class="highlight"><ul class="code" style="padding-left:28px"><li><span class="keyword operator ts">input</span> <span class="identifier">UserAddressInput</span> {</li><li><span class="tab"><li><span class="tab"><span class="meta">defaultBillingAddress</span>: <a class="support type" href="addressinput.doc.html">AddressInput</a></span></li></span></li><li><span class="tab"><li><span class="tab"><span class="meta">defaultShippingAddress</span>: <a class="support type" href="addressinput.doc.html">AddressInput</a></span></li></span></li><li>}</li></ul></code>
     </div>
 </section>
 <section>
@@ -1604,7 +1584,7 @@
             </a>
             Require by
         </h2>
-        <ul class="require-by"><li><a href="fulfillment.doc.html" title="Fulfillment - ">Fulfillment<em></em></a><li></ul>
+        <ul class="require-by"><li><a href="mutations.doc.html" title="Mutations - ">Mutations<em></em></a><li></ul>
     </div>
 </section>
 <footer>
