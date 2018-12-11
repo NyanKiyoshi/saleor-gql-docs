@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link type="text/css" rel="stylesheet" href="./styles/graphdoc.css" />
-    <title>OrderLineCountableConnection</title>
+    <title>VAT</title>
     <link href="https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700" rel="stylesheet"><link type="text/css" rel="stylesheet" href="./assets/code.css" /><link type="text/css" rel="stylesheet" href="./assets/require-by.css" />
 </head>
 <body class="slds-scrollable--y">
@@ -155,6 +155,11 @@
                 OrderAction
             </a>
         </li>
+        <li  title="OrderDirection">
+            <a href="orderdirection.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                OrderDirection
+            </a>
+        </li>
         <li  title="OrderEvents">
             <a href="orderevents.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
                 OrderEvents
@@ -183,6 +188,11 @@
         <li  title="PermissionEnum">
             <a href="permissionenum.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
                 PermissionEnum
+            </a>
+        </li>
+        <li  title="ProductOrderField">
+            <a href="productorderfield.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                ProductOrderField
             </a>
         </li>
         <li  title="ReportingPeriod">
@@ -795,16 +805,6 @@
                 OrderLine
             </a>
         </li>
-        <li class="slds-is-active" title="OrderLineCountableConnection">
-            <a href="orderlinecountableconnection.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
-                OrderLineCountableConnection
-            </a>
-        </li>
-        <li  title="OrderLineCountableEdge">
-            <a href="orderlinecountableedge.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
-                OrderLineCountableEdge
-            </a>
-        </li>
         <li  title="OrderMarkAsPaid">
             <a href="ordermarkaspaid.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
                 OrderMarkAsPaid
@@ -1025,6 +1025,11 @@
                 ProductVariantUpdate
             </a>
         </li>
+        <li  title="ReducedRate">
+            <a href="reducedrate.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                ReducedRate
+            </a>
+        </li>
         <li  title="Refresh">
             <a href="refresh.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
                 Refresh
@@ -1188,6 +1193,11 @@
         <li  title="VariantImageUnassign">
             <a href="variantimageunassign.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
                 VariantImageUnassign
+            </a>
+        </li>
+        <li class="slds-is-active" title="VAT">
+            <a href="vat.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                VAT
             </a>
         </li>
         <li  title="VerifyToken">
@@ -1450,6 +1460,11 @@
                 ProductInput
             </a>
         </li>
+        <li  title="ProductOrder">
+            <a href="productorder.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                ProductOrder
+            </a>
+        </li>
         <li  title="ProductTypeInput">
             <a href="producttypeinput.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
                 ProductTypeInput
@@ -1561,7 +1576,7 @@
     </div>
     <div class="container">
         <p class="slds-text-title--caps slds-text-color--weak">OBJECT</p>
-        <h1 class="slds-text-heading--large">OrderLineCountableConnection</h1>
+        <h1 class="slds-text-heading--large">VAT</h1>
         <div class="slds-text-body--regular"></div>
     </div>
 </section>
@@ -1573,7 +1588,7 @@
             </a>
             GraphQL Schema definition
         </h2>
-        <code class="highlight"><ul class="code" style="padding-left:28px"><li><span class="keyword operator ts">type</span> <span class="identifier">OrderLineCountableConnection</span> {</li><li></li><li><span class="tab"><span class="meta">pageInfo</span>: <a class="support type" href="pageinfo.doc.html">PageInfo</a>! </span></li><li></li><li><span class="tab"><span class="meta">edges</span>: [<a class="support type" href="orderlinecountableedge.doc.html">OrderLineCountableEdge</a>!]! </span></li><li></li><li><span class="tab"><span class="meta">totalCount</span>: <a class="support type" href="int.doc.html">Int</a> </span></li><li>}</li></ul></code>
+        <code class="highlight"><ul class="code" style="padding-left:28px"><li><span class="keyword operator ts">type</span> <span class="identifier">VAT</span> {</li><li></li><li><span class="tab"><span class="meta">countryCode</span>: <a class="support type" href="string.doc.html">String</a>! </span></li><li></li><li><span class="tab"><span class="meta">standardRate</span>: <a class="support type" href="float.doc.html">Float</a> </span></li><li></li><li><span class="tab"><span class="meta">reducedRates</span>: [<a class="support type" href="reducedrate.doc.html">ReducedRate</a>] </span></li><li>}</li></ul></code>
     </div>
 </section>
 <section>
@@ -1584,7 +1599,7 @@
             </a>
             Require by
         </h2>
-        <ul class="require-by"><li><a href="productvariant.doc.html" title="ProductVariant - ">ProductVariant<em></em></a><li></ul>
+        <ul class="require-by"><li><a href="countrydisplay.doc.html" title="CountryDisplay - ">CountryDisplay<em></em></a><li></ul>
     </div>
 </section>
 <footer>

@@ -155,6 +155,11 @@
                 OrderAction
             </a>
         </li>
+        <li  title="OrderDirection">
+            <a href="orderdirection.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                OrderDirection
+            </a>
+        </li>
         <li  title="OrderEvents">
             <a href="orderevents.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
                 OrderEvents
@@ -183,6 +188,11 @@
         <li  title="PermissionEnum">
             <a href="permissionenum.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
                 PermissionEnum
+            </a>
+        </li>
+        <li  title="ProductOrderField">
+            <a href="productorderfield.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                ProductOrderField
             </a>
         </li>
         <li  title="ReportingPeriod">
@@ -795,16 +805,6 @@
                 OrderLine
             </a>
         </li>
-        <li  title="OrderLineCountableConnection">
-            <a href="orderlinecountableconnection.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
-                OrderLineCountableConnection
-            </a>
-        </li>
-        <li  title="OrderLineCountableEdge">
-            <a href="orderlinecountableedge.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
-                OrderLineCountableEdge
-            </a>
-        </li>
         <li  title="OrderMarkAsPaid">
             <a href="ordermarkaspaid.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
                 OrderMarkAsPaid
@@ -1025,6 +1025,11 @@
                 ProductVariantUpdate
             </a>
         </li>
+        <li  title="ReducedRate">
+            <a href="reducedrate.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                ReducedRate
+            </a>
+        </li>
         <li  title="Refresh">
             <a href="refresh.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
                 Refresh
@@ -1188,6 +1193,11 @@
         <li  title="VariantImageUnassign">
             <a href="variantimageunassign.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
                 VariantImageUnassign
+            </a>
+        </li>
+        <li  title="VAT">
+            <a href="vat.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                VAT
             </a>
         </li>
         <li  title="VerifyToken">
@@ -1450,6 +1460,11 @@
                 ProductInput
             </a>
         </li>
+        <li  title="ProductOrder">
+            <a href="productorder.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                ProductOrder
+            </a>
+        </li>
         <li  title="ProductTypeInput">
             <a href="producttypeinput.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
                 ProductTypeInput
@@ -1573,7 +1588,7 @@
             </a>
             GraphQL Schema definition
         </h2>
-        <code class="highlight"><ul class="code" style="padding-left:42px"><li><span class="keyword operator ts">type</span> <span class="identifier">Order</span> <span class="keyword operator ts">implements</span> <a class="support type" href="node.doc.html">Node</a> {</li><li></li><li><span class="tab"><span class="meta">id</span>: <a class="support type" href="id.doc.html">ID</a>! </span></li><li></li><li><span class="tab"><span class="meta">created</span>: <a class="support type" href="datetime.doc.html">DateTime</a>! </span></li><li></li><li><span class="tab"><span class="meta">status</span>: <a class="support type" href="orderstatus.doc.html">OrderStatus</a>! </span></li><li></li><li><span class="tab"><span class="meta">user</span>: <a class="support type" href="user.doc.html">User</a> </span></li><li></li><li><span class="tab"><span class="meta">languageCode</span>: <a class="support type" href="string.doc.html">String</a>! </span></li><li></li><li><span class="tab"><span class="meta">trackingClientId</span>: <a class="support type" href="string.doc.html">String</a>! </span></li><li></li><li><span class="tab"><span class="meta">billingAddress</span>: <a class="support type" href="address.doc.html">Address</a> </span></li><li></li><li><span class="tab"><span class="meta">shippingAddress</span>: <a class="support type" href="address.doc.html">Address</a> </span></li><li></li><li><span class="tab"><span class="meta">userEmail</span>: <a class="support type" href="string.doc.html">String</a> </span></li><li></li><li><span class="tab"><span class="meta">shippingMethod</span>: <a class="support type" href="shippingmethod.doc.html">ShippingMethod</a> </span></li><li></li><li><span class="tab"><span class="meta">shippingPrice</span>: <a class="support type" href="taxedmoney.doc.html">TaxedMoney</a> </span></li><li></li><li><span class="tab"><span class="meta">shippingMethodName</span>: <a class="support type" href="string.doc.html">String</a> </span></li><li></li><li><span class="tab"><span class="meta">token</span>: <a class="support type" href="string.doc.html">String</a>! </span></li><li></li><li><span class="tab"><span class="meta">total</span>: <a class="support type" href="taxedmoney.doc.html">TaxedMoney</a> </span></li><li></li><li><span class="tab"><span class="meta">voucher</span>: <a class="support type" href="voucher.doc.html">Voucher</a> </span></li><li></li><li><span class="tab"><span class="meta">discountAmount</span>: <a class="support type" href="money.doc.html">Money</a> </span></li><li></li><li><span class="tab"><span class="meta">discountName</span>: <a class="support type" href="string.doc.html">String</a>! </span></li><li></li><li><span class="tab"><span class="meta">translatedDiscountName</span>: <a class="support type" href="string.doc.html">String</a>! </span></li><li></li><li><span class="tab"><span class="meta">displayGrossPrices</span>: <a class="support type" href="boolean.doc.html">Boolean</a>! </span></li><li></li><li><span class="tab"><span class="meta">customerNote</span>: <a class="support type" href="string.doc.html">String</a>! </span></li><li></li><li><span class="tab"><span class="meta">weight</span>: <a class="support type" href="weight.doc.html">Weight</a> </span></li><li></li><li><span class="tab"><span class="meta">lines</span>: [<a class="support type" href="orderline.doc.html">OrderLine</a>]! </span></li><li></li><li><span class="tab"><span class="meta">fulfillments</span>: [<a class="support type" href="fulfillment.doc.html">Fulfillment</a>]! </span></li><li></li><li><span class="tab"><span class="meta">events</span>: [<a class="support type" href="orderevent.doc.html">OrderEvent</a>] </span></li><li></li><li><span class="tab"><span class="meta">payments</span>: [<a class="support type" href="payment.doc.html">Payment</a>] </span></li><li></li><li><span class="tab"><span class="meta">actions</span>: [<a class="support type" href="orderaction.doc.html">OrderAction</a>]! </span></li><li></li><li><span class="tab"><span class="meta">availableShippingMethods</span>: [<a class="support type" href="shippingmethod.doc.html">ShippingMethod</a>] </span></li><li></li><li><span class="tab"><span class="meta">number</span>: <a class="support type" href="string.doc.html">String</a> </span></li><li></li><li><span class="tab"><span class="meta">isPaid</span>: <a class="support type" href="boolean.doc.html">Boolean</a> </span></li><li></li><li><span class="tab"><span class="meta">paymentStatus</span>: <a class="support type" href="paymentchargestatusenum.doc.html">PaymentChargeStatusEnum</a> </span></li><li></li><li><span class="tab"><span class="meta">paymentStatusDisplay</span>: <a class="support type" href="string.doc.html">String</a> </span></li><li></li><li><span class="tab"><span class="meta">subtotal</span>: <a class="support type" href="taxedmoney.doc.html">TaxedMoney</a> </span></li><li></li><li><span class="tab"><span class="meta">statusDisplay</span>: <a class="support type" href="string.doc.html">String</a> </span></li><li></li><li><span class="tab"><span class="meta">totalAuthorized</span>: <a class="support type" href="money.doc.html">Money</a> </span></li><li></li><li><span class="tab"><span class="meta">totalCaptured</span>: <a class="support type" href="money.doc.html">Money</a> </span></li><li></li><li><span class="tab"><span class="meta">totalBalance</span>: <a class="support type" href="money.doc.html">Money</a>! </span></li><li></li><li><span class="tab"><span class="meta">isShippingRequired</span>: <a class="support type" href="boolean.doc.html">Boolean</a> </span></li><li>}</li></ul></code>
+        <code class="highlight"><ul class="code" style="padding-left:42px"><li><span class="keyword operator ts">type</span> <span class="identifier">Order</span> <span class="keyword operator ts">implements</span> <a class="support type" href="node.doc.html">Node</a> {</li><li></li><li><span class="tab"><span class="meta">id</span>: <a class="support type" href="id.doc.html">ID</a>! </span></li><li></li><li><span class="tab"><span class="meta">created</span>: <a class="support type" href="datetime.doc.html">DateTime</a>! </span></li><li></li><li><span class="tab"><span class="meta">status</span>: <a class="support type" href="orderstatus.doc.html">OrderStatus</a>! </span></li><li></li><li><span class="tab"><span class="meta">user</span>: <a class="support type" href="user.doc.html">User</a> </span></li><li></li><li><span class="tab"><span class="meta">languageCode</span>: <a class="support type" href="string.doc.html">String</a>! </span></li><li></li><li><span class="tab"><span class="meta">trackingClientId</span>: <a class="support type" href="string.doc.html">String</a>! </span></li><li></li><li><span class="tab"><span class="meta">billingAddress</span>: <a class="support type" href="address.doc.html">Address</a> </span></li><li></li><li><span class="tab"><span class="meta">shippingAddress</span>: <a class="support type" href="address.doc.html">Address</a> </span></li><li></li><li><span class="tab"><span class="meta">userEmail</span>: <a class="support type" href="string.doc.html">String</a> </span></li><li></li><li><span class="tab"><span class="meta">shippingMethod</span>: <a class="support type" href="shippingmethod.doc.html">ShippingMethod</a> </span></li><li></li><li><span class="tab"><span class="meta">shippingPrice</span>: <a class="support type" href="taxedmoney.doc.html">TaxedMoney</a> </span></li><li></li><li><span class="tab"><span class="meta">shippingMethodName</span>: <a class="support type" href="string.doc.html">String</a> </span></li><li></li><li><span class="tab"><span class="meta">token</span>: <a class="support type" href="string.doc.html">String</a>! </span></li><li></li><li><span class="tab"><span class="meta">total</span>: <a class="support type" href="taxedmoney.doc.html">TaxedMoney</a> </span></li><li></li><li><span class="tab"><span class="meta">voucher</span>: <a class="support type" href="voucher.doc.html">Voucher</a> </span></li><li></li><li><span class="tab"><span class="meta">discountAmount</span>: <a class="support type" href="money.doc.html">Money</a> </span></li><li></li><li><span class="tab"><span class="meta">discountName</span>: <a class="support type" href="string.doc.html">String</a>! </span></li><li></li><li><span class="tab"><span class="meta">translatedDiscountName</span>: <a class="support type" href="string.doc.html">String</a>! </span></li><li></li><li><span class="tab"><span class="meta">displayGrossPrices</span>: <a class="support type" href="boolean.doc.html">Boolean</a>! </span></li><li></li><li><span class="tab"><span class="meta">customerNote</span>: <a class="support type" href="string.doc.html">String</a>! </span></li><li></li><li><span class="tab"><span class="meta">weight</span>: <a class="support type" href="weight.doc.html">Weight</a> </span></li><li></li><li><span class="tab"><span class="meta">lines</span>: [<a class="support type" href="orderline.doc.html">OrderLine</a>]! </span></li><li></li><li><span class="tab"><span class="meta">fulfillments</span>: [<a class="support type" href="fulfillment.doc.html">Fulfillment</a>]! </span></li><li></li><li><span class="tab"><span class="meta">events</span>: [<a class="support type" href="orderevent.doc.html">OrderEvent</a>] </span></li><li></li><li><span class="tab"><span class="meta">payments</span>: [<a class="support type" href="payment.doc.html">Payment</a>] </span></li><li></li><li><span class="tab"><span class="meta">actions</span>: [<a class="support type" href="orderaction.doc.html">OrderAction</a>]! </span></li><li></li><li><span class="tab"><span class="meta">availableShippingMethods</span>: [<a class="support type" href="shippingmethod.doc.html">ShippingMethod</a>] </span></li><li></li><li><span class="tab"><span class="meta">number</span>: <a class="support type" href="string.doc.html">String</a> </span></li><li></li><li><span class="tab"><span class="meta">isPaid</span>: <a class="support type" href="boolean.doc.html">Boolean</a> </span></li><li></li><li><span class="tab"><span class="meta">paymentStatus</span>: <a class="support type" href="paymentchargestatusenum.doc.html">PaymentChargeStatusEnum</a> </span></li><li></li><li><span class="tab"><span class="meta">paymentStatusDisplay</span>: <a class="support type" href="string.doc.html">String</a> </span></li><li></li><li><span class="tab"><span class="meta">subtotal</span>: <a class="support type" href="taxedmoney.doc.html">TaxedMoney</a> </span></li><li></li><li><span class="tab"><span class="meta">statusDisplay</span>: <a class="support type" href="string.doc.html">String</a> </span></li><li></li><li><span class="tab"><span class="meta">canFinalize</span>: <a class="support type" href="boolean.doc.html">Boolean</a> </span></li><li></li><li><span class="tab"><span class="meta">totalAuthorized</span>: <a class="support type" href="money.doc.html">Money</a> </span></li><li></li><li><span class="tab"><span class="meta">totalCaptured</span>: <a class="support type" href="money.doc.html">Money</a> </span></li><li></li><li><span class="tab"><span class="meta">totalBalance</span>: <a class="support type" href="money.doc.html">Money</a>! </span></li><li></li><li><span class="tab"><span class="meta">isShippingRequired</span>: <a class="support type" href="boolean.doc.html">Boolean</a> </span></li><li>}</li></ul></code>
     </div>
 </section>
 <section>
