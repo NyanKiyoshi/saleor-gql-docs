@@ -600,14 +600,14 @@
                 DraftOrderDelete
             </a>
         </li>
-        <li  title="DraftOrderLineCreate">
-            <a href="draftorderlinecreate.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
-                DraftOrderLineCreate
-            </a>
-        </li>
         <li  title="DraftOrderLineDelete">
             <a href="draftorderlinedelete.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
                 DraftOrderLineDelete
+            </a>
+        </li>
+        <li  title="DraftOrderLinesCreate">
+            <a href="draftorderlinescreate.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                DraftOrderLinesCreate
             </a>
         </li>
         <li  title="DraftOrderLineUpdate">
@@ -875,9 +875,19 @@
                 Payment
             </a>
         </li>
+        <li  title="PaymentAuthorize">
+            <a href="paymentauthorize.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                PaymentAuthorize
+            </a>
+        </li>
         <li  title="PaymentCapture">
             <a href="paymentcapture.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
                 PaymentCapture
+            </a>
+        </li>
+        <li  title="PaymentCharge">
+            <a href="paymentcharge.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                PaymentCharge
             </a>
         </li>
         <li  title="PaymentCountableConnection">
@@ -1588,7 +1598,7 @@
             </a>
             GraphQL Schema definition
         </h2>
-        <code class="highlight"><ul class="code" style="padding-left:42px"><li><span class="keyword operator ts">type</span> <span class="identifier">Checkout</span> <span class="keyword operator ts">implements</span> <a class="support type" href="node.doc.html">Node</a> {</li><li></li><li><span class="tab"><span class="meta">created</span>: <a class="support type" href="datetime.doc.html">DateTime</a>! </span></li><li></li><li><span class="tab"><span class="meta">lastChange</span>: <a class="support type" href="datetime.doc.html">DateTime</a>! </span></li><li></li><li><span class="tab"><span class="meta">user</span>: <a class="support type" href="user.doc.html">User</a> </span></li><li></li><li><span class="tab"><span class="meta">email</span>: <a class="support type" href="string.doc.html">String</a>! </span></li><li></li><li><span class="tab"><span class="meta">token</span>: <a class="support type" href="uuid.doc.html">UUID</a>! </span></li><li></li><li><span class="tab"><span class="meta">quantity</span>: <a class="support type" href="int.doc.html">Int</a>! </span></li><li></li><li><span class="tab"><span class="meta">billingAddress</span>: <a class="support type" href="address.doc.html">Address</a> </span></li><li></li><li><span class="tab"><span class="meta">shippingAddress</span>: <a class="support type" href="address.doc.html">Address</a> </span></li><li></li><li><span class="tab"><span class="meta">shippingMethod</span>: <a class="support type" href="shippingmethod.doc.html">ShippingMethod</a> </span></li><li></li><li><span class="tab"><span class="meta">note</span>: <a class="support type" href="string.doc.html">String</a>! </span></li><li></li><li><span class="tab"><span class="meta">discountAmount</span>: <a class="support type" href="money.doc.html">Money</a> </span></li><li></li><li><span class="tab"><span class="meta">discountName</span>: <a class="support type" href="string.doc.html">String</a> </span></li><li></li><li><span class="tab"><span class="meta">translatedDiscountName</span>: <a class="support type" href="string.doc.html">String</a> </span></li><li></li><li><span class="tab"><span class="meta">voucherCode</span>: <a class="support type" href="string.doc.html">String</a> </span></li><li></li><li><span class="tab"><span class="meta">lines</span>: [<a class="support type" href="checkoutline.doc.html">CheckoutLine</a>] </span></li><li></li><li><span class="tab"><span class="meta">id</span>: <a class="support type" href="id.doc.html">ID</a>! </span></li><li></li><li><span class="tab"><span class="meta">availableShippingMethods</span>: [<a class="support type" href="shippingmethod.doc.html">ShippingMethod</a>] </span></li><li></li><li><span class="tab"><span class="meta">isShippingRequired</span>: <a class="support type" href="boolean.doc.html">Boolean</a> </span></li><li></li><li><span class="tab"><span class="meta">shippingPrice</span>: <a class="support type" href="taxedmoney.doc.html">TaxedMoney</a> </span></li><li></li><li><span class="tab"><span class="meta">subtotalPrice</span>: <a class="support type" href="taxedmoney.doc.html">TaxedMoney</a> </span></li><li></li><li><span class="tab"><span class="meta">totalPrice</span>: <a class="support type" href="taxedmoney.doc.html">TaxedMoney</a> </span></li><li>}</li></ul></code>
+        <code class="highlight"><ul class="code" style="padding-left:42px"><li><span class="keyword operator ts">type</span> <span class="identifier">Checkout</span> <span class="keyword operator ts">implements</span> <a class="support type" href="node.doc.html">Node</a> {</li><li></li><li><span class="tab"><span class="meta">created</span>: <a class="support type" href="datetime.doc.html">DateTime</a>! </span></li><li></li><li><span class="tab"><span class="meta">lastChange</span>: <a class="support type" href="datetime.doc.html">DateTime</a>! </span></li><li></li><li><span class="tab"><span class="meta">user</span>: <a class="support type" href="user.doc.html">User</a> </span></li><li></li><li><span class="tab"><span class="meta">email</span>: <a class="support type" href="string.doc.html">String</a>! </span></li><li></li><li><span class="tab"><span class="meta">token</span>: <a class="support type" href="uuid.doc.html">UUID</a>! </span></li><li></li><li><span class="tab"><span class="meta">quantity</span>: <a class="support type" href="int.doc.html">Int</a>! </span></li><li></li><li><span class="tab"><span class="meta">billingAddress</span>: <a class="support type" href="address.doc.html">Address</a> </span></li><li></li><li><span class="tab"><span class="meta">shippingAddress</span>: <a class="support type" href="address.doc.html">Address</a> </span></li><li></li><li><span class="tab"><span class="meta">shippingMethod</span>: <a class="support type" href="shippingmethod.doc.html">ShippingMethod</a> </span></li><li></li><li><span class="tab"><span class="meta">note</span>: <a class="support type" href="string.doc.html">String</a>! </span></li><li></li><li><span class="tab"><span class="meta">discountAmount</span>: <a class="support type" href="money.doc.html">Money</a> </span></li><li></li><li><span class="tab"><span class="meta">discountName</span>: <a class="support type" href="string.doc.html">String</a> </span></li><li></li><li><span class="tab"><span class="meta">translatedDiscountName</span>: <a class="support type" href="string.doc.html">String</a> </span></li><li></li><li><span class="tab"><span class="meta">voucherCode</span>: <a class="support type" href="string.doc.html">String</a> </span></li><li></li><li><span class="tab"><span class="meta">lines</span>: [<a class="support type" href="checkoutline.doc.html">CheckoutLine</a>] </span></li><li></li><li><span class="tab"><span class="meta">id</span>: <a class="support type" href="id.doc.html">ID</a>! </span></li><li></li><li><span class="tab"><span class="meta">availableShippingMethods</span>: [<a class="support type" href="shippingmethod.doc.html">ShippingMethod</a>] </span></li><li></li><li><span class="tab"><span class="meta">isShippingRequired</span>: <a class="support type" href="boolean.doc.html">Boolean</a>! </span></li><li></li><li><span class="tab"><span class="meta">shippingPrice</span>: <a class="support type" href="taxedmoney.doc.html">TaxedMoney</a> </span></li><li></li><li><span class="tab"><span class="meta">subtotalPrice</span>: <a class="support type" href="taxedmoney.doc.html">TaxedMoney</a> </span></li><li></li><li><span class="tab"><span class="meta">totalPrice</span>: <a class="support type" href="taxedmoney.doc.html">TaxedMoney</a> </span></li><li>}</li></ul></code>
     </div>
 </section>
 <section>
