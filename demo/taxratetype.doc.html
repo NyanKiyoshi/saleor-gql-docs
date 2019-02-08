@@ -230,11 +230,6 @@
                 TransactionKind
             </a>
         </li>
-        <li  title="VoucherCountries">
-            <a href="vouchercountries.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
-                VoucherCountries
-            </a>
-        </li>
         <li  title="VoucherDiscountValueType">
             <a href="voucherdiscountvaluetype.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
                 VoucherDiscountValueType
@@ -1050,6 +1045,11 @@
                 Sale
             </a>
         </li>
+        <li  title="SaleAddCatalogues">
+            <a href="saleaddcatalogues.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                SaleAddCatalogues
+            </a>
+        </li>
         <li  title="SaleCountableConnection">
             <a href="salecountableconnection.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
                 SaleCountableConnection
@@ -1068,6 +1068,11 @@
         <li  title="SaleDelete">
             <a href="saledelete.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
                 SaleDelete
+            </a>
+        </li>
+        <li  title="SaleRemoveCatalogues">
+            <a href="saleremovecatalogues.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                SaleRemoveCatalogues
             </a>
         </li>
         <li  title="SaleUpdate">
@@ -1145,6 +1150,11 @@
                 ShopDomainUpdate
             </a>
         </li>
+        <li  title="ShopFetchTaxRates">
+            <a href="shopfetchtaxrates.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                ShopFetchTaxRates
+            </a>
+        </li>
         <li  title="ShopSettingsUpdate">
             <a href="shopsettingsupdate.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
                 ShopSettingsUpdate
@@ -1220,6 +1230,11 @@
                 Voucher
             </a>
         </li>
+        <li  title="VoucherAddCatalogues">
+            <a href="voucheraddcatalogues.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                VoucherAddCatalogues
+            </a>
+        </li>
         <li  title="VoucherCountableConnection">
             <a href="vouchercountableconnection.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
                 VoucherCountableConnection
@@ -1238,6 +1253,11 @@
         <li  title="VoucherDelete">
             <a href="voucherdelete.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
                 VoucherDelete
+            </a>
+        </li>
+        <li  title="VoucherRemoveCatalogues">
+            <a href="voucherremovecatalogues.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                VoucherRemoveCatalogues
             </a>
         </li>
         <li  title="VoucherUpdate">
@@ -1323,6 +1343,11 @@
         <li  title="AuthorizationKeyInput">
             <a href="authorizationkeyinput.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
                 AuthorizationKeyInput
+            </a>
+        </li>
+        <li  title="CatalogueInput">
+            <a href="catalogueinput.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                CatalogueInput
             </a>
         </li>
         <li  title="CategoryInput">
@@ -1598,7 +1623,7 @@
             </a>
             GraphQL Schema definition
         </h2>
-        <code class="highlight"><ul class="code" style="padding-left:42px"><li><span class="keyword operator ts">enum</span> <span class="identifier">TaxRateType</span> {</li><li><span class="tab"></span></li><li><span class="tab"><span class="meta">ACCOMMODATION</span></span></li><li><span class="tab"></span></li><li><span class="tab"><span class="meta">ADMISSION_TO_CULTURAL_EVENTS</span></span></li><li><span class="tab"></span></li><li><span class="tab"><span class="meta">ADMISSION_TO_ENTERTAINMENT_EVENTS</span></span></li><li><span class="tab"></span></li><li><span class="tab"><span class="meta">ADMISSION_TO_SPORTING_EVENTS</span></span></li><li><span class="tab"></span></li><li><span class="tab"><span class="meta">ADVERTISING</span></span></li><li><span class="tab"></span></li><li><span class="tab"><span class="meta">AGRICULTURAL_SUPPLIES</span></span></li><li><span class="tab"></span></li><li><span class="tab"><span class="meta">BABY_FOODSTUFFS</span></span></li><li><span class="tab"></span></li><li><span class="tab"><span class="meta">BIKES</span></span></li><li><span class="tab"></span></li><li><span class="tab"><span class="meta">BOOKS</span></span></li><li><span class="tab"></span></li><li><span class="tab"><span class="meta">CHILDRENS_CLOTHING</span></span></li><li><span class="tab"></span></li><li><span class="tab"><span class="meta">DOMESTIC_FUEL</span></span></li><li><span class="tab"></span></li><li><span class="tab"><span class="meta">DOMESTIC_SERVICES</span></span></li><li><span class="tab"></span></li><li><span class="tab"><span class="meta">E_BOOKS</span></span></li><li><span class="tab"></span></li><li><span class="tab"><span class="meta">FOODSTUFFS</span></span></li><li><span class="tab"></span></li><li><span class="tab"><span class="meta">HOTELS</span></span></li><li><span class="tab"></span></li><li><span class="tab"><span class="meta">MEDICAL</span></span></li><li><span class="tab"></span></li><li><span class="tab"><span class="meta">NEWSPAPERS</span></span></li><li><span class="tab"></span></li><li><span class="tab"><span class="meta">PASSENGER_TRANSPORT</span></span></li><li><span class="tab"></span></li><li><span class="tab"><span class="meta">PHARMACEUTICALS</span></span></li><li><span class="tab"></span></li><li><span class="tab"><span class="meta">PROPERTY_RENOVATIONS</span></span></li><li><span class="tab"></span></li><li><span class="tab"><span class="meta">RESTAURANTS</span></span></li><li><span class="tab"></span></li><li><span class="tab"><span class="meta">SOCIAL_HOUSING</span></span></li><li><span class="tab"></span></li><li><span class="tab"><span class="meta">STANDARD</span></span></li><li><span class="tab"></span></li><li><span class="tab"><span class="meta">WATER</span></span></li><li>}</li></ul></code>
+        <code class="highlight"><ul class="code" style="padding-left:42px"><li><span class="keyword operator ts">enum</span> <span class="identifier">TaxRateType</span> {</li><li><span class="tab"></span></li><li><span class="tab"><span class="meta">ACCOMMODATION</span></span></li><li><span class="tab"></span></li><li><span class="tab"><span class="meta">ADMISSION_TO_CULTURAL_EVENTS</span></span></li><li><span class="tab"></span></li><li><span class="tab"><span class="meta">ADMISSION_TO_ENTERTAINMENT_EVENTS</span></span></li><li><span class="tab"></span></li><li><span class="tab"><span class="meta">ADMISSION_TO_SPORTING_EVENTS</span></span></li><li><span class="tab"></span></li><li><span class="tab"><span class="meta">ADVERTISING</span></span></li><li><span class="tab"></span></li><li><span class="tab"><span class="meta">AGRICULTURAL_SUPPLIES</span></span></li><li><span class="tab"></span></li><li><span class="tab"><span class="meta">BABY_FOODSTUFFS</span></span></li><li><span class="tab"></span></li><li><span class="tab"><span class="meta">BIKES</span></span></li><li><span class="tab"></span></li><li><span class="tab"><span class="meta">BOOKS</span></span></li><li><span class="tab"></span></li><li><span class="tab"><span class="meta">CHILDRENS_CLOTHING</span></span></li><li><span class="tab"></span></li><li><span class="tab"><span class="meta">DOMESTIC_FUEL</span></span></li><li><span class="tab"></span></li><li><span class="tab"><span class="meta">DOMESTIC_SERVICES</span></span></li><li><span class="tab"></span></li><li><span class="tab"><span class="meta">E_BOOKS</span></span></li><li><span class="tab"></span></li><li><span class="tab"><span class="meta">FOODSTUFFS</span></span></li><li><span class="tab"></span></li><li><span class="tab"><span class="meta">HOTELS</span></span></li><li><span class="tab"></span></li><li><span class="tab"><span class="meta">MEDICAL</span></span></li><li><span class="tab"></span></li><li><span class="tab"><span class="meta">NEWSPAPERS</span></span></li><li><span class="tab"></span></li><li><span class="tab"><span class="meta">PASSENGER_TRANSPORT</span></span></li><li><span class="tab"></span></li><li><span class="tab"><span class="meta">PHARMACEUTICALS</span></span></li><li><span class="tab"></span></li><li><span class="tab"><span class="meta">PROPERTY_RENOVATIONS</span></span></li><li><span class="tab"></span></li><li><span class="tab"><span class="meta">RESTAURANTS</span></span></li><li><span class="tab"></span></li><li><span class="tab"><span class="meta">SOCIAL_HOUSING</span></span></li><li><span class="tab"></span></li><li><span class="tab"><span class="meta">STANDARD</span></span></li><li><span class="tab"></span></li><li><span class="tab"><span class="meta">WATER</span></span></li><li><span class="tab"></span></li><li><span class="tab"><span class="meta">WINE</span></span></li><li>}</li></ul></code>
     </div>
 </section>
 <section>
@@ -1609,7 +1634,7 @@
             </a>
             Require by
         </h2>
-        <ul class="require-by"><li><a href="product.doc.html" title="Product - ">Product<em></em></a><li><li><a href="productcreateinput.doc.html" title="ProductCreateInput - ">ProductCreateInput<em></em></a><li><li><a href="productinput.doc.html" title="ProductInput - ">ProductInput<em></em></a><li><li><a href="producttype.doc.html" title="ProductType - ">ProductType<em></em></a><li><li><a href="producttypeinput.doc.html" title="ProductTypeInput - ">ProductTypeInput<em></em></a><li></ul>
+        <ul class="require-by"><li><a href="product.doc.html" title="Product - ">Product<em></em></a><li><li><a href="productcreateinput.doc.html" title="ProductCreateInput - ">ProductCreateInput<em></em></a><li><li><a href="productinput.doc.html" title="ProductInput - ">ProductInput<em></em></a><li><li><a href="producttype.doc.html" title="ProductType - ">ProductType<em></em></a><li><li><a href="producttypeinput.doc.html" title="ProductTypeInput - ">ProductTypeInput<em></em></a><li><li><a href="reducedrate.doc.html" title="ReducedRate - ">ReducedRate<em></em></a><li></ul>
     </div>
 </section>
 <footer>
