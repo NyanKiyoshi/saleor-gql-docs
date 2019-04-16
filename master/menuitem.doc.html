@@ -590,6 +590,11 @@
                 CollectionBulkDelete
             </a>
         </li>
+        <li  title="CollectionBulkPublish">
+            <a href="collectionbulkpublish.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                CollectionBulkPublish
+            </a>
+        </li>
         <li  title="CollectionCountableConnection">
             <a href="collectioncountableconnection.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
                 CollectionCountableConnection
@@ -895,6 +900,11 @@
                 MenuItemDelete
             </a>
         </li>
+        <li  title="MenuItemMove">
+            <a href="menuitemmove.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                MenuItemMove
+            </a>
+        </li>
         <li  title="MenuItemTranslate">
             <a href="menuitemtranslate.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
                 MenuItemTranslate
@@ -938,6 +948,11 @@
         <li  title="OrderAddNote">
             <a href="orderaddnote.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
                 OrderAddNote
+            </a>
+        </li>
+        <li  title="OrderBulkCancel">
+            <a href="orderbulkcancel.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                OrderBulkCancel
             </a>
         </li>
         <li  title="OrderCancel">
@@ -1018,11 +1033,6 @@
         <li  title="PageBulkPublish">
             <a href="pagebulkpublish.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
                 PageBulkPublish
-            </a>
-        </li>
-        <li  title="PageBulkUnpublish">
-            <a href="pagebulkunpublish.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
-                PageBulkUnpublish
             </a>
         </li>
         <li  title="PageCountableConnection">
@@ -1118,6 +1128,11 @@
         <li  title="ProductBulkDelete">
             <a href="productbulkdelete.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
                 ProductBulkDelete
+            </a>
+        </li>
+        <li  title="ProductBulkPublish">
+            <a href="productbulkpublish.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                ProductBulkPublish
             </a>
         </li>
         <li  title="ProductCountableConnection">
@@ -1770,6 +1785,11 @@
                 MenuItemInput
             </a>
         </li>
+        <li  title="MenuItemMoveInput">
+            <a href="menuitemmoveinput.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                MenuItemMoveInput
+            </a>
+        </li>
         <li  title="NameTranslationInput">
             <a href="nametranslationinput.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
                 NameTranslationInput
@@ -1973,7 +1993,7 @@
             </a>
             GraphQL Schema definition
         </h2>
-        <code class="highlight"><ul class="code" style="padding-left:42px"><li><span class="keyword operator ts">type</span> <span class="identifier">MenuItem</span> <span class="keyword operator ts">implements</span> <a class="support type" href="node.doc.html">Node</a> {</li><li></li><li><span class="tab"><span class="meta">id</span>: <a class="support type" href="id.doc.html">ID</a>! </span></li><li></li><li><span class="tab"><span class="meta">menu</span>: <a class="support type" href="menu.doc.html">Menu</a>! </span></li><li></li><li><span class="tab"><span class="meta">name</span>: <a class="support type" href="string.doc.html">String</a>! </span></li><li></li><li><span class="tab"><span class="meta">parent</span>: <a class="support type" href="menuitem.doc.html">MenuItem</a> </span></li><li></li><li><span class="tab"><span class="meta">category</span>: <a class="support type" href="category.doc.html">Category</a> </span></li><li></li><li><span class="tab"><span class="meta">collection</span>: <a class="support type" href="collection.doc.html">Collection</a> </span></li><li></li><li><span class="tab"><span class="meta">page</span>: <a class="support type" href="page.doc.html">Page</a> </span></li><li></li><li><span class="tab"><span class="meta">level</span>: <a class="support type" href="int.doc.html">Int</a>! </span></li><li></li><li><span class="tab"><span class="meta">children</span>: [<a class="support type" href="menuitem.doc.html">MenuItem</a>] </span></li><li></li><li><span class="tab"><span class="meta">url</span>: <a class="support type" href="string.doc.html">String</a> </span></li><li></li><li><span class="tab"><span class="comment line"># Arguments</span></span></li><li><span class="tab"><span class="comment line">#   <strong>languageCode</strong>: </span></span></li><li><span class="tab"><span class="meta">translation</span>(<span class="meta">languageCode</span>: <a class="support type" href="languagecodeenum.doc.html">LanguageCodeEnum</a>!): <a class="support type" href="menuitemtranslation.doc.html">MenuItemTranslation</a> </span></li><li>}</li></ul></code>
+        <code class="highlight"><ul class="code" style="padding-left:42px"><li><span class="keyword operator ts">type</span> <span class="identifier">MenuItem</span> <span class="keyword operator ts">implements</span> <a class="support type" href="node.doc.html">Node</a> {</li><li></li><li><span class="tab"><span class="meta">id</span>: <a class="support type" href="id.doc.html">ID</a>! </span></li><li></li><li><span class="tab"><span class="meta">sortOrder</span>: <a class="support type" href="int.doc.html">Int</a>! </span></li><li></li><li><span class="tab"><span class="meta">menu</span>: <a class="support type" href="menu.doc.html">Menu</a>! </span></li><li></li><li><span class="tab"><span class="meta">name</span>: <a class="support type" href="string.doc.html">String</a>! </span></li><li></li><li><span class="tab"><span class="meta">parent</span>: <a class="support type" href="menuitem.doc.html">MenuItem</a> </span></li><li></li><li><span class="tab"><span class="meta">category</span>: <a class="support type" href="category.doc.html">Category</a> </span></li><li></li><li><span class="tab"><span class="meta">collection</span>: <a class="support type" href="collection.doc.html">Collection</a> </span></li><li></li><li><span class="tab"><span class="meta">page</span>: <a class="support type" href="page.doc.html">Page</a> </span></li><li></li><li><span class="tab"><span class="meta">level</span>: <a class="support type" href="int.doc.html">Int</a>! </span></li><li></li><li><span class="tab"><span class="meta">children</span>: [<a class="support type" href="menuitem.doc.html">MenuItem</a>] </span></li><li></li><li><span class="tab"><span class="meta">url</span>: <a class="support type" href="string.doc.html">String</a> </span></li><li></li><li><span class="tab"><span class="comment line"># Arguments</span></span></li><li><span class="tab"><span class="comment line">#   <strong>languageCode</strong>: </span></span></li><li><span class="tab"><span class="meta">translation</span>(<span class="meta">languageCode</span>: <a class="support type" href="languagecodeenum.doc.html">LanguageCodeEnum</a>!): <a class="support type" href="menuitemtranslation.doc.html">MenuItemTranslation</a> </span></li><li>}</li></ul></code>
     </div>
 </section>
 <section>
