@@ -180,14 +180,14 @@
                 OrderDirection
             </a>
         </li>
-        <li  title="OrderEvents">
-            <a href="orderevents.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
-                OrderEvents
+        <li  title="OrderEventsEmailsEnum">
+            <a href="ordereventsemailsenum.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                OrderEventsEmailsEnum
             </a>
         </li>
-        <li  title="OrderEventsEmails">
-            <a href="ordereventsemails.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
-                OrderEventsEmails
+        <li  title="OrderEventsEnum">
+            <a href="ordereventsenum.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                OrderEventsEnum
             </a>
         </li>
         <li  title="OrderStatus">
@@ -1018,6 +1018,11 @@
         <li  title="OrderEventCountableEdge">
             <a href="ordereventcountableedge.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
                 OrderEventCountableEdge
+            </a>
+        </li>
+        <li  title="OrderEventLineObject">
+            <a href="ordereventlineobject.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                OrderEventLineObject
             </a>
         </li>
         <li  title="OrderLine">
@@ -2098,7 +2103,7 @@
             </a>
             GraphQL Schema definition
         </h2>
-        <code class="highlight"><ul class="code" style="padding-left:42px"><li><span class="keyword operator ts">type</span> <span class="identifier">OrderEvent</span> <span class="keyword operator ts">implements</span> <a class="support type" href="node.doc.html">Node</a> {</li><li></li><li><span class="tab"><span class="meta">id</span>: <a class="support type" href="id.doc.html">ID</a>! </span></li><li></li><li><span class="tab"><span class="meta">date</span>: <a class="support type" href="datetime.doc.html">DateTime</a> </span></li><li></li><li><span class="tab"><span class="meta">type</span>: <a class="support type" href="orderevents.doc.html">OrderEvents</a> </span></li><li></li><li><span class="tab"><span class="comment line"># Arguments</span></span></li><li><span class="tab"><span class="comment line">#   <strong>id</strong>: </span></span></li><li><span class="tab"><span class="meta">user</span>(<span class="meta">id</span>: <a class="support type" href="id.doc.html">ID</a>): <a class="support type" href="user.doc.html">User</a> </span></li><li></li><li><span class="tab"><span class="meta">message</span>: <a class="support type" href="string.doc.html">String</a> </span></li><li></li><li><span class="tab"><span class="meta">email</span>: <a class="support type" href="string.doc.html">String</a> </span></li><li></li><li><span class="tab"><span class="meta">emailType</span>: <a class="support type" href="ordereventsemails.doc.html">OrderEventsEmails</a> </span></li><li></li><li><span class="tab"><span class="meta">amount</span>: <a class="support type" href="float.doc.html">Float</a> </span></li><li></li><li><span class="tab"><span class="meta">quantity</span>: <a class="support type" href="int.doc.html">Int</a> </span></li><li></li><li><span class="tab"><span class="meta">composedId</span>: <a class="support type" href="string.doc.html">String</a> </span></li><li></li><li><span class="tab"><span class="meta">orderNumber</span>: <a class="support type" href="string.doc.html">String</a> </span></li><li></li><li><span class="tab"><span class="meta">oversoldItems</span>: [<a class="support type" href="string.doc.html">String</a>] </span></li><li>}</li></ul></code>
+        <code class="highlight"><ul class="code" style="padding-left:42px"><li><span class="keyword operator ts">type</span> <span class="identifier">OrderEvent</span> <span class="keyword operator ts">implements</span> <a class="support type" href="node.doc.html">Node</a> {</li><li></li><li><span class="tab"><span class="meta">id</span>: <a class="support type" href="id.doc.html">ID</a>! </span></li><li></li><li><span class="tab"><span class="meta">date</span>: <a class="support type" href="datetime.doc.html">DateTime</a> </span></li><li></li><li><span class="tab"><span class="meta">type</span>: <a class="support type" href="ordereventsenum.doc.html">OrderEventsEnum</a> </span></li><li></li><li><span class="tab"><span class="comment line"># Arguments</span></span></li><li><span class="tab"><span class="comment line">#   <strong>id</strong>: </span></span></li><li><span class="tab"><span class="meta">user</span>(<span class="meta">id</span>: <a class="support type" href="id.doc.html">ID</a>): <a class="support type" href="user.doc.html">User</a> </span></li><li></li><li><span class="tab"><span class="meta">message</span>: <a class="support type" href="string.doc.html">String</a> </span></li><li></li><li><span class="tab"><span class="meta">email</span>: <a class="support type" href="string.doc.html">String</a> </span></li><li></li><li><span class="tab"><span class="meta">emailType</span>: <a class="support type" href="ordereventsemailsenum.doc.html">OrderEventsEmailsEnum</a> </span></li><li></li><li><span class="tab"><span class="meta">amount</span>: <a class="support type" href="float.doc.html">Float</a> </span></li><li></li><li><span class="tab"><span class="meta">paymentId</span>: <a class="support type" href="string.doc.html">String</a> </span></li><li></li><li><span class="tab"><span class="meta">paymentGateway</span>: <a class="support type" href="string.doc.html">String</a> </span></li><li></li><li><span class="tab"><span class="meta">quantity</span>: <a class="support type" href="int.doc.html">Int</a> </span></li><li></li><li><span class="tab"><span class="meta">composedId</span>: <a class="support type" href="string.doc.html">String</a> </span></li><li></li><li><span class="tab"><span class="meta">orderNumber</span>: <a class="support type" href="string.doc.html">String</a> </span></li><li></li><li><span class="tab"><span class="meta">oversoldItems</span>: [<a class="support type" href="string.doc.html">String</a>] </span></li><li></li><li><span class="tab"><span class="meta">lines</span>: [<a class="support type" href="ordereventlineobject.doc.html">OrderEventLineObject</a>] </span></li><li></li><li><span class="tab"><span class="meta">fulfilledItems</span>: [<a class="support type" href="ordereventlineobject.doc.html">OrderEventLineObject</a>] </span></li><li>}</li></ul></code>
     </div>
 </section>
 <section>

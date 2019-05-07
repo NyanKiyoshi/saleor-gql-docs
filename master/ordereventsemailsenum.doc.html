@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link type="text/css" rel="stylesheet" href="./styles/graphdoc.css" />
-    <title>OrderEventsEmails</title>
+    <title>OrderEventsEmailsEnum</title>
     <link href="https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700" rel="stylesheet"><link type="text/css" rel="stylesheet" href="./assets/code.css" /><link type="text/css" rel="stylesheet" href="./assets/require-by.css" />
 </head>
 <body class="slds-scrollable--y">
@@ -180,14 +180,14 @@
                 OrderDirection
             </a>
         </li>
-        <li  title="OrderEvents">
-            <a href="orderevents.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
-                OrderEvents
+        <li class="slds-is-active" title="OrderEventsEmailsEnum">
+            <a href="ordereventsemailsenum.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                OrderEventsEmailsEnum
             </a>
         </li>
-        <li class="slds-is-active" title="OrderEventsEmails">
-            <a href="ordereventsemails.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
-                OrderEventsEmails
+        <li  title="OrderEventsEnum">
+            <a href="ordereventsenum.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                OrderEventsEnum
             </a>
         </li>
         <li  title="OrderStatus">
@@ -1018,6 +1018,11 @@
         <li  title="OrderEventCountableEdge">
             <a href="ordereventcountableedge.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
                 OrderEventCountableEdge
+            </a>
+        </li>
+        <li  title="OrderEventLineObject">
+            <a href="ordereventlineobject.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                OrderEventLineObject
             </a>
         </li>
         <li  title="OrderLine">
@@ -2086,7 +2091,7 @@
     </div>
     <div class="container">
         <p class="slds-text-title--caps slds-text-color--weak">ENUM</p>
-        <h1 class="slds-text-heading--large">OrderEventsEmails</h1>
+        <h1 class="slds-text-heading--large">OrderEventsEmailsEnum</h1>
         <div class="slds-text-body--regular"></div>
     </div>
 </section>
@@ -2098,7 +2103,7 @@
             </a>
             GraphQL Schema definition
         </h2>
-        <code class="highlight"><ul class="code" style="padding-left:42px"><li><span class="keyword operator ts">enum</span> <span class="identifier">OrderEventsEmails</span> {</li><li><span class="tab"></span></li><li><span class="tab"><span class="meta">PAYMENT</span></span></li><li><span class="tab"></span></li><li><span class="tab"><span class="meta">SHIPPING</span></span></li><li><span class="tab"></span></li><li><span class="tab"><span class="meta">ORDER</span></span></li><li><span class="tab"></span></li><li><span class="tab"><span class="meta">FULFILLMENT</span></span></li><li>}</li></ul></code>
+        <code class="highlight"><ul class="code" style="padding-left:42px"><li><span class="keyword operator ts">enum</span> <span class="identifier">OrderEventsEmailsEnum</span> {</li><li><span class="tab"></span></li><li><span class="tab"><span class="meta">PAYMENT_CONFIRMATION</span></span></li><li><span class="tab"></span></li><li><span class="tab"><span class="meta">SHIPPING_CONFIRMATION</span></span></li><li><span class="tab"></span></li><li><span class="tab"><span class="meta">TRACKING_UPDATED</span></span></li><li><span class="tab"></span></li><li><span class="tab"><span class="meta">ORDER_CONFIRMATION</span></span></li><li><span class="tab"></span></li><li><span class="tab"><span class="meta">FULFILLMENT_CONFIRMATION</span></span></li><li><span class="tab"></span></li><li><span class="tab"><span class="meta">DIGITAL_LINKS</span></span></li><li>}</li></ul></code>
     </div>
 </section>
 <section>
