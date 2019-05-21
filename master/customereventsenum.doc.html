@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link type="text/css" rel="stylesheet" href="./styles/graphdoc.css" />
-    <title>ProductDelete</title>
+    <title>CustomerEventsEnum</title>
     <link href="https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700" rel="stylesheet"><link type="text/css" rel="stylesheet" href="./assets/code.css" /><link type="text/css" rel="stylesheet" href="./assets/require-by.css" />
 </head>
 <body class="slds-scrollable--y">
@@ -145,7 +145,7 @@
                 CountryCode
             </a>
         </li>
-        <li  title="CustomerEventsEnum">
+        <li class="slds-is-active" title="CustomerEventsEnum">
             <a href="customereventsenum.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
                 CustomerEventsEnum
             </a>
@@ -1195,7 +1195,7 @@
                 ProductCreate
             </a>
         </li>
-        <li class="slds-is-active" title="ProductDelete">
+        <li  title="ProductDelete">
             <a href="productdelete.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
                 ProductDelete
             </a>
@@ -2100,8 +2100,8 @@
         </div>
     </div>
     <div class="container">
-        <p class="slds-text-title--caps slds-text-color--weak">OBJECT</p>
-        <h1 class="slds-text-heading--large">ProductDelete</h1>
+        <p class="slds-text-title--caps slds-text-color--weak">ENUM</p>
+        <h1 class="slds-text-heading--large">CustomerEventsEnum</h1>
         <div class="slds-text-body--regular"></div>
     </div>
 </section>
@@ -2113,7 +2113,7 @@
             </a>
             GraphQL Schema definition
         </h2>
-        <code class="highlight"><ul class="code" style="padding-left:28px"><li><span class="keyword operator ts">type</span> <span class="identifier">ProductDelete</span> {</li><li></li><li><span class="tab"><span class="meta">errors</span>: [<a class="support type" href="error.doc.html">Error</a>!] </span></li><li></li><li><span class="tab"><span class="meta">product</span>: <a class="support type" href="product.doc.html">Product</a> </span></li><li>}</li></ul></code>
+        <code class="highlight"><ul class="code" style="padding-left:42px"><li><span class="keyword operator ts">enum</span> <span class="identifier">CustomerEventsEnum</span> {</li><li><span class="tab"></span></li><li><span class="tab"><span class="meta">ACCOUNT_CREATED</span></span></li><li><span class="tab"></span></li><li><span class="tab"><span class="meta">PASSWORD_RESET_LINK_SENT</span></span></li><li><span class="tab"></span></li><li><span class="tab"><span class="meta">PASSWORD_RESET</span></span></li><li><span class="tab"></span></li><li><span class="tab"><span class="meta">PLACED_ORDER</span></span></li><li><span class="tab"></span></li><li><span class="tab"><span class="meta">NOTE_ADDED_TO_ORDER</span></span></li><li><span class="tab"></span></li><li><span class="tab"><span class="meta">DIGITAL_LINK_DOWNLOADED</span></span></li><li><span class="tab"></span></li><li><span class="tab"><span class="meta">CUSTOMER_DELETED</span></span></li><li><span class="tab"></span></li><li><span class="tab"><span class="meta">NAME_ASSIGNED</span></span></li><li><span class="tab"></span></li><li><span class="tab"><span class="meta">EMAIL_ASSIGNED</span></span></li><li><span class="tab"></span></li><li><span class="tab"><span class="meta">NOTE_ADDED</span></span></li><li>}</li></ul></code>
     </div>
 </section>
 <section>
@@ -2124,7 +2124,7 @@
             </a>
             Require by
         </h2>
-        <ul class="require-by"><li><a href="mutations.doc.html" title="Mutations - ">Mutations<em></em></a><li></ul>
+        <ul class="require-by"><li><a href="customerevent.doc.html" title="CustomerEvent - ">CustomerEvent<em></em></a><li></ul>
     </div>
 </section>
 <footer>
