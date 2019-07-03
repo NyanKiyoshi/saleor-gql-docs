@@ -125,6 +125,11 @@
                 AttributeInputTypeEnum
             </a>
         </li>
+        <li  title="AttributeSortField">
+            <a href="attributesortfield.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                AttributeSortField
+            </a>
+        </li>
         <li  title="AttributeTypeEnum">
             <a href="attributetypeenum.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
                 AttributeTypeEnum
@@ -1550,6 +1555,11 @@
                 Shop
             </a>
         </li>
+        <li  title="ShopAddressUpdate">
+            <a href="shopaddressupdate.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                ShopAddressUpdate
+            </a>
+        </li>
         <li  title="ShopDomainUpdate">
             <a href="shopdomainupdate.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
                 ShopDomainUpdate
@@ -1603,6 +1613,11 @@
         <li  title="TaxedMoneyRange">
             <a href="taxedmoneyrange.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
                 TaxedMoneyRange
+            </a>
+        </li>
+        <li  title="TaxType">
+            <a href="taxtype.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                TaxType
             </a>
         </li>
         <li  title="Transaction">
@@ -1785,6 +1800,11 @@
                 AttributeCreateInput
             </a>
         </li>
+        <li  title="AttributeFilterInput">
+            <a href="attributefilterinput.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                AttributeFilterInput
+            </a>
+        </li>
         <li  title="AttributeInput">
             <a href="attributeinput.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
                 AttributeInput
@@ -1793,6 +1813,11 @@
         <li  title="AttributeReorderInput">
             <a href="attributereorderinput.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
                 AttributeReorderInput
+            </a>
+        </li>
+        <li  title="AttributeSortingInput">
+            <a href="attributesortinginput.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                AttributeSortingInput
             </a>
         </li>
         <li  title="AttributeUpdateInput">
@@ -2213,7 +2238,7 @@
             </a>
             GraphQL Schema definition
         </h2>
-        <code class="highlight"><ul class="code" style="padding-left:42px"><li><span class="keyword operator ts">type</span> <span class="identifier">Shop</span> {</li><li></li><li><span class="tab"><span class="meta">geolocalization</span>: <a class="support type" href="geolocalization.doc.html">Geolocalization</a> </span></li><li></li><li><span class="tab"><span class="meta">authorizationKeys</span>: [<a class="support type" href="authorizationkey.doc.html">AuthorizationKey</a>]! </span></li><li></li><li><span class="tab"><span class="meta">countries</span>: [<a class="support type" href="countrydisplay.doc.html">CountryDisplay</a>]! </span></li><li></li><li><span class="tab"><span class="meta">currencies</span>: [<a class="support type" href="string.doc.html">String</a>]! </span></li><li></li><li><span class="tab"><span class="meta">defaultCurrency</span>: <a class="support type" href="string.doc.html">String</a>! </span></li><li></li><li><span class="tab"><span class="meta">defaultCountry</span>: <a class="support type" href="countrydisplay.doc.html">CountryDisplay</a> </span></li><li></li><li><span class="tab"><span class="meta">description</span>: <a class="support type" href="string.doc.html">String</a> </span></li><li></li><li><span class="tab"><span class="meta">domain</span>: <a class="support type" href="domain.doc.html">Domain</a>! </span></li><li></li><li><span class="tab"><span class="meta">homepageCollection</span>: <a class="support type" href="collection.doc.html">Collection</a> </span></li><li></li><li><span class="tab"><span class="meta">languages</span>: [<a class="support type" href="languagedisplay.doc.html">LanguageDisplay</a>]! </span></li><li></li><li><span class="tab"><span class="meta">name</span>: <a class="support type" href="string.doc.html">String</a>! </span></li><li></li><li><span class="tab"><span class="meta">navigation</span>: <a class="support type" href="navigation.doc.html">Navigation</a> </span></li><li></li><li><span class="tab"><span class="meta">permissions</span>: [<a class="support type" href="permissiondisplay.doc.html">PermissionDisplay</a>]! </span></li><li></li><li><span class="tab"><span class="meta">phonePrefixes</span>: [<a class="support type" href="string.doc.html">String</a>]! </span></li><li></li><li><span class="tab"><span class="meta">headerText</span>: <a class="support type" href="string.doc.html">String</a> </span></li><li></li><li><span class="tab"><span class="meta">includeTaxesInPrices</span>: <a class="support type" href="boolean.doc.html">Boolean</a>! </span></li><li></li><li><span class="tab"><span class="meta">displayGrossPrices</span>: <a class="support type" href="boolean.doc.html">Boolean</a>! </span></li><li></li><li><span class="tab"><span class="meta">chargeTaxesOnShipping</span>: <a class="support type" href="boolean.doc.html">Boolean</a>! </span></li><li></li><li><span class="tab"><span class="meta">trackInventoryByDefault</span>: <a class="support type" href="boolean.doc.html">Boolean</a> </span></li><li></li><li><span class="tab"><span class="meta">defaultWeightUnit</span>: <a class="support type" href="weightunitsenum.doc.html">WeightUnitsEnum</a> </span></li><li></li><li><span class="tab"><span class="comment line"># Arguments</span></span></li><li><span class="tab"><span class="comment line">#   <strong>languageCode</strong>: </span></span></li><li><span class="tab"><span class="meta">translation</span>(<span class="meta">languageCode</span>: <a class="support type" href="languagecodeenum.doc.html">LanguageCodeEnum</a>!): <a class="support type" href="shoptranslation.doc.html">ShopTranslation</a> </span></li><li></li><li><span class="tab"><span class="meta">automaticFulfillmentDigitalProducts</span>: <a class="support type" href="boolean.doc.html">Boolean</a> </span></li><li></li><li><span class="tab"><span class="meta">defaultDigitalMaxDownloads</span>: <a class="support type" href="int.doc.html">Int</a> </span></li><li></li><li><span class="tab"><span class="meta">defaultDigitalUrlValidDays</span>: <a class="support type" href="int.doc.html">Int</a> </span></li><li>}</li></ul></code>
+        <code class="highlight"><ul class="code" style="padding-left:42px"><li><span class="keyword operator ts">type</span> <span class="identifier">Shop</span> {</li><li></li><li><span class="tab"><span class="meta">geolocalization</span>: <a class="support type" href="geolocalization.doc.html">Geolocalization</a> </span></li><li></li><li><span class="tab"><span class="meta">authorizationKeys</span>: [<a class="support type" href="authorizationkey.doc.html">AuthorizationKey</a>]! </span></li><li></li><li><span class="tab"><span class="meta">countries</span>: [<a class="support type" href="countrydisplay.doc.html">CountryDisplay</a>]! </span></li><li></li><li><span class="tab"><span class="meta">currencies</span>: [<a class="support type" href="string.doc.html">String</a>]! </span></li><li></li><li><span class="tab"><span class="meta">defaultCurrency</span>: <a class="support type" href="string.doc.html">String</a>! </span></li><li></li><li><span class="tab"><span class="meta">defaultCountry</span>: <a class="support type" href="countrydisplay.doc.html">CountryDisplay</a> </span></li><li></li><li><span class="tab"><span class="meta">description</span>: <a class="support type" href="string.doc.html">String</a> </span></li><li></li><li><span class="tab"><span class="meta">domain</span>: <a class="support type" href="domain.doc.html">Domain</a>! </span></li><li></li><li><span class="tab"><span class="meta">homepageCollection</span>: <a class="support type" href="collection.doc.html">Collection</a> </span></li><li></li><li><span class="tab"><span class="meta">languages</span>: [<a class="support type" href="languagedisplay.doc.html">LanguageDisplay</a>]! </span></li><li></li><li><span class="tab"><span class="meta">name</span>: <a class="support type" href="string.doc.html">String</a>! </span></li><li></li><li><span class="tab"><span class="meta">navigation</span>: <a class="support type" href="navigation.doc.html">Navigation</a> </span></li><li></li><li><span class="tab"><span class="meta">permissions</span>: [<a class="support type" href="permissiondisplay.doc.html">PermissionDisplay</a>]! </span></li><li></li><li><span class="tab"><span class="meta">phonePrefixes</span>: [<a class="support type" href="string.doc.html">String</a>]! </span></li><li></li><li><span class="tab"><span class="meta">headerText</span>: <a class="support type" href="string.doc.html">String</a> </span></li><li></li><li><span class="tab"><span class="meta">includeTaxesInPrices</span>: <a class="support type" href="boolean.doc.html">Boolean</a>! </span></li><li></li><li><span class="tab"><span class="meta">displayGrossPrices</span>: <a class="support type" href="boolean.doc.html">Boolean</a>! </span></li><li></li><li><span class="tab"><span class="meta">chargeTaxesOnShipping</span>: <a class="support type" href="boolean.doc.html">Boolean</a>! </span></li><li></li><li><span class="tab"><span class="meta">trackInventoryByDefault</span>: <a class="support type" href="boolean.doc.html">Boolean</a> </span></li><li></li><li><span class="tab"><span class="meta">defaultWeightUnit</span>: <a class="support type" href="weightunitsenum.doc.html">WeightUnitsEnum</a> </span></li><li></li><li><span class="tab"><span class="comment line"># Arguments</span></span></li><li><span class="tab"><span class="comment line">#   <strong>languageCode</strong>: </span></span></li><li><span class="tab"><span class="meta">translation</span>(<span class="meta">languageCode</span>: <a class="support type" href="languagecodeenum.doc.html">LanguageCodeEnum</a>!): <a class="support type" href="shoptranslation.doc.html">ShopTranslation</a> </span></li><li></li><li><span class="tab"><span class="meta">automaticFulfillmentDigitalProducts</span>: <a class="support type" href="boolean.doc.html">Boolean</a> </span></li><li></li><li><span class="tab"><span class="meta">defaultDigitalMaxDownloads</span>: <a class="support type" href="int.doc.html">Int</a> </span></li><li></li><li><span class="tab"><span class="meta">defaultDigitalUrlValidDays</span>: <a class="support type" href="int.doc.html">Int</a> </span></li><li></li><li><span class="tab"><span class="meta">companyAddress</span>: <a class="support type" href="address.doc.html">Address</a> </span></li><li>}</li></ul></code>
     </div>
 </section>
 <section>
@@ -2224,7 +2249,7 @@
             </a>
             Require by
         </h2>
-        <ul class="require-by"><li><a href="authorizationkeyadd.doc.html" title="AuthorizationKeyAdd - ">AuthorizationKeyAdd<em></em></a><li><li><a href="authorizationkeydelete.doc.html" title="AuthorizationKeyDelete - ">AuthorizationKeyDelete<em></em></a><li><li><a href="homepagecollectionupdate.doc.html" title="HomepageCollectionUpdate - ">HomepageCollectionUpdate<em></em></a><li><li><a href="query.doc.html" title="Query - ">Query<em></em></a><li><li><a href="shopdomainupdate.doc.html" title="ShopDomainUpdate - ">ShopDomainUpdate<em></em></a><li><li><a href="shopfetchtaxrates.doc.html" title="ShopFetchTaxRates - ">ShopFetchTaxRates<em></em></a><li><li><a href="shopsettingstranslate.doc.html" title="ShopSettingsTranslate - ">ShopSettingsTranslate<em></em></a><li><li><a href="shopsettingsupdate.doc.html" title="ShopSettingsUpdate - ">ShopSettingsUpdate<em></em></a><li></ul>
+        <ul class="require-by"><li><a href="authorizationkeyadd.doc.html" title="AuthorizationKeyAdd - ">AuthorizationKeyAdd<em></em></a><li><li><a href="authorizationkeydelete.doc.html" title="AuthorizationKeyDelete - ">AuthorizationKeyDelete<em></em></a><li><li><a href="homepagecollectionupdate.doc.html" title="HomepageCollectionUpdate - ">HomepageCollectionUpdate<em></em></a><li><li><a href="query.doc.html" title="Query - ">Query<em></em></a><li><li><a href="shopaddressupdate.doc.html" title="ShopAddressUpdate - ">ShopAddressUpdate<em></em></a><li><li><a href="shopdomainupdate.doc.html" title="ShopDomainUpdate - ">ShopDomainUpdate<em></em></a><li><li><a href="shopfetchtaxrates.doc.html" title="ShopFetchTaxRates - ">ShopFetchTaxRates<em></em></a><li><li><a href="shopsettingstranslate.doc.html" title="ShopSettingsTranslate - ">ShopSettingsTranslate<em></em></a><li><li><a href="shopsettingsupdate.doc.html" title="ShopSettingsUpdate - ">ShopSettingsUpdate<em></em></a><li></ul>
     </div>
 </section>
 <footer>

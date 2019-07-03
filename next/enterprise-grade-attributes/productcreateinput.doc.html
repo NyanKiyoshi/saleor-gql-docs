@@ -125,6 +125,11 @@
                 AttributeInputTypeEnum
             </a>
         </li>
+        <li  title="AttributeSortField">
+            <a href="attributesortfield.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                AttributeSortField
+            </a>
+        </li>
         <li  title="AttributeTypeEnum">
             <a href="attributetypeenum.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
                 AttributeTypeEnum
@@ -1550,6 +1555,11 @@
                 Shop
             </a>
         </li>
+        <li  title="ShopAddressUpdate">
+            <a href="shopaddressupdate.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                ShopAddressUpdate
+            </a>
+        </li>
         <li  title="ShopDomainUpdate">
             <a href="shopdomainupdate.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
                 ShopDomainUpdate
@@ -1603,6 +1613,11 @@
         <li  title="TaxedMoneyRange">
             <a href="taxedmoneyrange.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
                 TaxedMoneyRange
+            </a>
+        </li>
+        <li  title="TaxType">
+            <a href="taxtype.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                TaxType
             </a>
         </li>
         <li  title="Transaction">
@@ -1785,6 +1800,11 @@
                 AttributeCreateInput
             </a>
         </li>
+        <li  title="AttributeFilterInput">
+            <a href="attributefilterinput.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                AttributeFilterInput
+            </a>
+        </li>
         <li  title="AttributeInput">
             <a href="attributeinput.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
                 AttributeInput
@@ -1793,6 +1813,11 @@
         <li  title="AttributeReorderInput">
             <a href="attributereorderinput.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
                 AttributeReorderInput
+            </a>
+        </li>
+        <li  title="AttributeSortingInput">
+            <a href="attributesortinginput.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                AttributeSortingInput
             </a>
         </li>
         <li  title="AttributeUpdateInput">
@@ -2213,7 +2238,7 @@
             </a>
             GraphQL Schema definition
         </h2>
-        <code class="highlight"><ul class="code" style="padding-left:42px"><li><span class="keyword operator ts">input</span> <span class="identifier">ProductCreateInput</span> {</li><li><span class="tab"><li><span class="tab"><span class="meta">attributes</span>: [<a class="support type" href="attributevalueinput.doc.html">AttributeValueInput</a>]</span></li></span></li><li><span class="tab"><li><span class="tab"><span class="meta">publicationDate</span>: <a class="support type" href="date.doc.html">Date</a></span></li></span></li><li><span class="tab"><li><span class="tab"><span class="meta">category</span>: <a class="support type" href="id.doc.html">ID</a></span></li></span></li><li><span class="tab"><li><span class="tab"><span class="meta">chargeTaxes</span>: <a class="support type" href="boolean.doc.html">Boolean</a></span></li></span></li><li><span class="tab"><li><span class="tab"><span class="meta">collections</span>: [<a class="support type" href="id.doc.html">ID</a>]</span></li></span></li><li><span class="tab"><li><span class="tab"><span class="meta">description</span>: <a class="support type" href="string.doc.html">String</a></span></li></span></li><li><span class="tab"><li><span class="tab"><span class="meta">descriptionJson</span>: <a class="support type" href="jsonstring.doc.html">JSONString</a></span></li></span></li><li><span class="tab"><li><span class="tab"><span class="meta">isPublished</span>: <a class="support type" href="boolean.doc.html">Boolean</a></span></li></span></li><li><span class="tab"><li><span class="tab"><span class="meta">name</span>: <a class="support type" href="string.doc.html">String</a></span></li></span></li><li><span class="tab"><li><span class="tab"><span class="meta">price</span>: <a class="support type" href="decimal.doc.html">Decimal</a></span></li></span></li><li><span class="tab"><li><span class="tab"><span class="meta">basePrice</span>: <a class="support type" href="decimal.doc.html">Decimal</a></span></li></span></li><li><span class="tab"><li><span class="tab"><span class="meta">taxRate</span>: <a class="support type" href="taxratetype.doc.html">TaxRateType</a></span></li></span></li><li><span class="tab"><li><span class="tab"><span class="meta">seo</span>: <a class="support type" href="seoinput.doc.html">SeoInput</a></span></li></span></li><li><span class="tab"><li><span class="tab"><span class="meta">weight</span>: <a class="support type" href="weightscalar.doc.html">WeightScalar</a></span></li></span></li><li><span class="tab"><li><span class="tab"><span class="meta">sku</span>: <a class="support type" href="string.doc.html">String</a></span></li></span></li><li><span class="tab"><li><span class="tab"><span class="meta">quantity</span>: <a class="support type" href="int.doc.html">Int</a></span></li></span></li><li><span class="tab"><li><span class="tab"><span class="meta">trackInventory</span>: <a class="support type" href="boolean.doc.html">Boolean</a></span></li></span></li><li><span class="tab"><li><span class="tab"><span class="meta">productType</span>: <a class="support type" href="id.doc.html">ID</a>!</span></li></span></li><li>}</li></ul></code>
+        <code class="highlight"><ul class="code" style="padding-left:42px"><li><span class="keyword operator ts">input</span> <span class="identifier">ProductCreateInput</span> {</li><li><span class="tab"><li><span class="tab"><span class="meta">attributes</span>: [<a class="support type" href="attributevalueinput.doc.html">AttributeValueInput</a>]</span></li></span></li><li><span class="tab"><li><span class="tab"><span class="meta">publicationDate</span>: <a class="support type" href="date.doc.html">Date</a></span></li></span></li><li><span class="tab"><li><span class="tab"><span class="meta">category</span>: <a class="support type" href="id.doc.html">ID</a></span></li></span></li><li><span class="tab"><li><span class="tab"><span class="meta">chargeTaxes</span>: <a class="support type" href="boolean.doc.html">Boolean</a></span></li></span></li><li><span class="tab"><li><span class="tab"><span class="meta">collections</span>: [<a class="support type" href="id.doc.html">ID</a>]</span></li></span></li><li><span class="tab"><li><span class="tab"><span class="meta">description</span>: <a class="support type" href="string.doc.html">String</a></span></li></span></li><li><span class="tab"><li><span class="tab"><span class="meta">descriptionJson</span>: <a class="support type" href="jsonstring.doc.html">JSONString</a></span></li></span></li><li><span class="tab"><li><span class="tab"><span class="meta">isPublished</span>: <a class="support type" href="boolean.doc.html">Boolean</a></span></li></span></li><li><span class="tab"><li><span class="tab"><span class="meta">name</span>: <a class="support type" href="string.doc.html">String</a></span></li></span></li><li><span class="tab"><li><span class="tab"><span class="meta">price</span>: <a class="support type" href="decimal.doc.html">Decimal</a></span></li></span></li><li><span class="tab"><li><span class="tab"><span class="meta">basePrice</span>: <a class="support type" href="decimal.doc.html">Decimal</a></span></li></span></li><li><span class="tab"><li><span class="tab"><span class="meta">taxRate</span>: <a class="support type" href="taxratetype.doc.html">TaxRateType</a></span></li></span></li><li><span class="tab"><li><span class="tab"><span class="meta">taxCode</span>: <a class="support type" href="string.doc.html">String</a></span></li></span></li><li><span class="tab"><li><span class="tab"><span class="meta">seo</span>: <a class="support type" href="seoinput.doc.html">SeoInput</a></span></li></span></li><li><span class="tab"><li><span class="tab"><span class="meta">weight</span>: <a class="support type" href="weightscalar.doc.html">WeightScalar</a></span></li></span></li><li><span class="tab"><li><span class="tab"><span class="meta">sku</span>: <a class="support type" href="string.doc.html">String</a></span></li></span></li><li><span class="tab"><li><span class="tab"><span class="meta">quantity</span>: <a class="support type" href="int.doc.html">Int</a></span></li></span></li><li><span class="tab"><li><span class="tab"><span class="meta">trackInventory</span>: <a class="support type" href="boolean.doc.html">Boolean</a></span></li></span></li><li><span class="tab"><li><span class="tab"><span class="meta">productType</span>: <a class="support type" href="id.doc.html">ID</a>!</span></li></span></li><li>}</li></ul></code>
     </div>
 </section>
 <section>
