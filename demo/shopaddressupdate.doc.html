@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link type="text/css" rel="stylesheet" href="./styles/graphdoc.css" />
-    <title>VoucherDiscountValueType</title>
+    <title>ShopAddressUpdate</title>
     <link href="https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700" rel="stylesheet"><link type="text/css" rel="stylesheet" href="./assets/code.css" /><link type="text/css" rel="stylesheet" href="./assets/require-by.css" />
 </head>
 <body class="slds-scrollable--y">
@@ -283,16 +283,6 @@
         <li  title="VoucherDiscountType">
             <a href="voucherdiscounttype.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
                 VoucherDiscountType
-            </a>
-        </li>
-        <li class="slds-is-active" title="VoucherDiscountValueType">
-            <a href="voucherdiscountvaluetype.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
-                VoucherDiscountValueType
-            </a>
-        </li>
-        <li  title="VoucherType">
-            <a href="vouchertype.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
-                VoucherType
             </a>
         </li>
         <li  title="VoucherTypeEnum">
@@ -1205,6 +1195,11 @@
                 PaymentRefund
             </a>
         </li>
+        <li  title="PaymentSource">
+            <a href="paymentsource.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                PaymentSource
+            </a>
+        </li>
         <li  title="PaymentVoid">
             <a href="paymentvoid.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
                 PaymentVoid
@@ -1530,6 +1525,11 @@
                 Shop
             </a>
         </li>
+        <li class="slds-is-active" title="ShopAddressUpdate">
+            <a href="shopaddressupdate.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                ShopAddressUpdate
+            </a>
+        </li>
         <li  title="ShopDomainUpdate">
             <a href="shopdomainupdate.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
                 ShopDomainUpdate
@@ -1583,6 +1583,11 @@
         <li  title="TaxedMoneyRange">
             <a href="taxedmoneyrange.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
                 TaxedMoneyRange
+            </a>
+        </li>
+        <li  title="TaxType">
+            <a href="taxtype.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                TaxType
             </a>
         </li>
         <li  title="Transaction">
@@ -1843,6 +1848,11 @@
         <li  title="DateRangeInput">
             <a href="daterangeinput.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
                 DateRangeInput
+            </a>
+        </li>
+        <li  title="DateTimeRangeInput">
+            <a href="datetimerangeinput.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                DateTimeRangeInput
             </a>
         </li>
         <li  title="DigitalContentInput">
@@ -2165,8 +2175,8 @@
         </div>
     </div>
     <div class="container">
-        <p class="slds-text-title--caps slds-text-color--weak">ENUM</p>
-        <h1 class="slds-text-heading--large">VoucherDiscountValueType</h1>
+        <p class="slds-text-title--caps slds-text-color--weak">OBJECT</p>
+        <h1 class="slds-text-heading--large">ShopAddressUpdate</h1>
         <div class="slds-text-body--regular"></div>
     </div>
 </section>
@@ -2178,7 +2188,7 @@
             </a>
             GraphQL Schema definition
         </h2>
-        <code class="highlight"><ul class="code" style="padding-left:28px"><li><span class="keyword operator ts">enum</span> <span class="identifier">VoucherDiscountValueType</span> {</li><li><span class="tab"></span></li><li><span class="tab"><span class="meta">FIXED</span></span></li><li><span class="tab"></span></li><li><span class="tab"><span class="meta">PERCENTAGE</span></span></li><li>}</li></ul></code>
+        <code class="highlight"><ul class="code" style="padding-left:28px"><li><span class="keyword operator ts">type</span> <span class="identifier">ShopAddressUpdate</span> {</li><li></li><li><span class="tab"><span class="meta">errors</span>: [<a class="support type" href="error.doc.html">Error</a>!] </span></li><li></li><li><span class="tab"><span class="meta">shop</span>: <a class="support type" href="shop.doc.html">Shop</a> </span></li><li>}</li></ul></code>
     </div>
 </section>
 <section>
@@ -2189,7 +2199,7 @@
             </a>
             Require by
         </h2>
-        <ul class="require-by"><li><a href="voucher.doc.html" title="Voucher - ">Voucher<em></em></a><li></ul>
+        <ul class="require-by"><li><a href="mutations.doc.html" title="Mutations - ">Mutations<em></em></a><li></ul>
     </div>
 </section>
 <footer>

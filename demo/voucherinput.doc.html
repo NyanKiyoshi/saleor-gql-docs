@@ -285,16 +285,6 @@
                 VoucherDiscountType
             </a>
         </li>
-        <li  title="VoucherDiscountValueType">
-            <a href="voucherdiscountvaluetype.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
-                VoucherDiscountValueType
-            </a>
-        </li>
-        <li  title="VoucherType">
-            <a href="vouchertype.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
-                VoucherType
-            </a>
-        </li>
         <li  title="VoucherTypeEnum">
             <a href="vouchertypeenum.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
                 VoucherTypeEnum
@@ -1205,6 +1195,11 @@
                 PaymentRefund
             </a>
         </li>
+        <li  title="PaymentSource">
+            <a href="paymentsource.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                PaymentSource
+            </a>
+        </li>
         <li  title="PaymentVoid">
             <a href="paymentvoid.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
                 PaymentVoid
@@ -1530,6 +1525,11 @@
                 Shop
             </a>
         </li>
+        <li  title="ShopAddressUpdate">
+            <a href="shopaddressupdate.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                ShopAddressUpdate
+            </a>
+        </li>
         <li  title="ShopDomainUpdate">
             <a href="shopdomainupdate.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
                 ShopDomainUpdate
@@ -1583,6 +1583,11 @@
         <li  title="TaxedMoneyRange">
             <a href="taxedmoneyrange.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
                 TaxedMoneyRange
+            </a>
+        </li>
+        <li  title="TaxType">
+            <a href="taxtype.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                TaxType
             </a>
         </li>
         <li  title="Transaction">
@@ -1843,6 +1848,11 @@
         <li  title="DateRangeInput">
             <a href="daterangeinput.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
                 DateRangeInput
+            </a>
+        </li>
+        <li  title="DateTimeRangeInput">
+            <a href="datetimerangeinput.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                DateTimeRangeInput
             </a>
         </li>
         <li  title="DigitalContentInput">
@@ -2178,7 +2188,7 @@
             </a>
             GraphQL Schema definition
         </h2>
-        <code class="highlight"><ul class="code" style="padding-left:42px"><li><span class="keyword operator ts">input</span> <span class="identifier">VoucherInput</span> {</li><li><span class="tab"><li><span class="tab"><span class="meta">type</span>: <a class="support type" href="vouchertypeenum.doc.html">VoucherTypeEnum</a></span></li></span></li><li><span class="tab"><li><span class="tab"><span class="meta">name</span>: <a class="support type" href="string.doc.html">String</a></span></li></span></li><li><span class="tab"><li><span class="tab"><span class="meta">code</span>: <a class="support type" href="string.doc.html">String</a></span></li></span></li><li><span class="tab"><li><span class="tab"><span class="meta">startDate</span>: <a class="support type" href="date.doc.html">Date</a></span></li></span></li><li><span class="tab"><li><span class="tab"><span class="meta">endDate</span>: <a class="support type" href="date.doc.html">Date</a></span></li></span></li><li><span class="tab"><li><span class="tab"><span class="meta">discountValueType</span>: <a class="support type" href="discountvaluetypeenum.doc.html">DiscountValueTypeEnum</a></span></li></span></li><li><span class="tab"><li><span class="tab"><span class="meta">discountValue</span>: <a class="support type" href="decimal.doc.html">Decimal</a></span></li></span></li><li><span class="tab"><li><span class="tab"><span class="meta">products</span>: [<a class="support type" href="id.doc.html">ID</a>]</span></li></span></li><li><span class="tab"><li><span class="tab"><span class="meta">collections</span>: [<a class="support type" href="id.doc.html">ID</a>]</span></li></span></li><li><span class="tab"><li><span class="tab"><span class="meta">categories</span>: [<a class="support type" href="id.doc.html">ID</a>]</span></li></span></li><li><span class="tab"><li><span class="tab"><span class="meta">minAmountSpent</span>: <a class="support type" href="decimal.doc.html">Decimal</a></span></li></span></li><li><span class="tab"><li><span class="tab"><span class="meta">countries</span>: [<a class="support type" href="string.doc.html">String</a>]</span></li></span></li><li>}</li></ul></code>
+        <code class="highlight"><ul class="code" style="padding-left:42px"><li><span class="keyword operator ts">input</span> <span class="identifier">VoucherInput</span> {</li><li><span class="tab"><li><span class="tab"><span class="meta">type</span>: <a class="support type" href="vouchertypeenum.doc.html">VoucherTypeEnum</a></span></li></span></li><li><span class="tab"><li><span class="tab"><span class="meta">name</span>: <a class="support type" href="string.doc.html">String</a></span></li></span></li><li><span class="tab"><li><span class="tab"><span class="meta">code</span>: <a class="support type" href="string.doc.html">String</a></span></li></span></li><li><span class="tab"><li><span class="tab"><span class="meta">startDate</span>: <a class="support type" href="datetime.doc.html">DateTime</a></span></li></span></li><li><span class="tab"><li><span class="tab"><span class="meta">endDate</span>: <a class="support type" href="datetime.doc.html">DateTime</a></span></li></span></li><li><span class="tab"><li><span class="tab"><span class="meta">discountValueType</span>: <a class="support type" href="discountvaluetypeenum.doc.html">DiscountValueTypeEnum</a></span></li></span></li><li><span class="tab"><li><span class="tab"><span class="meta">discountValue</span>: <a class="support type" href="decimal.doc.html">Decimal</a></span></li></span></li><li><span class="tab"><li><span class="tab"><span class="meta">products</span>: [<a class="support type" href="id.doc.html">ID</a>]</span></li></span></li><li><span class="tab"><li><span class="tab"><span class="meta">collections</span>: [<a class="support type" href="id.doc.html">ID</a>]</span></li></span></li><li><span class="tab"><li><span class="tab"><span class="meta">categories</span>: [<a class="support type" href="id.doc.html">ID</a>]</span></li></span></li><li><span class="tab"><li><span class="tab"><span class="meta">minAmountSpent</span>: <a class="support type" href="decimal.doc.html">Decimal</a></span></li></span></li><li><span class="tab"><li><span class="tab"><span class="meta">minCheckoutItemsQuantity</span>: <a class="support type" href="int.doc.html">Int</a></span></li></span></li><li><span class="tab"><li><span class="tab"><span class="meta">countries</span>: [<a class="support type" href="string.doc.html">String</a>]</span></li></span></li><li><span class="tab"><li><span class="tab"><span class="meta">applyOncePerOrder</span>: <a class="support type" href="boolean.doc.html">Boolean</a></span></li></span></li><li><span class="tab"><li><span class="tab"><span class="meta">usageLimit</span>: <a class="support type" href="int.doc.html">Int</a></span></li></span></li><li>}</li></ul></code>
     </div>
 </section>
 <section>

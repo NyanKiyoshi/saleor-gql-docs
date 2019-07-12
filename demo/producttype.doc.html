@@ -285,16 +285,6 @@
                 VoucherDiscountType
             </a>
         </li>
-        <li  title="VoucherDiscountValueType">
-            <a href="voucherdiscountvaluetype.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
-                VoucherDiscountValueType
-            </a>
-        </li>
-        <li  title="VoucherType">
-            <a href="vouchertype.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
-                VoucherType
-            </a>
-        </li>
         <li  title="VoucherTypeEnum">
             <a href="vouchertypeenum.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
                 VoucherTypeEnum
@@ -1205,6 +1195,11 @@
                 PaymentRefund
             </a>
         </li>
+        <li  title="PaymentSource">
+            <a href="paymentsource.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                PaymentSource
+            </a>
+        </li>
         <li  title="PaymentVoid">
             <a href="paymentvoid.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
                 PaymentVoid
@@ -1530,6 +1525,11 @@
                 Shop
             </a>
         </li>
+        <li  title="ShopAddressUpdate">
+            <a href="shopaddressupdate.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                ShopAddressUpdate
+            </a>
+        </li>
         <li  title="ShopDomainUpdate">
             <a href="shopdomainupdate.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
                 ShopDomainUpdate
@@ -1583,6 +1583,11 @@
         <li  title="TaxedMoneyRange">
             <a href="taxedmoneyrange.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
                 TaxedMoneyRange
+            </a>
+        </li>
+        <li  title="TaxType">
+            <a href="taxtype.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                TaxType
             </a>
         </li>
         <li  title="Transaction">
@@ -1843,6 +1848,11 @@
         <li  title="DateRangeInput">
             <a href="daterangeinput.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
                 DateRangeInput
+            </a>
+        </li>
+        <li  title="DateTimeRangeInput">
+            <a href="datetimerangeinput.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                DateTimeRangeInput
             </a>
         </li>
         <li  title="DigitalContentInput">
@@ -2178,7 +2188,7 @@
             </a>
             GraphQL Schema definition
         </h2>
-        <code class="highlight"><ul class="code" style="padding-left:42px"><li><span class="keyword operator ts">type</span> <span class="identifier">ProductType</span> <span class="keyword operator ts">implements</span> <a class="support type" href="node.doc.html">Node</a> {</li><li></li><li><span class="tab"><span class="meta">id</span>: <a class="support type" href="id.doc.html">ID</a>! </span></li><li></li><li><span class="tab"><span class="meta">name</span>: <a class="support type" href="string.doc.html">String</a>! </span></li><li></li><li><span class="tab"><span class="meta">hasVariants</span>: <a class="support type" href="boolean.doc.html">Boolean</a>! </span></li><li></li><li><span class="tab"><span class="meta">isShippingRequired</span>: <a class="support type" href="boolean.doc.html">Boolean</a>! </span></li><li></li><li><span class="tab"><span class="meta">isDigital</span>: <a class="support type" href="boolean.doc.html">Boolean</a>! </span></li><li></li><li><span class="tab"><span class="meta">weight</span>: <a class="support type" href="weight.doc.html">Weight</a> </span></li><li></li><li><span class="tab"><span class="comment line"># Arguments</span></span></li><li><span class="tab"><span class="comment line">#   <strong>before</strong>: </span></span></li><li><span class="tab"><span class="comment line">#   <strong>after</strong>: </span></span></li><li><span class="tab"><span class="comment line">#   <strong>first</strong>: </span></span></li><li><span class="tab"><span class="comment line">#   <strong>last</strong>: </span></span></li><li><span class="tab"><span class="meta">products</span>(<span class="meta">before</span>: <a class="support type" href="string.doc.html">String</a>, <span class="meta">after</span>: <a class="support type" href="string.doc.html">String</a>, <span class="meta">first</span>: <a class="support type" href="int.doc.html">Int</a>, <span class="meta">last</span>: <a class="support type" href="int.doc.html">Int</a>): <a class="support type" href="productcountableconnection.doc.html">ProductCountableConnection</a> </span></li><li></li><li><span class="tab"><span class="meta">taxRate</span>: <a class="support type" href="taxratetype.doc.html">TaxRateType</a> </span></li><li></li><li><span class="tab"><span class="meta">variantAttributes</span>: [<a class="support type" href="attribute.doc.html">Attribute</a>] </span></li><li></li><li><span class="tab"><span class="meta">productAttributes</span>: [<a class="support type" href="attribute.doc.html">Attribute</a>] </span></li><li>}</li></ul></code>
+        <code class="highlight"><ul class="code" style="padding-left:42px"><li><span class="keyword operator ts">type</span> <span class="identifier">ProductType</span> <span class="keyword operator ts">implements</span> <a class="support type" href="node.doc.html">Node</a> {</li><li></li><li><span class="tab"><span class="meta">id</span>: <a class="support type" href="id.doc.html">ID</a>! </span></li><li></li><li><span class="tab"><span class="meta">name</span>: <a class="support type" href="string.doc.html">String</a>! </span></li><li></li><li><span class="tab"><span class="meta">hasVariants</span>: <a class="support type" href="boolean.doc.html">Boolean</a>! </span></li><li></li><li><span class="tab"><span class="meta">isShippingRequired</span>: <a class="support type" href="boolean.doc.html">Boolean</a>! </span></li><li></li><li><span class="tab"><span class="meta">isDigital</span>: <a class="support type" href="boolean.doc.html">Boolean</a>! </span></li><li></li><li><span class="tab"><span class="meta">weight</span>: <a class="support type" href="weight.doc.html">Weight</a> </span></li><li></li><li><span class="tab"><span class="comment line"># Arguments</span></span></li><li><span class="tab"><span class="comment line">#   <strong>before</strong>: </span></span></li><li><span class="tab"><span class="comment line">#   <strong>after</strong>: </span></span></li><li><span class="tab"><span class="comment line">#   <strong>first</strong>: </span></span></li><li><span class="tab"><span class="comment line">#   <strong>last</strong>: </span></span></li><li><span class="tab"><span class="meta">products</span>(<span class="meta">before</span>: <a class="support type" href="string.doc.html">String</a>, <span class="meta">after</span>: <a class="support type" href="string.doc.html">String</a>, <span class="meta">first</span>: <a class="support type" href="int.doc.html">Int</a>, <span class="meta">last</span>: <a class="support type" href="int.doc.html">Int</a>): <a class="support type" href="productcountableconnection.doc.html">ProductCountableConnection</a> </span></li><li></li><li><span class="tab"><span class="meta">taxRate</span>: <a class="support type" href="taxratetype.doc.html">TaxRateType</a> </span></li><li></li><li><span class="tab"><span class="meta">taxType</span>: <a class="support type" href="taxtype.doc.html">TaxType</a> </span></li><li></li><li><span class="tab"><span class="meta">variantAttributes</span>: [<a class="support type" href="attribute.doc.html">Attribute</a>] </span></li><li></li><li><span class="tab"><span class="meta">productAttributes</span>: [<a class="support type" href="attribute.doc.html">Attribute</a>] </span></li><li>}</li></ul></code>
     </div>
 </section>
 <section>
