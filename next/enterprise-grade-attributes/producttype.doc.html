@@ -340,6 +340,16 @@
 <div class="slds-grid slds-grid--vertical slds-navigation-list--vertical">
     <h4 class="slds-text-title--caps slds-p-around--medium">Objects</h4>
     <ul>
+        <li  title="AccountRequestDeletion">
+            <a href="accountrequestdeletion.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                AccountRequestDeletion
+            </a>
+        </li>
+        <li  title="AccountUpdate">
+            <a href="accountupdate.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                AccountUpdate
+            </a>
+        </li>
         <li  title="Address">
             <a href="address.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
                 Address
@@ -1215,6 +1225,11 @@
                 PaymentRefund
             </a>
         </li>
+        <li  title="PaymentSource">
+            <a href="paymentsource.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                PaymentSource
+            </a>
+        </li>
         <li  title="PaymentVoid">
             <a href="paymentvoid.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
                 PaymentVoid
@@ -1775,6 +1790,11 @@
 <div class="slds-grid slds-grid--vertical slds-navigation-list--vertical">
     <h4 class="slds-text-title--caps slds-p-around--medium">Input Objects</h4>
     <ul>
+        <li  title="AccountInput">
+            <a href="accountinput.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                AccountInput
+            </a>
+        </li>
         <li  title="AddressInput">
             <a href="addressinput.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
                 AddressInput
@@ -2228,7 +2248,7 @@
             </a>
             GraphQL Schema definition
         </h2>
-        <code class="highlight"><ul class="code" style="padding-left:42px"><li><span class="keyword operator ts">type</span> <span class="identifier">ProductType</span> <span class="keyword operator ts">implements</span> <a class="support type" href="node.doc.html">Node</a> {</li><li></li><li><span class="tab"><span class="meta">id</span>: <a class="support type" href="id.doc.html">ID</a>! </span></li><li></li><li><span class="tab"><span class="meta">name</span>: <a class="support type" href="string.doc.html">String</a>! </span></li><li></li><li><span class="tab"><span class="meta">hasVariants</span>: <a class="support type" href="boolean.doc.html">Boolean</a>! </span></li><li></li><li><span class="tab"><span class="meta">isShippingRequired</span>: <a class="support type" href="boolean.doc.html">Boolean</a>! </span></li><li></li><li><span class="tab"><span class="meta">isDigital</span>: <a class="support type" href="boolean.doc.html">Boolean</a>! </span></li><li></li><li><span class="tab"><span class="meta">weight</span>: <a class="support type" href="weight.doc.html">Weight</a> </span></li><li></li><li><span class="tab"><span class="comment line"># Arguments</span></span></li><li><span class="tab"><span class="comment line">#   <strong>before</strong>: </span></span></li><li><span class="tab"><span class="comment line">#   <strong>after</strong>: </span></span></li><li><span class="tab"><span class="comment line">#   <strong>first</strong>: </span></span></li><li><span class="tab"><span class="comment line">#   <strong>last</strong>: </span></span></li><li><span class="tab"><span class="meta">products</span>(<span class="meta">before</span>: <a class="support type" href="string.doc.html">String</a>, <span class="meta">after</span>: <a class="support type" href="string.doc.html">String</a>, <span class="meta">first</span>: <a class="support type" href="int.doc.html">Int</a>, <span class="meta">last</span>: <a class="support type" href="int.doc.html">Int</a>): <a class="support type" href="productcountableconnection.doc.html">ProductCountableConnection</a> </span></li><li></li><li><span class="tab"><span class="meta">taxRate</span>: <a class="support type" href="taxratetype.doc.html">TaxRateType</a> </span></li><li></li><li><span class="tab"><span class="meta">variantAttributes</span>: [<a class="support type" href="attribute.doc.html">Attribute</a>] </span></li><li></li><li><span class="tab"><span class="meta">productAttributes</span>: [<a class="support type" href="attribute.doc.html">Attribute</a>] </span></li><li></li><li><span class="tab"><span class="comment line"># Arguments</span></span></li><li><span class="tab"><span class="comment line">#   <strong>before</strong>: </span></span></li><li><span class="tab"><span class="comment line">#   <strong>after</strong>: </span></span></li><li><span class="tab"><span class="comment line">#   <strong>first</strong>: </span></span></li><li><span class="tab"><span class="comment line">#   <strong>last</strong>: </span></span></li><li><span class="tab"><span class="meta">availableAttributes</span>(</span></li><li><span class="tab"><span class="tab"><span class="meta">before</span>: <a class="support type" href="string.doc.html">String</a>,</span></span></li><li><span class="tab"><span class="tab"><span class="meta">after</span>: <a class="support type" href="string.doc.html">String</a>,</span></span></li><li><span class="tab"><span class="tab"><span class="meta">first</span>: <a class="support type" href="int.doc.html">Int</a>,</span></span></li><li><span class="tab"><span class="tab"><span class="meta">last</span>: <a class="support type" href="int.doc.html">Int</a></span></span></li><li><span class="tab">): <a class="support type" href="attributecountableconnection.doc.html">AttributeCountableConnection</a> </span></li><li>}</li></ul></code>
+        <code class="highlight"><ul class="code" style="padding-left:42px"><li><span class="keyword operator ts">type</span> <span class="identifier">ProductType</span> <span class="keyword operator ts">implements</span> <a class="support type" href="node.doc.html">Node</a> {</li><li></li><li><span class="tab"><span class="meta">id</span>: <a class="support type" href="id.doc.html">ID</a>! </span></li><li></li><li><span class="tab"><span class="meta">name</span>: <a class="support type" href="string.doc.html">String</a>! </span></li><li></li><li><span class="tab"><span class="meta">hasVariants</span>: <a class="support type" href="boolean.doc.html">Boolean</a>! </span></li><li></li><li><span class="tab"><span class="meta">isShippingRequired</span>: <a class="support type" href="boolean.doc.html">Boolean</a>! </span></li><li></li><li><span class="tab"><span class="meta">isDigital</span>: <a class="support type" href="boolean.doc.html">Boolean</a>! </span></li><li></li><li><span class="tab"><span class="meta">weight</span>: <a class="support type" href="weight.doc.html">Weight</a> </span></li><li></li><li><span class="tab"><span class="comment line"># Arguments</span></span></li><li><span class="tab"><span class="comment line">#   <strong>before</strong>: </span></span></li><li><span class="tab"><span class="comment line">#   <strong>after</strong>: </span></span></li><li><span class="tab"><span class="comment line">#   <strong>first</strong>: </span></span></li><li><span class="tab"><span class="comment line">#   <strong>last</strong>: </span></span></li><li><span class="tab"><span class="meta">products</span>(<span class="meta">before</span>: <a class="support type" href="string.doc.html">String</a>, <span class="meta">after</span>: <a class="support type" href="string.doc.html">String</a>, <span class="meta">first</span>: <a class="support type" href="int.doc.html">Int</a>, <span class="meta">last</span>: <a class="support type" href="int.doc.html">Int</a>): <a class="support type" href="productcountableconnection.doc.html">ProductCountableConnection</a> </span></li><li></li><li><span class="tab"><span class="meta">taxRate</span>: <a class="support type" href="taxratetype.doc.html">TaxRateType</a> </span></li><li></li><li><span class="tab"><span class="meta">taxType</span>: <a class="support type" href="taxtype.doc.html">TaxType</a> </span></li><li></li><li><span class="tab"><span class="meta">variantAttributes</span>: [<a class="support type" href="attribute.doc.html">Attribute</a>] </span></li><li></li><li><span class="tab"><span class="meta">productAttributes</span>: [<a class="support type" href="attribute.doc.html">Attribute</a>] </span></li><li></li><li><span class="tab"><span class="comment line"># Arguments</span></span></li><li><span class="tab"><span class="comment line">#   <strong>before</strong>: </span></span></li><li><span class="tab"><span class="comment line">#   <strong>after</strong>: </span></span></li><li><span class="tab"><span class="comment line">#   <strong>first</strong>: </span></span></li><li><span class="tab"><span class="comment line">#   <strong>last</strong>: </span></span></li><li><span class="tab"><span class="meta">availableAttributes</span>(</span></li><li><span class="tab"><span class="tab"><span class="meta">before</span>: <a class="support type" href="string.doc.html">String</a>,</span></span></li><li><span class="tab"><span class="tab"><span class="meta">after</span>: <a class="support type" href="string.doc.html">String</a>,</span></span></li><li><span class="tab"><span class="tab"><span class="meta">first</span>: <a class="support type" href="int.doc.html">Int</a>,</span></span></li><li><span class="tab"><span class="tab"><span class="meta">last</span>: <a class="support type" href="int.doc.html">Int</a></span></span></li><li><span class="tab">): <a class="support type" href="attributecountableconnection.doc.html">AttributeCountableConnection</a> </span></li><li>}</li></ul></code>
     </div>
 </section>
 <section>
