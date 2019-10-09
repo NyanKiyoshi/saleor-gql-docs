@@ -6,6 +6,10 @@
   "scripts": {
     "build-demo": "graphdoc -e https://demo.getsaleor.com/graphql/ -o html/"
   },
+  "graphdoc": {
+    "graphiql": "https://demo.getsaleor.com/graphql/",
+    "logo": "<a href=\"https://getsaleor.com/\" target=\"_blank\" style=\"display:block;padding:1rem 15%;text-align:center\"><img src=\"https://i.imgur.com/zqBrEHR.png\" style=\"max-height: 2.5rem\" /></a>"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/NyanKiyoshi/saleor-gql-docs.git"
