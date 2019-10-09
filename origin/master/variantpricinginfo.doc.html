@@ -2812,7 +2812,8 @@
     <div class="container">
         <p class="slds-text-title--caps slds-text-color--weak">OBJECT</p>
         <h1 class="slds-text-heading--large">VariantPricingInfo</h1>
-        <div class="slds-text-body--regular"></div>
+        <div class="slds-text-body--regular"><p>Represents availability of a variant in the storefront.</p>
+</div>
     </div>
 </section>
 <section>
@@ -2823,7 +2824,7 @@
             </a>
             GraphQL Schema definition
         </h2>
-        <code class="highlight"><ul class="code" style="padding-left:42px"><li><span class="keyword operator ts">type</span> <span class="identifier">VariantPricingInfo</span> {</li><li></li><li><span class="tab"><span class="meta">available</span>: <a class="support type" href="boolean.doc.html">Boolean</a> <span class="keyword operator ts">@deprecated</span>( reason: <span class="string">"DEPRECATED: Will be removed in Saleor 2.10, this has been moved to the parent type as 'isAvailable'." </span> )</span></li><li></li><li><span class="tab"><span class="meta">onSale</span>: <a class="support type" href="boolean.doc.html">Boolean</a> </span></li><li></li><li><span class="tab"><span class="meta">discount</span>: <a class="support type" href="taxedmoney.doc.html">TaxedMoney</a> </span></li><li></li><li><span class="tab"><span class="meta">discountLocalCurrency</span>: <a class="support type" href="taxedmoney.doc.html">TaxedMoney</a> </span></li><li></li><li><span class="tab"><span class="meta">price</span>: <a class="support type" href="taxedmoney.doc.html">TaxedMoney</a> </span></li><li></li><li><span class="tab"><span class="meta">priceUndiscounted</span>: <a class="support type" href="taxedmoney.doc.html">TaxedMoney</a> </span></li><li></li><li><span class="tab"><span class="meta">priceLocalCurrency</span>: <a class="support type" href="taxedmoney.doc.html">TaxedMoney</a> </span></li><li>}</li></ul></code>
+        <code class="highlight"><ul class="code" style="padding-left:42px"><li><span class="keyword operator ts">type</span> <span class="identifier">VariantPricingInfo</span> {</li><li></li><li><span class="tab"><span class="comment line">#   Whether it is in stock and visible or not.</span></span></li><li><span class="tab"><span class="meta">available</span>: <a class="support type" href="boolean.doc.html">Boolean</a> <span class="keyword operator ts">@deprecated</span>( reason: <span class="string">"DEPRECATED: Will be removed in Saleor 2.10, this has been moved to the parent type as 'isAvailable'." </span> )</span></li><li></li><li><span class="tab"><span class="comment line">#   Whether it is in sale or not.</span></span></li><li><span class="tab"><span class="meta">onSale</span>: <a class="support type" href="boolean.doc.html">Boolean</a> </span></li><li></li><li><span class="tab"><span class="comment line">#   The discount amount if in sale (null otherwise).</span></span></li><li><span class="tab"><span class="meta">discount</span>: <a class="support type" href="taxedmoney.doc.html">TaxedMoney</a> </span></li><li></li><li><span class="tab"><span class="comment line">#   The discount amount in the local currency.</span></span></li><li><span class="tab"><span class="meta">discountLocalCurrency</span>: <a class="support type" href="taxedmoney.doc.html">TaxedMoney</a> </span></li><li></li><li><span class="tab"><span class="comment line">#   The price, with any discount subtracted.</span></span></li><li><span class="tab"><span class="meta">price</span>: <a class="support type" href="taxedmoney.doc.html">TaxedMoney</a> </span></li><li></li><li><span class="tab"><span class="comment line">#   The price without any discount.</span></span></li><li><span class="tab"><span class="meta">priceUndiscounted</span>: <a class="support type" href="taxedmoney.doc.html">TaxedMoney</a> </span></li><li></li><li><span class="tab"><span class="comment line">#   The discounted price in the local currency.</span></span></li><li><span class="tab"><span class="meta">priceLocalCurrency</span>: <a class="support type" href="taxedmoney.doc.html">TaxedMoney</a> </span></li><li>}</li></ul></code>
     </div>
 </section>
 <section>
@@ -2834,7 +2835,7 @@
             </a>
             Require by
         </h2>
-        <ul class="require-by"><li><a href="productvariant.doc.html" title="ProductVariant - ">ProductVariant<em></em></a><li></ul>
+        <ul class="require-by"><li><a href="productvariant.doc.html" title="ProductVariant - Represents a version of a product such as different size or color.">ProductVariant<em>Represents a version of a product such as different size or color.</em></a><li></ul>
     </div>
 </section>
 <footer>

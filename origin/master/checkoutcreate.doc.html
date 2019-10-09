@@ -2812,7 +2812,8 @@
     <div class="container">
         <p class="slds-text-title--caps slds-text-color--weak">OBJECT</p>
         <h1 class="slds-text-heading--large">CheckoutCreate</h1>
-        <div class="slds-text-body--regular"></div>
+        <div class="slds-text-body--regular"><p>Create a new checkout.</p>
+</div>
     </div>
 </section>
 <section>
@@ -2823,7 +2824,7 @@
             </a>
             GraphQL Schema definition
         </h2>
-        <code class="highlight"><ul class="code" style="padding-left:42px"><li><span class="keyword operator ts">type</span> <span class="identifier">CheckoutCreate</span> {</li><li></li><li><span class="tab"><span class="meta">errors</span>: [<a class="support type" href="error.doc.html">Error</a>!] </span></li><li></li><li><span class="tab"><span class="meta">created</span>: <a class="support type" href="boolean.doc.html">Boolean</a> </span></li><li></li><li><span class="tab"><span class="meta">checkoutErrors</span>: [<a class="support type" href="checkouterror.doc.html">CheckoutError</a>!] </span></li><li></li><li><span class="tab"><span class="meta">checkout</span>: <a class="support type" href="checkout.doc.html">Checkout</a> </span></li><li>}</li></ul></code>
+        <code class="highlight"><ul class="code" style="padding-left:42px"><li><span class="keyword operator ts">type</span> <span class="identifier">CheckoutCreate</span> {</li><li></li><li><span class="tab"><span class="comment line">#   List of errors that occurred executing the mutation.</span></span></li><li><span class="tab"><span class="meta">errors</span>: [<a class="support type" href="error.doc.html">Error</a>!] </span></li><li></li><li><span class="tab"><span class="comment line">#   Whether the checkout was created or the current active one was</span></span></li><li><span class="tab"><span class="comment line">#   returned. Refer to checkoutLinesAdd and checkoutLinesUpdate to merge</span></span></li><li><span class="tab"><span class="comment line">#   a cart with an active checkout.</span></span></li><li><span class="tab"><span class="meta">created</span>: <a class="support type" href="boolean.doc.html">Boolean</a> </span></li><li></li><li><span class="tab"><span class="meta">checkoutErrors</span>: [<a class="support type" href="checkouterror.doc.html">CheckoutError</a>!] </span></li><li></li><li><span class="tab"><span class="meta">checkout</span>: <a class="support type" href="checkout.doc.html">Checkout</a> </span></li><li>}</li></ul></code>
     </div>
 </section>
 <section>

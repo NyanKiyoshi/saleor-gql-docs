@@ -2812,7 +2812,8 @@
     <div class="container">
         <p class="slds-text-title--caps slds-text-color--weak">OBJECT</p>
         <h1 class="slds-text-heading--large">Fulfillment</h1>
-        <div class="slds-text-body--regular"></div>
+        <div class="slds-text-body--regular"><p>Represents order fulfillment.</p>
+</div>
     </div>
 </section>
 <section>
@@ -2823,7 +2824,7 @@
             </a>
             GraphQL Schema definition
         </h2>
-        <code class="highlight"><ul class="code" style="padding-left:42px"><li><span class="keyword operator ts">type</span> <span class="identifier">Fulfillment</span> <span class="keyword operator ts">implements</span> <a class="support type" href="node.doc.html">Node</a> {</li><li></li><li><span class="tab"><span class="meta">id</span>: <a class="support type" href="id.doc.html">ID</a>! </span></li><li></li><li><span class="tab"><span class="meta">fulfillmentOrder</span>: <a class="support type" href="int.doc.html">Int</a>! </span></li><li></li><li><span class="tab"><span class="meta">status</span>: <a class="support type" href="fulfillmentstatus.doc.html">FulfillmentStatus</a>! </span></li><li></li><li><span class="tab"><span class="meta">trackingNumber</span>: <a class="support type" href="string.doc.html">String</a>! </span></li><li></li><li><span class="tab"><span class="meta">shippingDate</span>: <a class="support type" href="datetime.doc.html">DateTime</a>! </span></li><li></li><li><span class="tab"><span class="meta">lines</span>: [<a class="support type" href="fulfillmentline.doc.html">FulfillmentLine</a>] </span></li><li></li><li><span class="tab"><span class="meta">statusDisplay</span>: <a class="support type" href="string.doc.html">String</a> </span></li><li>}</li></ul></code>
+        <code class="highlight"><ul class="code" style="padding-left:42px"><li><span class="keyword operator ts">type</span> <span class="identifier">Fulfillment</span> <span class="keyword operator ts">implements</span> <a class="support type" href="node.doc.html">Node</a> {</li><li></li><li><span class="tab"><span class="comment line">#   The ID of the object.</span></span></li><li><span class="tab"><span class="meta">id</span>: <a class="support type" href="id.doc.html">ID</a>! </span></li><li></li><li><span class="tab"><span class="meta">fulfillmentOrder</span>: <a class="support type" href="int.doc.html">Int</a>! </span></li><li></li><li><span class="tab"><span class="meta">status</span>: <a class="support type" href="fulfillmentstatus.doc.html">FulfillmentStatus</a>! </span></li><li></li><li><span class="tab"><span class="meta">trackingNumber</span>: <a class="support type" href="string.doc.html">String</a>! </span></li><li></li><li><span class="tab"><span class="meta">shippingDate</span>: <a class="support type" href="datetime.doc.html">DateTime</a>! </span></li><li></li><li><span class="tab"><span class="comment line">#   List of lines for the fulfillment.</span></span></li><li><span class="tab"><span class="meta">lines</span>: [<a class="support type" href="fulfillmentline.doc.html">FulfillmentLine</a>] </span></li><li></li><li><span class="tab"><span class="comment line">#   User-friendly fulfillment status.</span></span></li><li><span class="tab"><span class="meta">statusDisplay</span>: <a class="support type" href="string.doc.html">String</a> </span></li><li>}</li></ul></code>
     </div>
 </section>
 <section>
@@ -2834,7 +2835,7 @@
             </a>
             Require by
         </h2>
-        <ul class="require-by"><li><a href="fulfillmentcancel.doc.html" title="FulfillmentCancel - ">FulfillmentCancel<em></em></a><li><li><a href="fulfillmentcreate.doc.html" title="FulfillmentCreate - ">FulfillmentCreate<em></em></a><li><li><a href="fulfillmentupdatetracking.doc.html" title="FulfillmentUpdateTracking - ">FulfillmentUpdateTracking<em></em></a><li><li><a href="order.doc.html" title="Order - ">Order<em></em></a><li></ul>
+        <ul class="require-by"><li><a href="fulfillmentcancel.doc.html" title="FulfillmentCancel - Cancels existing fulfillment and optionally restocks items.">FulfillmentCancel<em>Cancels existing fulfillment and optionally restocks items.</em></a><li><li><a href="fulfillmentcreate.doc.html" title="FulfillmentCreate - Creates a new fulfillment for an order.">FulfillmentCreate<em>Creates a new fulfillment for an order.</em></a><li><li><a href="fulfillmentupdatetracking.doc.html" title="FulfillmentUpdateTracking - Updates a fulfillment for an order.">FulfillmentUpdateTracking<em>Updates a fulfillment for an order.</em></a><li><li><a href="order.doc.html" title="Order - Represents an order in the shop.">Order<em>Represents an order in the shop.</em></a><li></ul>
     </div>
 </section>
 <footer>

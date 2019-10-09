@@ -2823,7 +2823,7 @@
             </a>
             GraphQL Schema definition
         </h2>
-        <code class="highlight"><ul class="code" style="padding-left:42px"><li><span class="keyword operator ts">type</span> <span class="identifier">CreditCard</span> {</li><li></li><li><span class="tab"><span class="meta">brand</span>: <a class="support type" href="string.doc.html">String</a>! </span></li><li></li><li><span class="tab"><span class="meta">firstDigits</span>: <a class="support type" href="string.doc.html">String</a>! </span></li><li></li><li><span class="tab"><span class="meta">lastDigits</span>: <a class="support type" href="string.doc.html">String</a>! </span></li><li></li><li><span class="tab"><span class="meta">expMonth</span>: <a class="support type" href="int.doc.html">Int</a>! </span></li><li></li><li><span class="tab"><span class="meta">expYear</span>: <a class="support type" href="int.doc.html">Int</a>! </span></li><li>}</li></ul></code>
+        <code class="highlight"><ul class="code" style="padding-left:42px"><li><span class="keyword operator ts">type</span> <span class="identifier">CreditCard</span> {</li><li></li><li><span class="tab"><span class="comment line">#   Card brand.</span></span></li><li><span class="tab"><span class="meta">brand</span>: <a class="support type" href="string.doc.html">String</a>! </span></li><li></li><li><span class="tab"><span class="comment line">#   The host name of the domain.</span></span></li><li><span class="tab"><span class="meta">firstDigits</span>: <a class="support type" href="string.doc.html">String</a>! </span></li><li></li><li><span class="tab"><span class="comment line">#   Last 4 digits of the card number.</span></span></li><li><span class="tab"><span class="meta">lastDigits</span>: <a class="support type" href="string.doc.html">String</a>! </span></li><li></li><li><span class="tab"><span class="comment line">#   Two-digit number representing the card’s expiration month.</span></span></li><li><span class="tab"><span class="meta">expMonth</span>: <a class="support type" href="int.doc.html">Int</a>! </span></li><li></li><li><span class="tab"><span class="comment line">#   Four-digit number representing the card’s expiration year.</span></span></li><li><span class="tab"><span class="meta">expYear</span>: <a class="support type" href="int.doc.html">Int</a>! </span></li><li>}</li></ul></code>
     </div>
 </section>
 <section>
@@ -2834,7 +2834,9 @@
             </a>
             Require by
         </h2>
-        <ul class="require-by"><li><a href="payment.doc.html" title="Payment - ">Payment<em></em></a><li><li><a href="paymentsource.doc.html" title="PaymentSource - ">PaymentSource<em></em></a><li></ul>
+        <ul class="require-by"><li><a href="payment.doc.html" title="Payment - Represents a payment of a given type.">Payment<em>Represents a payment of a given type.</em></a><li><li><a href="paymentsource.doc.html" title="PaymentSource - Represents a payment source stored for user in payment gateway, such
+as credit card.">PaymentSource<em>Represents a payment source stored for user in payment gateway, such
+as credit card.</em></a><li></ul>
     </div>
 </section>
 <footer>

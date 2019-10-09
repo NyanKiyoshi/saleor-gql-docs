@@ -2823,7 +2823,7 @@
             </a>
             GraphQL Schema definition
         </h2>
-        <code class="highlight"><ul class="code" style="padding-left:28px"><li><span class="keyword operator ts">type</span> <span class="identifier">MetaStore</span> {</li><li></li><li><span class="tab"><span class="meta">namespace</span>: <a class="support type" href="string.doc.html">String</a>! </span></li><li></li><li><span class="tab"><span class="meta">clients</span>: [<a class="support type" href="metaclientstore.doc.html">MetaClientStore</a>]! </span></li><li>}</li></ul></code>
+        <code class="highlight"><ul class="code" style="padding-left:28px"><li><span class="keyword operator ts">type</span> <span class="identifier">MetaStore</span> {</li><li></li><li><span class="tab"><span class="comment line">#   Name of metadata client group.</span></span></li><li><span class="tab"><span class="meta">namespace</span>: <a class="support type" href="string.doc.html">String</a>! </span></li><li></li><li><span class="tab"><span class="comment line">#   List of clients that stored metadata in a group.</span></span></li><li><span class="tab"><span class="meta">clients</span>: [<a class="support type" href="metaclientstore.doc.html">MetaClientStore</a>]! </span></li><li>}</li></ul></code>
     </div>
 </section>
 <section>
@@ -2834,7 +2834,15 @@
             </a>
             Require by
         </h2>
-        <ul class="require-by"><li><a href="attribute.doc.html" title="Attribute - ">Attribute<em></em></a><li><li><a href="category.doc.html" title="Category - ">Category<em></em></a><li><li><a href="checkout.doc.html" title="Checkout - ">Checkout<em></em></a><li><li><a href="collection.doc.html" title="Collection - ">Collection<em></em></a><li><li><a href="digitalcontent.doc.html" title="DigitalContent - ">DigitalContent<em></em></a><li><li><a href="order.doc.html" title="Order - ">Order<em></em></a><li><li><a href="product.doc.html" title="Product - ">Product<em></em></a><li><li><a href="producttype.doc.html" title="ProductType - ">ProductType<em></em></a><li><li><a href="productvariant.doc.html" title="ProductVariant - ">ProductVariant<em></em></a><li><li><a href="serviceaccount.doc.html" title="ServiceAccount - ">ServiceAccount<em></em></a><li><li><a href="user.doc.html" title="User - ">User<em></em></a><li></ul>
+        <ul class="require-by"><li><a href="attribute.doc.html" title="Attribute - Custom attribute of a product. Attributes can be assigned to
+products and variants at the product type level.">Attribute<em>Custom attribute of a product. Attributes can be assigned to
+products and variants at the product type level.</em></a><li><li><a href="category.doc.html" title="Category - Represents a single category of products. Categories allow to
+organize products in a tree-hierarchies which can be used for
+navigation in the storefront.">Category<em>Represents a single category of products. Categories allow to
+organize products in a tree-hierarchies which can be used for
+navigation in the storefront.</em></a><li><li><a href="checkout.doc.html" title="Checkout - Checkout object.">Checkout<em>Checkout object.</em></a><li><li><a href="collection.doc.html" title="Collection - Represents a collection of products.">Collection<em>Represents a collection of products.</em></a><li><li><a href="digitalcontent.doc.html" title="DigitalContent - ">DigitalContent<em></em></a><li><li><a href="order.doc.html" title="Order - Represents an order in the shop.">Order<em>Represents an order in the shop.</em></a><li><li><a href="product.doc.html" title="Product - Represents an individual item for sale in the storefront.">Product<em>Represents an individual item for sale in the storefront.</em></a><li><li><a href="producttype.doc.html" title="ProductType - Represents a type of product. It defines what attributes are
+available to products of this type.">ProductType<em>Represents a type of product. It defines what attributes are
+available to products of this type.</em></a><li><li><a href="productvariant.doc.html" title="ProductVariant - Represents a version of a product such as different size or color.">ProductVariant<em>Represents a version of a product such as different size or color.</em></a><li><li><a href="serviceaccount.doc.html" title="ServiceAccount - Represents service account data.">ServiceAccount<em>Represents service account data.</em></a><li><li><a href="user.doc.html" title="User - Represents user data.">User<em>Represents user data.</em></a><li></ul>
     </div>
 </section>
 <footer>

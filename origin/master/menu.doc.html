@@ -2812,7 +2812,9 @@
     <div class="container">
         <p class="slds-text-title--caps slds-text-color--weak">OBJECT</p>
         <h1 class="slds-text-heading--large">Menu</h1>
-        <div class="slds-text-body--regular"></div>
+        <div class="slds-text-body--regular"><p>Represents a single menu - an object that is used to help navigate
+through the store.</p>
+</div>
     </div>
 </section>
 <section>
@@ -2823,7 +2825,7 @@
             </a>
             GraphQL Schema definition
         </h2>
-        <code class="highlight"><ul class="code" style="padding-left:28px"><li><span class="keyword operator ts">type</span> <span class="identifier">Menu</span> <span class="keyword operator ts">implements</span> <a class="support type" href="node.doc.html">Node</a> {</li><li></li><li><span class="tab"><span class="meta">id</span>: <a class="support type" href="id.doc.html">ID</a>! </span></li><li></li><li><span class="tab"><span class="meta">name</span>: <a class="support type" href="string.doc.html">String</a>! </span></li><li></li><li><span class="tab"><span class="meta">items</span>: [<a class="support type" href="menuitem.doc.html">MenuItem</a>] </span></li><li>}</li></ul></code>
+        <code class="highlight"><ul class="code" style="padding-left:28px"><li><span class="keyword operator ts">type</span> <span class="identifier">Menu</span> <span class="keyword operator ts">implements</span> <a class="support type" href="node.doc.html">Node</a> {</li><li></li><li><span class="tab"><span class="comment line">#   The ID of the object.</span></span></li><li><span class="tab"><span class="meta">id</span>: <a class="support type" href="id.doc.html">ID</a>! </span></li><li></li><li><span class="tab"><span class="meta">name</span>: <a class="support type" href="string.doc.html">String</a>! </span></li><li></li><li><span class="tab"><span class="meta">items</span>: [<a class="support type" href="menuitem.doc.html">MenuItem</a>] </span></li><li>}</li></ul></code>
     </div>
 </section>
 <section>
@@ -2834,7 +2836,9 @@
             </a>
             Require by
         </h2>
-        <ul class="require-by"><li><a href="assignnavigation.doc.html" title="AssignNavigation - ">AssignNavigation<em></em></a><li><li><a href="menucountableedge.doc.html" title="MenuCountableEdge - ">MenuCountableEdge<em></em></a><li><li><a href="menucreate.doc.html" title="MenuCreate - ">MenuCreate<em></em></a><li><li><a href="menudelete.doc.html" title="MenuDelete - ">MenuDelete<em></em></a><li><li><a href="menuitem.doc.html" title="MenuItem - ">MenuItem<em></em></a><li><li><a href="menuitemmove.doc.html" title="MenuItemMove - ">MenuItemMove<em></em></a><li><li><a href="menuupdate.doc.html" title="MenuUpdate - ">MenuUpdate<em></em></a><li><li><a href="navigation.doc.html" title="Navigation - ">Navigation<em></em></a><li><li><a href="query.doc.html" title="Query - ">Query<em></em></a><li></ul>
+        <ul class="require-by"><li><a href="assignnavigation.doc.html" title="AssignNavigation - Assigns storefront's navigation menus.">AssignNavigation<em>Assigns storefront's navigation menus.</em></a><li><li><a href="menucountableedge.doc.html" title="MenuCountableEdge - ">MenuCountableEdge<em></em></a><li><li><a href="menucreate.doc.html" title="MenuCreate - Creates a new Menu.">MenuCreate<em>Creates a new Menu.</em></a><li><li><a href="menudelete.doc.html" title="MenuDelete - Deletes a menu.">MenuDelete<em>Deletes a menu.</em></a><li><li><a href="menuitem.doc.html" title="MenuItem - Represents a single item of the related menu. Can store categories,
+collection or pages.">MenuItem<em>Represents a single item of the related menu. Can store categories,
+collection or pages.</em></a><li><li><a href="menuitemmove.doc.html" title="MenuItemMove - Moves items of menus.">MenuItemMove<em>Moves items of menus.</em></a><li><li><a href="menuupdate.doc.html" title="MenuUpdate - Updates a menu.">MenuUpdate<em>Updates a menu.</em></a><li><li><a href="navigation.doc.html" title="Navigation - Represents shop's navigation menus.">Navigation<em>Represents shop's navigation menus.</em></a><li><li><a href="query.doc.html" title="Query - ">Query<em></em></a><li></ul>
     </div>
 </section>
 <footer>

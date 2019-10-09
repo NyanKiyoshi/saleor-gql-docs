@@ -2193,7 +2193,7 @@
             </a>
             GraphQL Schema definition
         </h2>
-        <code class="highlight"><ul class="code" style="padding-left:28px"><li><span class="keyword operator ts">type</span> <span class="identifier">CountryDisplay</span> {</li><li></li><li><span class="tab"><span class="meta">code</span>: <a class="support type" href="string.doc.html">String</a>! </span></li><li></li><li><span class="tab"><span class="meta">country</span>: <a class="support type" href="string.doc.html">String</a>! </span></li><li></li><li><span class="tab"><span class="meta">vat</span>: <a class="support type" href="vat.doc.html">VAT</a> </span></li><li>}</li></ul></code>
+        <code class="highlight"><ul class="code" style="padding-left:42px"><li><span class="keyword operator ts">type</span> <span class="identifier">CountryDisplay</span> {</li><li></li><li><span class="tab"><span class="comment line">#   Country code.</span></span></li><li><span class="tab"><span class="meta">code</span>: <a class="support type" href="string.doc.html">String</a>! </span></li><li></li><li><span class="tab"><span class="comment line">#   Country name.</span></span></li><li><span class="tab"><span class="meta">country</span>: <a class="support type" href="string.doc.html">String</a>! </span></li><li></li><li><span class="tab"><span class="comment line">#   Country tax.</span></span></li><li><span class="tab"><span class="meta">vat</span>: <a class="support type" href="vat.doc.html">VAT</a> </span></li><li>}</li></ul></code>
     </div>
 </section>
 <section>
@@ -2204,7 +2204,19 @@
             </a>
             Require by
         </h2>
-        <ul class="require-by"><li><a href="address.doc.html" title="Address - ">Address<em></em></a><li><li><a href="geolocalization.doc.html" title="Geolocalization - ">Geolocalization<em></em></a><li><li><a href="shippingzone.doc.html" title="ShippingZone - ">ShippingZone<em></em></a><li><li><a href="shop.doc.html" title="Shop - ">Shop<em></em></a><li><li><a href="voucher.doc.html" title="Voucher - ">Voucher<em></em></a><li></ul>
+        <ul class="require-by"><li><a href="address.doc.html" title="Address - Represents user address data.">Address<em>Represents user address data.</em></a><li><li><a href="geolocalization.doc.html" title="Geolocalization - Represents customers's geolocalization data.">Geolocalization<em>Represents customers's geolocalization data.</em></a><li><li><a href="shippingzone.doc.html" title="ShippingZone -              Represents a shipping zone in the shop. Zones are the
+concept             used only for grouping shipping methods in the
+dashboard,             and are never exposed to the customers
+directly.">ShippingZone<em>             Represents a shipping zone in the shop. Zones are the
+concept             used only for grouping shipping methods in the
+dashboard,             and are never exposed to the customers
+directly.</em></a><li><li><a href="shop.doc.html" title="Shop -          Represents a shop resource containing general shop's data
+and configuration.">Shop<em>         Represents a shop resource containing general shop's data
+and configuration.</em></a><li><li><a href="voucher.doc.html" title="Voucher -          Vouchers allow giving discounts to particular customers on
+categories,         collections or specific products. They can be
+used during checkout by         providing valid voucher codes.">Voucher<em>         Vouchers allow giving discounts to particular customers on
+categories,         collections or specific products. They can be
+used during checkout by         providing valid voucher codes.</em></a><li></ul>
     </div>
 </section>
 <footer>

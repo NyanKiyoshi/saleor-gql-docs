@@ -2812,7 +2812,8 @@
     <div class="container">
         <p class="slds-text-title--caps slds-text-color--weak">OBJECT</p>
         <h1 class="slds-text-heading--large">Image</h1>
-        <div class="slds-text-body--regular"></div>
+        <div class="slds-text-body--regular"><p>Represents an image.</p>
+</div>
     </div>
 </section>
 <section>
@@ -2823,7 +2824,7 @@
             </a>
             GraphQL Schema definition
         </h2>
-        <code class="highlight"><ul class="code" style="padding-left:28px"><li><span class="keyword operator ts">type</span> <span class="identifier">Image</span> {</li><li></li><li><span class="tab"><span class="meta">url</span>: <a class="support type" href="string.doc.html">String</a>! </span></li><li></li><li><span class="tab"><span class="meta">alt</span>: <a class="support type" href="string.doc.html">String</a> </span></li><li>}</li></ul></code>
+        <code class="highlight"><ul class="code" style="padding-left:28px"><li><span class="keyword operator ts">type</span> <span class="identifier">Image</span> {</li><li></li><li><span class="tab"><span class="comment line">#   The URL of the image.</span></span></li><li><span class="tab"><span class="meta">url</span>: <a class="support type" href="string.doc.html">String</a>! </span></li><li></li><li><span class="tab"><span class="comment line">#   Alt text for an image.</span></span></li><li><span class="tab"><span class="meta">alt</span>: <a class="support type" href="string.doc.html">String</a> </span></li><li>}</li></ul></code>
     </div>
 </section>
 <section>
@@ -2834,7 +2835,11 @@
             </a>
             Require by
         </h2>
-        <ul class="require-by"><li><a href="category.doc.html" title="Category - ">Category<em></em></a><li><li><a href="collection.doc.html" title="Collection - ">Collection<em></em></a><li><li><a href="orderline.doc.html" title="OrderLine - ">OrderLine<em></em></a><li><li><a href="product.doc.html" title="Product - ">Product<em></em></a><li><li><a href="user.doc.html" title="User - ">User<em></em></a><li></ul>
+        <ul class="require-by"><li><a href="category.doc.html" title="Category - Represents a single category of products. Categories allow to
+organize products in a tree-hierarchies which can be used for
+navigation in the storefront.">Category<em>Represents a single category of products. Categories allow to
+organize products in a tree-hierarchies which can be used for
+navigation in the storefront.</em></a><li><li><a href="collection.doc.html" title="Collection - Represents a collection of products.">Collection<em>Represents a collection of products.</em></a><li><li><a href="orderline.doc.html" title="OrderLine - Represents order line of particular order.">OrderLine<em>Represents order line of particular order.</em></a><li><li><a href="product.doc.html" title="Product - Represents an individual item for sale in the storefront.">Product<em>Represents an individual item for sale in the storefront.</em></a><li><li><a href="user.doc.html" title="User - Represents user data.">User<em>Represents user data.</em></a><li></ul>
     </div>
 </section>
 <footer>

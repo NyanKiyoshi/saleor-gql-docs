@@ -1,0 +1,5064 @@
+schema {
+  query: Query
+  mutation: Mutations
+}
+
+  # Represents user address data.
+type Address implements Node {
+    # The ID of the object.
+  id: ID!
+    firstName: String!
+    lastName: String!
+    companyName: String!
+    streetAddress1: String!
+    streetAddress2: String!
+    city: String!
+    cityArea: String!
+    postalCode: String!
+    # Default shop's country
+  country: CountryDisplay!
+    countryArea: String!
+    phone: String
+    # Address is user's default shipping address
+  isDefaultShippingAddress: Boolean
+    # Address is user's default billing address
+  isDefaultBillingAddress: Boolean
+}
+
+  # Creates user address
+type AddressCreate {
+    # List of errors that occurred executing the mutation.
+  errors: [Error!]
+    # A user instance for which the address was created.
+  user: User
+    address: Address
+}
+
+  # Deletes an address
+type AddressDelete {
+    # List of errors that occurred executing the mutation.
+  errors: [Error!]
+    # A user instance for which the address was deleted.
+  user: User
+    address: Address
+}
+
+input AddressInput {
+    # Given name.
+  firstName: String
+    # Family name.
+  lastName: String
+    # Company or organization.
+  companyName: String
+    # Address.
+  streetAddress1: String
+    # Address.
+  streetAddress2: String
+    # City.
+  city: String
+    # District.
+  cityArea: String
+    # Postal code.
+  postalCode: String
+    # Country.
+  country: String
+    # State or province.
+  countryArea: String
+    # Phone number.
+  phone: String
+}
+
+  # Sets a default address for the given user.
+type AddressSetDefault {
+    # List of errors that occurred executing the mutation.
+  errors: [Error!]
+    # An updated user instance.
+  user: User
+}
+
+enum AddressTypeEnum {
+  BILLING
+  SHIPPING
+}
+
+  # Updates an address
+type AddressUpdate {
+    # List of errors that occurred executing the mutation.
+  errors: [Error!]
+    # A user instance for which the address was edited.
+  user: User
+    address: Address
+}
+
+type AddressValidationData {
+    countryCode: String
+    countryName: String
+    addressFormat: String
+    addressLatinFormat: String
+    allowedFields: [String]
+    requiredFields: [String]
+    upperFields: [String]
+    countryAreaType: String
+    countryAreaChoices: [ChoiceValue]
+    cityType: String
+    cityChoices: [ChoiceValue]
+    cityAreaType: String
+    cityAreaChoices: [ChoiceValue]
+    postalCodeType: String
+    postalCodeMatchers: [String]
+    postalCodeExamples: [String]
+    postalCodePrefix: String
+}
+
+  # Assigns storefront's navigation menus.
+type AssignNavigation {
+    # List of errors that occurred executing the mutation.
+  errors: [Error!]
+    # Assigned navigation menu.
+  menu: Menu
+}
+
+  #              Custom attribute of a product. Attributes can be
+# assigned to products and variants at the product type level.
+type Attribute implements Node {
+    # The ID of the object.
+  id: ID!
+    productType: ProductType
+    productVariantType: ProductType
+    # Name of an attribute displayed in the interface.
+  name: String
+    # Internal representation of an attribute name.
+  slug: String
+    # List of attribute's values.
+  values: [AttributeValue]
+    # Returns translated Attribute fields for the given language code.
+  translation(  # A language code to return the translation for.
+  languageCode: LanguageCodeEnum!): AttributeTranslation
+}
+
+  # Deletes attributes.
+type AttributeBulkDelete {
+    # List of errors that occurred executing the mutation.
+  errors: [Error!]
+    # Returns how many objects were affected.
+  count: Int!
+}
+
+type AttributeCountableConnection {
+    # Pagination data for this connection.
+  pageInfo: PageInfo!
+    edges: [AttributeCountableEdge!]!
+    # A total count of items in the collection
+  totalCount: Int
+}
+
+type AttributeCountableEdge {
+    # The item at the end of the edge
+  node: Attribute!
+    # A cursor for use in pagination
+  cursor: String!
+}
+
+  # Creates an attribute.
+type AttributeCreate {
+    # List of errors that occurred executing the mutation.
+  errors: [Error!]
+    attribute: Attribute
+    # A product type to which an attribute was added.
+  productType: ProductType
+}
+
+input AttributeCreateInput {
+    # Name of an attribute displayed in the interface.
+  name: String!
+    # List of attribute's values.
+  values: [AttributeValueCreateInput]
+}
+
+  # Deletes an attribute.
+type AttributeDelete {
+    # List of errors that occurred executing the mutation.
+  errors: [Error!]
+    # A related product type.
+  productType: ProductType
+    attribute: Attribute
+}
+
+input AttributeInput {
+    # Internal representation of an attribute name.
+  slug: String!
+    # Internal representation of a value (unique per attribute).
+  value: String!
+}
+
+scalar AttributeScalar
+
+  # Creates/Updates translations for Attribute.
+type AttributeTranslate {
+    # List of errors that occurred executing the mutation.
+  errors: [Error!]
+    attribute: Attribute
+}
+
+type AttributeTranslation implements Node {
+    # The ID of the object.
+  id: ID!
+    name: String!
+    # Translation's language
+  language: LanguageDisplay!
+}
+
+enum AttributeTypeEnum {
+  PRODUCT
+  VARIANT
+}
+
+  # Updates attribute.
+type AttributeUpdate {
+    # List of errors that occurred executing the mutation.
+  errors: [Error!]
+    # A related product type.
+  productType: ProductType
+    attribute: Attribute
+}
+
+input AttributeUpdateInput {
+    # Name of an attribute displayed in the interface.
+  name: String
+    # IDs of values to be removed from this attribute.
+  removeValues: [ID]
+    # New values to be created for this attribute.
+  addValues: [AttributeValueCreateInput]
+}
+
+  # Represents a value of an attribute.
+type AttributeValue implements Node {
+    sortOrder: Int
+    # The ID of the object.
+  id: ID!
+    # Name of a value displayed in the interface.
+  name: String
+    # Internal representation of a value (unique per attribute).
+  slug: String
+    # Type of value (used only when `value` field is set).
+  type: AttributeValueType
+    # Special value other than a textual name. Possible types are:
+# string (default), CSS color property, CSS gradient property, URL
+# (e.g. link to an image).
+  value: String
+    # Returns translated Attribute Value fields for the given language
+# code.
+  translation(  # A language code to return the translation for.
+  languageCode: LanguageCodeEnum!): AttributeValueTranslation
+}
+
+  # Deletes values of attributes.
+type AttributeValueBulkDelete {
+    # List of errors that occurred executing the mutation.
+  errors: [Error!]
+    # Returns how many objects were affected.
+  count: Int!
+}
+
+  # Creates a value for an attribute.
+type AttributeValueCreate {
+    # List of errors that occurred executing the mutation.
+  errors: [Error!]
+    # A related Attribute.
+  attribute: Attribute
+    attributeValue: AttributeValue
+}
+
+input AttributeValueCreateInput {
+    # Name of a value displayed in the interface.
+  name: String!
+    # Special value other than a textual name. Possible types are:
+# string (default), CSS color property, CSS gradient property, URL
+# (e.g. link to an image).
+  value: String
+}
+
+  # Deletes a value of an attribute.
+type AttributeValueDelete {
+    # List of errors that occurred executing the mutation.
+  errors: [Error!]
+    # A related Attribute.
+  attribute: Attribute
+    attributeValue: AttributeValue
+}
+
+input AttributeValueInput {
+    # Slug of an attribute.
+  slug: String!
+    # Value of an attribute.
+  value: String!
+}
+
+  # Creates/Updates translations for Attribute Value.
+type AttributeValueTranslate {
+    # List of errors that occurred executing the mutation.
+  errors: [Error!]
+    attributeValue: AttributeValue
+}
+
+type AttributeValueTranslation implements Node {
+    # The ID of the object.
+  id: ID!
+    name: String!
+    # Translation's language
+  language: LanguageDisplay!
+}
+
+enum AttributeValueType {
+  COLOR
+  GRADIENT
+  URL
+  STRING
+}
+
+  # Updates value of an attribute.
+type AttributeValueUpdate {
+    # List of errors that occurred executing the mutation.
+  errors: [Error!]
+    # A related Attribute.
+  attribute: Attribute
+    attributeValue: AttributeValue
+}
+
+type AuthorizationKey {
+    # Name of the authorization backend.
+  name: AuthorizationKeyType!
+    # Authorization key (client ID).
+  key: String!
+}
+
+  # Adds an authorization key.
+type AuthorizationKeyAdd {
+    # List of errors that occurred executing the mutation.
+  errors: [Error!]
+    # Newly added authorization key.
+  authorizationKey: AuthorizationKey
+    # Updated Shop
+  shop: Shop
+}
+
+  # Deletes an authorization key.
+type AuthorizationKeyDelete {
+    # List of errors that occurred executing the mutation.
+  errors: [Error!]
+    # Authorization key that was deleted.
+  authorizationKey: AuthorizationKey
+    # Updated Shop
+  shop: Shop
+}
+
+input AuthorizationKeyInput {
+    # Client authorization key (client ID).
+  key: String!
+    # Client secret.
+  password: String!
+}
+
+enum AuthorizationKeyType {
+  FACEBOOK
+  GOOGLE_OAUTH2
+}
+
+input CatalogueInput {
+    # Products related to the discount.
+  products: [ID]
+    # Categories related to the discount.
+  categories: [ID]
+    # Collections related to the discount.
+  collections: [ID]
+}
+
+  # Represents a single category of products.         Categories allow
+# to organize products in a tree-hierarchies which can         be used
+# for navigation in the storefront.
+type Category implements Node {
+    seoTitle: String
+    seoDescription: String
+    # The ID of the object.
+  id: ID!
+    name: String!
+    slug: String!
+    description: String!
+    descriptionJson: JSONString!
+    parent: Category
+    level: Int!
+    # List of ancestors of the category.
+  ancestors(  before: String,   after: String,   first: Int,   last: Int): CategoryCountableConnection
+    # List of products in the category.
+  products(  before: String,   after: String,   first: Int,   last: Int): ProductCountableConnection
+    # The storefront's URL for the category.
+  url: String
+    # List of children of the category.
+  children(  before: String,   after: String,   first: Int,   last: Int): CategoryCountableConnection
+    backgroundImage(  # Size of the image
+  size: Int): Image
+    # Returns translated Category fields for the given language code.
+  translation(  # A language code to return the translation for.
+  languageCode: LanguageCodeEnum!): CategoryTranslation
+}
+
+  # Deletes categories.
+type CategoryBulkDelete {
+    # List of errors that occurred executing the mutation.
+  errors: [Error!]
+    # Returns how many objects were affected.
+  count: Int!
+}
+
+type CategoryCountableConnection {
+    # Pagination data for this connection.
+  pageInfo: PageInfo!
+    edges: [CategoryCountableEdge!]!
+    # A total count of items in the collection
+  totalCount: Int
+}
+
+type CategoryCountableEdge {
+    # The item at the end of the edge
+  node: Category!
+    # A cursor for use in pagination
+  cursor: String!
+}
+
+  # Creates a new category.
+type CategoryCreate {
+    # List of errors that occurred executing the mutation.
+  errors: [Error!]
+    category: Category
+}
+
+  # Deletes a category.
+type CategoryDelete {
+    # List of errors that occurred executing the mutation.
+  errors: [Error!]
+    category: Category
+}
+
+input CategoryInput {
+    # Category description (HTML/text).
+  description: String
+    # Category description (JSON).
+  descriptionJson: JSONString
+    # Category name.
+  name: String
+    # Category slug.
+  slug: String
+    # Search engine optimization fields.
+  seo: SeoInput
+    # Background image file.
+  backgroundImage: Upload
+    # Alt text for an image.
+  backgroundImageAlt: String
+}
+
+  # Creates/Updates translations for Category.
+type CategoryTranslate {
+    # List of errors that occurred executing the mutation.
+  errors: [Error!]
+    category: Category
+}
+
+type CategoryTranslation implements Node {
+    seoTitle: String
+    seoDescription: String
+    # The ID of the object.
+  id: ID!
+    name: String!
+    description: String!
+    descriptionJson: JSONString!
+    # Translation's language
+  language: LanguageDisplay!
+}
+
+  # Updates a category.
+type CategoryUpdate {
+    # List of errors that occurred executing the mutation.
+  errors: [Error!]
+    category: Category
+}
+
+  # Checkout object
+type Checkout implements Node {
+    created: DateTime!
+    lastChange: DateTime!
+    user: User
+    token: UUID!
+    quantity: Int!
+    billingAddress: Address
+    shippingAddress: Address
+    shippingMethod: ShippingMethod
+    note: String!
+    discountAmount: Money
+    discountName: String
+    translatedDiscountName: String
+    voucherCode: String
+    # List of gift cards associated with this checkout
+  giftCards: [GiftCard]
+    # The ID of the object.
+  id: ID!
+    # Shipping methods that can be used with this order.
+  availableShippingMethods: [ShippingMethod]!
+    # List of available payment gateways.
+  availablePaymentGateways: [GatewaysEnum]!
+    # Email of a customer
+  email: String!
+    # Returns True, if checkout requires shipping.
+  isShippingRequired: Boolean!
+    # A list of checkout lines, each containing information about an item
+# in the checkout.
+  lines: [CheckoutLine]
+    # The price of the shipping, with all the taxes included.
+  shippingPrice: TaxedMoney
+    # The price of the checkout before shipping, with taxes included.
+  subtotalPrice: TaxedMoney
+    # The sum of the the checkout line prices, with all the taxes,shipping
+# costs, and discounts included.
+  totalPrice: TaxedMoney
+}
+
+  # Adds a gift card or a voucher to a checkout.
+type CheckoutAddPromoCode {
+    # List of errors that occurred executing the mutation.
+  errors: [Error!]
+    # The checkout with the added gift card or voucher
+  checkout: Checkout
+}
+
+  # Update billing address in the existing Checkout.
+type CheckoutBillingAddressUpdate {
+    # List of errors that occurred executing the mutation.
+  errors: [Error!]
+    # An updated checkout
+  checkout: Checkout
+}
+
+  # Completes the checkout. As a result a new order is created and a
+# payment charge is made. This action requires a successful payment
+# before it can be performed.
+type CheckoutComplete {
+    # List of errors that occurred executing the mutation.
+  errors: [Error!]
+    # Placed order
+  order: Order
+}
+
+type CheckoutCountableConnection {
+    # Pagination data for this connection.
+  pageInfo: PageInfo!
+    edges: [CheckoutCountableEdge!]!
+    # A total count of items in the collection
+  totalCount: Int
+}
+
+type CheckoutCountableEdge {
+    # The item at the end of the edge
+  node: Checkout!
+    # A cursor for use in pagination
+  cursor: String!
+}
+
+  # Create a new checkout.
+type CheckoutCreate {
+    # List of errors that occurred executing the mutation.
+  errors: [Error!]
+    checkout: Checkout
+}
+
+input CheckoutCreateInput {
+    # A list of checkout lines, each containing information about an item
+# in the checkout.
+  lines: [CheckoutLineInput]!
+    # The customer's email address.
+  email: String
+    # The mailing address to where the checkout will be shipped.
+  shippingAddress: AddressInput
+    # Billing address of the customer.
+  billingAddress: AddressInput
+}
+
+  # Sets the customer as the owner of the Checkout.
+type CheckoutCustomerAttach {
+    # List of errors that occurred executing the mutation.
+  errors: [Error!]
+    # An updated checkout.
+  checkout: Checkout
+}
+
+  # Removes the user assigned as the owner of the checkout.
+type CheckoutCustomerDetach {
+    # List of errors that occurred executing the mutation.
+  errors: [Error!]
+    # An updated checkout
+  checkout: Checkout
+}
+
+  # Updates email address in the existing Checkout object.
+type CheckoutEmailUpdate {
+    # List of errors that occurred executing the mutation.
+  errors: [Error!]
+    # An updated checkout
+  checkout: Checkout
+}
+
+  # Represents an item in the checkout.
+type CheckoutLine implements Node {
+    # The ID of the object.
+  id: ID!
+    variant: ProductVariant!
+    quantity: Int!
+    # The sum of the checkout line price, taxes and discounts.
+  totalPrice: TaxedMoney
+    # Indicates whether the item need to be delivered.
+  requiresShipping: Boolean
+}
+
+type CheckoutLineCountableConnection {
+    # Pagination data for this connection.
+  pageInfo: PageInfo!
+    edges: [CheckoutLineCountableEdge!]!
+    # A total count of items in the collection
+  totalCount: Int
+}
+
+type CheckoutLineCountableEdge {
+    # The item at the end of the edge
+  node: CheckoutLine!
+    # A cursor for use in pagination
+  cursor: String!
+}
+
+  # Deletes a CheckoutLine.
+type CheckoutLineDelete {
+    # List of errors that occurred executing the mutation.
+  errors: [Error!]
+    # An updated checkout.
+  checkout: Checkout
+}
+
+input CheckoutLineInput {
+    # The number of items purchased.
+  quantity: Int!
+    # ID of the ProductVariant.
+  variantId: ID!
+}
+
+  # Adds a checkout line to the existing checkout.
+type CheckoutLinesAdd {
+    # List of errors that occurred executing the mutation.
+  errors: [Error!]
+    # An updated Checkout.
+  checkout: Checkout
+}
+
+  # Updates CheckoutLine in the existing Checkout.
+type CheckoutLinesUpdate {
+    # List of errors that occurred executing the mutation.
+  errors: [Error!]
+    # An updated Checkout.
+  checkout: Checkout
+}
+
+  # Create a new payment for given checkout.
+type CheckoutPaymentCreate {
+    # List of errors that occurred executing the mutation.
+  errors: [Error!]
+    # Related checkout object.
+  checkout: Checkout
+    # A newly created payment.
+  payment: Payment
+}
+
+  # Remove a gift card or a voucher from a checkout.
+type CheckoutRemovePromoCode {
+    # List of errors that occurred executing the mutation.
+  errors: [Error!]
+    # The checkout with the removed gift card or voucher
+  checkout: Checkout
+}
+
+  # Update shipping address in the existing Checkout.
+type CheckoutShippingAddressUpdate {
+    # List of errors that occurred executing the mutation.
+  errors: [Error!]
+    # An updated checkout
+  checkout: Checkout
+}
+
+  # Updates the shipping address of the checkout.
+type CheckoutShippingMethodUpdate {
+    # List of errors that occurred executing the mutation.
+  errors: [Error!]
+    # An updated checkout
+  checkout: Checkout
+}
+
+  # DEPRECATED: Use CheckoutAddPromoCode or CheckoutRemovePromoCode
+# instead. Adds voucher to the checkout. Query it without voucher_code
+# field to remove voucher from checkout.
+type CheckoutUpdateVoucher {
+    # List of errors that occurred executing the mutation.
+  errors: [Error!]
+    # An checkout with updated voucher
+  checkout: Checkout
+}
+
+type ChoiceValue {
+    raw: String
+    verbose: String
+}
+
+  # Represents a collection of products.
+type Collection implements Node {
+    publicationDate: Date
+    isPublished: Boolean!
+    seoTitle: String
+    seoDescription: String
+    # The ID of the object.
+  id: ID!
+    name: String!
+    slug: String!
+    description: String!
+    descriptionJson: JSONString!
+    # List of products in this collection.
+  products(  before: String,   after: String,   first: Int,   last: Int): ProductCountableConnection
+    backgroundImage(  # Size of the image
+  size: Int): Image
+    publishedDate: Date @deprecated(reason: "publishedDate is deprecated, use publicationDate instead")
+    # Returns translated Collection fields for the given language code.
+  translation(  # A language code to return the translation for.
+  languageCode: LanguageCodeEnum!): CollectionTranslation
+}
+
+  # Adds products to a collection.
+type CollectionAddProducts {
+    # List of errors that occurred executing the mutation.
+  errors: [Error!]
+    # Collection to which products will be added.
+  collection: Collection
+}
+
+  # Deletes collections.
+type CollectionBulkDelete {
+    # List of errors that occurred executing the mutation.
+  errors: [Error!]
+    # Returns how many objects were affected.
+  count: Int!
+}
+
+  # Publish collections.
+type CollectionBulkPublish {
+    # List of errors that occurred executing the mutation.
+  errors: [Error!]
+    # Returns how many objects were affected.
+  count: Int!
+}
+
+type CollectionCountableConnection {
+    # Pagination data for this connection.
+  pageInfo: PageInfo!
+    edges: [CollectionCountableEdge!]!
+    # A total count of items in the collection
+  totalCount: Int
+}
+
+type CollectionCountableEdge {
+    # The item at the end of the edge
+  node: Collection!
+    # A cursor for use in pagination
+  cursor: String!
+}
+
+  # Creates a new collection.
+type CollectionCreate {
+    # List of errors that occurred executing the mutation.
+  errors: [Error!]
+    collection: Collection
+}
+
+input CollectionCreateInput {
+    # Informs whether a collection is published.
+  isPublished: Boolean
+    # Name of the collection.
+  name: String
+    # Slug of the collection.
+  slug: String
+    # Description of the collection (HTML/text).
+  description: String
+    # Description of the collection (JSON).
+  descriptionJson: JSONString
+    # Background image file.
+  backgroundImage: Upload
+    # Alt text for an image.
+  backgroundImageAlt: String
+    # Search engine optimization fields.
+  seo: SeoInput
+    # Publication date. ISO 8601 standard.
+  publicationDate: Date
+    # List of products to be added to the collection.
+  products: [ID]
+}
+
+  # Deletes a collection.
+type CollectionDelete {
+    # List of errors that occurred executing the mutation.
+  errors: [Error!]
+    collection: Collection
+}
+
+input CollectionFilterInput {
+    published: CollectionPublished
+    search: String
+}
+
+input CollectionInput {
+    # Informs whether a collection is published.
+  isPublished: Boolean
+    # Name of the collection.
+  name: String
+    # Slug of the collection.
+  slug: String
+    # Description of the collection (HTML/text).
+  description: String
+    # Description of the collection (JSON).
+  descriptionJson: JSONString
+    # Background image file.
+  backgroundImage: Upload
+    # Alt text for an image.
+  backgroundImageAlt: String
+    # Search engine optimization fields.
+  seo: SeoInput
+    # Publication date. ISO 8601 standard.
+  publicationDate: Date
+}
+
+enum CollectionPublished {
+  PUBLISHED
+  HIDDEN
+}
+
+  # Remove products from a collection.
+type CollectionRemoveProducts {
+    # List of errors that occurred executing the mutation.
+  errors: [Error!]
+    # Collection from which products will be removed.
+  collection: Collection
+}
+
+  # Reorder the products of a collection
+type CollectionReorderProducts {
+    # List of errors that occurred executing the mutation.
+  errors: [Error!]
+    # Collection from which products are reordered.
+  collection: Collection
+}
+
+  # Creates/Updates translations for Collection.
+type CollectionTranslate {
+    # List of errors that occurred executing the mutation.
+  errors: [Error!]
+    collection: Collection
+}
+
+type CollectionTranslation implements Node {
+    seoTitle: String
+    seoDescription: String
+    # The ID of the object.
+  id: ID!
+    name: String!
+    description: String!
+    descriptionJson: JSONString!
+    # Translation's language
+  language: LanguageDisplay!
+}
+
+  # Updates a collection.
+type CollectionUpdate {
+    # List of errors that occurred executing the mutation.
+  errors: [Error!]
+    collection: Collection
+}
+
+enum CountryCode {
+  AF
+  AX
+  AL
+  DZ
+  AS
+  AD
+  AO
+  AI
+  AQ
+  AG
+  AR
+  AM
+  AW
+  AU
+  AT
+  AZ
+  BS
+  BH
+  BD
+  BB
+  BY
+  BE
+  BZ
+  BJ
+  BM
+  BT
+  BO
+  BQ
+  BA
+  BW
+  BV
+  BR
+  IO
+  BN
+  BG
+  BF
+  BI
+  CV
+  KH
+  CM
+  CA
+  KY
+  CF
+  TD
+  CL
+  CN
+  CX
+  CC
+  CO
+  KM
+  CG
+  CD
+  CK
+  CR
+  CI
+  HR
+  CU
+  CW
+  CY
+  CZ
+  DK
+  DJ
+  DM
+  DO
+  EC
+  EG
+  SV
+  GQ
+  ER
+  EE
+  SZ
+  ET
+  EU
+  FK
+  FO
+  FJ
+  FI
+  FR
+  GF
+  PF
+  TF
+  GA
+  GM
+  GE
+  DE
+  GH
+  GI
+  GR
+  GL
+  GD
+  GP
+  GU
+  GT
+  GG
+  GN
+  GW
+  GY
+  HT
+  HM
+  VA
+  HN
+  HK
+  HU
+  IS
+  IN
+  ID
+  IR
+  IQ
+  IE
+  IM
+  IL
+  IT
+  JM
+  JP
+  JE
+  JO
+  KZ
+  KE
+  KI
+  KW
+  KG
+  LA
+  LV
+  LB
+  LS
+  LR
+  LY
+  LI
+  LT
+  LU
+  MO
+  MK
+  MG
+  MW
+  MY
+  MV
+  ML
+  MT
+  MH
+  MQ
+  MR
+  MU
+  YT
+  MX
+  FM
+  MD
+  MC
+  MN
+  ME
+  MS
+  MA
+  MZ
+  MM
+  NA
+  NR
+  NP
+  NL
+  NC
+  NZ
+  NI
+  NE
+  NG
+  NU
+  NF
+  KP
+  MP
+  NO
+  OM
+  PK
+  PW
+  PS
+  PA
+  PG
+  PY
+  PE
+  PH
+  PN
+  PL
+  PT
+  PR
+  QA
+  RE
+  RO
+  RU
+  RW
+  BL
+  SH
+  KN
+  LC
+  MF
+  PM
+  VC
+  WS
+  SM
+  ST
+  SA
+  SN
+  RS
+  SC
+  SL
+  SG
+  SX
+  SK
+  SI
+  SB
+  SO
+  ZA
+  GS
+  KR
+  SS
+  ES
+  LK
+  SD
+  SR
+  SJ
+  SE
+  CH
+  SY
+  TW
+  TJ
+  TZ
+  TH
+  TL
+  TG
+  TK
+  TO
+  TT
+  TN
+  TR
+  TM
+  TC
+  TV
+  UG
+  UA
+  AE
+  GB
+  UM
+  US
+  UY
+  UZ
+  VU
+  VE
+  VN
+  VG
+  VI
+  WF
+  EH
+  YE
+  ZM
+  ZW
+}
+
+type CountryDisplay {
+    # Country code.
+  code: String!
+    # Country name.
+  country: String!
+    # Country tax.
+  vat: VAT
+}
+
+  # Mutation that authenticates a user and returns token and user data.
+# It overrides the default graphql_jwt.ObtainJSONWebToken to wrap
+# potential authentication errors in our Error type, which is
+# consistent to how rest of the mutation works.
+type CreateToken {
+    token: String
+    errors: [Error]!
+    user: User
+}
+
+type CreditCard {
+    # Card brand.
+  brand: String!
+    # The host name of the domain.
+  firstDigits: String!
+    # Last 4 digits of the card number.
+  lastDigits: String!
+    # Two-digit number representing the card’s expiration month.
+  expMonth: Int!
+    # Four-digit number representing the card’s expiration year.
+  expYear: Int!
+}
+
+  # Create a new address for the customer.
+type CustomerAddressCreate {
+    # List of errors that occurred executing the mutation.
+  errors: [Error!]
+    address: Address
+}
+
+  # Deletes customers.
+type CustomerBulkDelete {
+    # List of errors that occurred executing the mutation.
+  errors: [Error!]
+    # Returns how many objects were affected.
+  count: Int!
+}
+
+  # Creates a new customer.
+type CustomerCreate {
+    # List of errors that occurred executing the mutation.
+  errors: [Error!]
+    user: User
+}
+
+  # Deletes a customer.
+type CustomerDelete {
+    # List of errors that occurred executing the mutation.
+  errors: [Error!]
+    user: User
+}
+
+  # History log of the customer.
+type CustomerEvent implements Node {
+    # The ID of the object.
+  id: ID!
+    # Date when event happened at in ISO 8601 format.
+  date: DateTime
+    # Customer event type
+  type: CustomerEventsEnum
+    # User who performed the action.
+  user(  id: ID): User
+    # Content of the event.
+  message: String
+    # Number of objects concerned by the event.
+  count: Int
+    # The concerned order.
+  order: Order
+    # The concerned order line.
+  orderLine: OrderLine
+}
+
+enum CustomerEventsEnum {
+  ACCOUNT_CREATED
+  PASSWORD_RESET_LINK_SENT
+  PASSWORD_RESET
+  PLACED_ORDER
+  NOTE_ADDED_TO_ORDER
+  DIGITAL_LINK_DOWNLOADED
+  CUSTOMER_DELETED
+  NAME_ASSIGNED
+  EMAIL_ASSIGNED
+  NOTE_ADDED
+}
+
+input CustomerFilterInput {
+    dateJoined: DateRangeInput
+    moneySpent: PriceRangeInput
+    numberOfOrders: IntRangeInput
+    placedOrders: DateRangeInput
+    search: String
+}
+
+input CustomerInput {
+    # Billing address of the customer.
+  defaultBillingAddress: AddressInput
+    # Shipping address of the customer.
+  defaultShippingAddress: AddressInput
+    # Given name.
+  firstName: String
+    # Family name.
+  lastName: String
+    # The unique email address of the user.
+  email: String
+    # User account is active.
+  isActive: Boolean
+    # A note about the user.
+  note: String
+}
+
+  # Resets the customer's password.
+type CustomerPasswordReset {
+    # List of errors that occurred executing the mutation.
+  errors: [Error!]
+}
+
+input CustomerPasswordResetInput {
+    # Email of the user that will be used for password recovery.
+  email: String!
+}
+
+  # Register a new user.
+type CustomerRegister {
+    # List of errors that occurred executing the mutation.
+  errors: [Error!]
+    user: User
+}
+
+input CustomerRegisterInput {
+    # The unique email address of the user.
+  email: String!
+    # Password
+  password: String!
+}
+
+  # Sets a default address for the authenticated user.
+type CustomerSetDefaultAddress {
+    # List of errors that occurred executing the mutation.
+  errors: [Error!]
+    # An updated user instance.
+  user: User
+}
+
+  # Updates an existing customer.
+type CustomerUpdate {
+    # List of errors that occurred executing the mutation.
+  errors: [Error!]
+    user: User
+}
+
+scalar Date
+
+input DateRangeInput {
+    # Start date
+  gte: Date
+    # End date
+  lte: Date
+}
+
+scalar DateTime
+
+input DateTimeRangeInput {
+    # Start date
+  gte: DateTime
+    # End date
+  lte: DateTime
+}
+
+scalar Decimal
+
+type DigitalContent implements Node {
+    useDefaultSettings: Boolean!
+    automaticFulfillment: Boolean!
+    productVariant: ProductVariant!
+    contentFile: String!
+    maxDownloads: Int
+    urlValidDays: Int
+    # List of urls for the digital variant
+  urls: [DigitalContentUrl]
+    # The ID of the object.
+  id: ID!
+}
+
+type DigitalContentCountableConnection {
+    # Pagination data for this connection.
+  pageInfo: PageInfo!
+    edges: [DigitalContentCountableEdge!]!
+    # A total count of items in the collection
+  totalCount: Int
+}
+
+type DigitalContentCountableEdge {
+    # The item at the end of the edge
+  node: DigitalContent!
+    # A cursor for use in pagination
+  cursor: String!
+}
+
+  # Create new digital content. This mutation must         be sent as a
+# `multipart` request. More detailed specs of the upload
+# format can be found here:
+# https://github.com/jaydenseric/graphql-multipart-request-spec
+type DigitalContentCreate {
+    # List of errors that occurred executing the mutation.
+  errors: [Error!]
+    variant: ProductVariant
+    content: DigitalContent
+}
+
+  # Remove digital content assigned to given variant
+type DigitalContentDelete {
+    # List of errors that occurred executing the mutation.
+  errors: [Error!]
+    variant: ProductVariant
+}
+
+input DigitalContentInput {
+    # Use default digital content settings for this product
+  useDefaultSettings: Boolean!
+    # Determines how many times a download link can be accessed by a
+# customer
+  maxDownloads: Int
+    # Determines for how many days a download link is active since it was
+# generated.
+  urlValidDays: Int
+    # Overwrite default automatic_fulfillment setting for variant
+  automaticFulfillment: Boolean
+}
+
+  # Update digital content
+type DigitalContentUpdate {
+    # List of errors that occurred executing the mutation.
+  errors: [Error!]
+    variant: ProductVariant
+    content: DigitalContent
+}
+
+input DigitalContentUploadInput {
+    # Use default digital content settings for this product
+  useDefaultSettings: Boolean!
+    # Determines how many times a download link can be accessed by a
+# customer
+  maxDownloads: Int
+    # Determines for how many days a download link is active since it was
+# generated.
+  urlValidDays: Int
+    # Overwrite default automatic_fulfillment setting for variant
+  automaticFulfillment: Boolean
+    # Represents an file in a multipart request.
+  contentFile: Upload!
+}
+
+type DigitalContentUrl implements Node {
+    token: UUID!
+    content: DigitalContent!
+    created: DateTime!
+    downloadNum: Int!
+    # The ID of the object.
+  id: ID!
+    # Url for digital content
+  url: String
+}
+
+  # Generate new url to digital content
+type DigitalContentUrlCreate {
+    # List of errors that occurred executing the mutation.
+  errors: [Error!]
+    digitalContentUrl: DigitalContentUrl
+}
+
+input DigitalContentUrlCreateInput {
+    # Digital content ID which url will belong to
+  content: ID!
+}
+
+enum DiscountStatusEnum {
+  ACTIVE
+  EXPIRED
+  SCHEDULED
+}
+
+enum DiscountValueTypeEnum {
+  FIXED
+  PERCENTAGE
+}
+
+  # Represents shop's domain.
+type Domain {
+    # The host name of the domain.
+  host: String!
+    # Inform if SSL is enabled.
+  sslEnabled: Boolean!
+    # Shop's absolute URL.
+  url: String!
+}
+
+  # Deletes draft orders.
+type DraftOrderBulkDelete {
+    # List of errors that occurred executing the mutation.
+  errors: [Error!]
+    # Returns how many objects were affected.
+  count: Int!
+}
+
+  # Completes creating an order.
+type DraftOrderComplete {
+    # List of errors that occurred executing the mutation.
+  errors: [Error!]
+    # Completed order.
+  order: Order
+}
+
+  # Creates a new draft order.
+type DraftOrderCreate {
+    # List of errors that occurred executing the mutation.
+  errors: [Error!]
+    order: Order
+}
+
+input DraftOrderCreateInput {
+    # Billing address of the customer.
+  billingAddress: AddressInput
+    user: ID
+    # Email address of the customer.
+  userEmail: String
+    # Discount amount for the order.
+  discount: Decimal
+    # Shipping address of the customer.
+  shippingAddress: AddressInput
+    # ID of a selected shipping method.
+  shippingMethod: ID
+    # ID of the voucher associated with the order
+  voucher: ID
+    # Variant line input consisting of variant ID         and quantity of
+# products.
+  lines: [OrderLineCreateInput]
+}
+
+  # Deletes a draft order.
+type DraftOrderDelete {
+    # List of errors that occurred executing the mutation.
+  errors: [Error!]
+    order: Order
+}
+
+input DraftOrderInput {
+    # Billing address of the customer.
+  billingAddress: AddressInput
+    user: ID
+    # Email address of the customer.
+  userEmail: String
+    # Discount amount for the order.
+  discount: Decimal
+    # Shipping address of the customer.
+  shippingAddress: AddressInput
+    # ID of a selected shipping method.
+  shippingMethod: ID
+    # ID of the voucher associated with the order
+  voucher: ID
+}
+
+  # Deletes an order line from a draft order.
+type DraftOrderLineDelete {
+    # List of errors that occurred executing the mutation.
+  errors: [Error!]
+    # A related draft order.
+  order: Order
+    # An order line that was deleted.
+  orderLine: OrderLine
+}
+
+  # Updates an order line of a draft order.
+type DraftOrderLineUpdate {
+    # List of errors that occurred executing the mutation.
+  errors: [Error!]
+    # A related draft order.
+  order: Order
+    orderLine: OrderLine
+}
+
+  # Deletes order lines.
+type DraftOrderLinesBulkDelete {
+    # List of errors that occurred executing the mutation.
+  errors: [Error!]
+    # Returns how many objects were affected.
+  count: Int!
+}
+
+  # Create order lines for a draft order.
+type DraftOrderLinesCreate {
+    # List of errors that occurred executing the mutation.
+  errors: [Error!]
+    # A related draft order.
+  order: Order
+    # List of newly added order lines.
+  orderLines: [OrderLine!]
+}
+
+  # Updates a draft order.
+type DraftOrderUpdate {
+    # List of errors that occurred executing the mutation.
+  errors: [Error!]
+    order: Order
+}
+
+  # Represents an error in the input of a mutation.
+type Error {
+    # Name of a field that caused the error. A value of         `null`
+# indicates that the error isn't associated with a particular
+# field.
+  field: String
+    # The error message.
+  message: String
+}
+
+  # Represents order fulfillment.
+type Fulfillment implements Node {
+    # The ID of the object.
+  id: ID!
+    fulfillmentOrder: Int!
+    status: FulfillmentStatus!
+    trackingNumber: String!
+    shippingDate: DateTime!
+    # List of lines for the fulfillment
+  lines: [FulfillmentLine]
+    # User-friendly fulfillment status.
+  statusDisplay: String
+}
+
+  # Cancels existing fulfillment         and optionally restocks items.
+type FulfillmentCancel {
+    # List of errors that occurred executing the mutation.
+  errors: [Error!]
+    # A canceled fulfillment.
+  fulfillment: Fulfillment
+    # Order which fulfillment was cancelled.
+  order: Order
+}
+
+input FulfillmentCancelInput {
+    # Whether item lines are restocked.
+  restock: Boolean
+}
+
+  # Creates a new fulfillment for an order.
+type FulfillmentCreate {
+    # List of errors that occurred executing the mutation.
+  errors: [Error!]
+    # A created fulfillment.
+  fulfillment: Fulfillment
+    # Fulfilled order.
+  order: Order
+}
+
+input FulfillmentCreateInput {
+    # Fulfillment tracking number
+  trackingNumber: String
+    # If true, send an email notification to the customer.
+  notifyCustomer: Boolean
+    # Item line to be fulfilled.
+  lines: [FulfillmentLineInput]!
+}
+
+  # Represents line of the fulfillment.
+type FulfillmentLine implements Node {
+    # The ID of the object.
+  id: ID!
+    quantity: Int!
+    orderLine: OrderLine
+}
+
+input FulfillmentLineInput {
+    # The ID of the order line.
+  orderLineId: ID
+    # The number of line item(s) to be fulfilled.
+  quantity: Int
+}
+
+enum FulfillmentStatus {
+  FULFILLED
+  CANCELED
+}
+
+  # Updates a fulfillment for an order.
+type FulfillmentUpdateTracking {
+    # List of errors that occurred executing the mutation.
+  errors: [Error!]
+    # A fulfillment with updated tracking.
+  fulfillment: Fulfillment
+    # Order which fulfillment was updated.
+  order: Order
+}
+
+input FulfillmentUpdateTrackingInput {
+    # Fulfillment tracking number
+  trackingNumber: String
+    # If true, send an email notification to the customer.
+  notifyCustomer: Boolean
+}
+
+enum GatewaysEnum {
+  DUMMY
+  BRAINTREE
+  RAZORPAY
+  STRIPE
+}
+
+scalar GenericScalar
+
+  # Represents customers's geolocalization data.
+type Geolocalization {
+    # Country of the user acquired by his IP address.
+  country: CountryDisplay
+}
+
+  #          A gift card is a prepaid electronic payment card accepted
+# in stores.         They can be used during checkout by providing a
+# valid gift         card codes.
+type GiftCard implements Node {
+    # Gift card code.
+  code: String
+    # The customer who bought a gift card.
+  user: User
+    created: DateTime!
+    startDate: Date!
+    endDate: Date
+    lastUsedOn: DateTime
+    isActive: Boolean!
+    initialBalance: Money
+    currentBalance: Money
+    # The ID of the object.
+  id: ID!
+    # Code in format with allows displaying in a user interface.
+  displayCode: String
+}
+
+  # Activate a gift card.
+type GiftCardActivate {
+    # List of errors that occurred executing the mutation.
+  errors: [Error!]
+    # A gift card to activate.
+  giftCard: GiftCard
+}
+
+type GiftCardCountableConnection {
+    # Pagination data for this connection.
+  pageInfo: PageInfo!
+    edges: [GiftCardCountableEdge!]!
+    # A total count of items in the collection
+  totalCount: Int
+}
+
+type GiftCardCountableEdge {
+    # The item at the end of the edge
+  node: GiftCard!
+    # A cursor for use in pagination
+  cursor: String!
+}
+
+  # Creates a new gift card
+type GiftCardCreate {
+    # List of errors that occurred executing the mutation.
+  errors: [Error!]
+    giftCard: GiftCard
+}
+
+input GiftCardCreateInput {
+    # Start date of the gift card in ISO 8601 format.
+  startDate: Date
+    # End date of the gift card in ISO 8601 format.
+  endDate: Date
+    # Value of the gift card.
+  balance: Decimal
+    # The customer's email of the gift card buyer.
+  userEmail: String
+    code: String
+}
+
+  # Deactivate a gift card.
+type GiftCardDeactivate {
+    # List of errors that occurred executing the mutation.
+  errors: [Error!]
+    # A gift card to deactivate.
+  giftCard: GiftCard
+}
+
+  # Update a gift card.
+type GiftCardUpdate {
+    # List of errors that occurred executing the mutation.
+  errors: [Error!]
+    giftCard: GiftCard
+}
+
+input GiftCardUpdateInput {
+    # Start date of the gift card in ISO 8601 format.
+  startDate: Date
+    # End date of the gift card in ISO 8601 format.
+  endDate: Date
+    # Value of the gift card.
+  balance: Decimal
+    # The customer's email of the gift card buyer.
+  userEmail: String
+}
+
+  # Updates homepage collection of the shop
+type HomepageCollectionUpdate {
+    # List of errors that occurred executing the mutation.
+  errors: [Error!]
+    # Updated Shop
+  shop: Shop
+}
+
+  # Represents an image.
+type Image {
+    # The URL of the image.
+  url: String!
+    # Alt text for an image.
+  alt: String
+}
+
+input IntRangeInput {
+    # Value greater than or equal
+  gte: Int
+    # Value less than or equal
+  lte: Int
+}
+
+scalar JSONString
+
+enum LanguageCodeEnum {
+  AR
+  AZ
+  BG
+  BN
+  CA
+  CS
+  DA
+  DE
+  EN
+  ES
+  ES_CO
+  ET
+  FA
+  FR
+  HI
+  HU
+  HY
+  ID
+  IS
+  IT
+  JA
+  KO
+  LT
+  MN
+  NB
+  NL
+  PL
+  PT
+  PT_BR
+  RO
+  RU
+  SK
+  SQ
+  SR
+  SW
+  SV
+  TH
+  TR
+  UK
+  VI
+  ZH_HANS
+  ZH_HANT
+}
+
+type LanguageDisplay {
+    # Language code.
+  code: LanguageCodeEnum!
+    # Language.
+  language: String!
+}
+
+  # Updates data of the logged in user.
+type LoggedUserUpdate {
+    # List of errors that occurred executing the mutation.
+  errors: [Error!]
+    user: User
+}
+
+type Margin {
+    start: Int
+    stop: Int
+}
+
+  # Represents a single menu - an object that is used                to
+# help navigate through the store.
+type Menu implements Node {
+    # The ID of the object.
+  id: ID!
+    name: String!
+    items: [MenuItem]
+}
+
+  # Deletes menus.
+type MenuBulkDelete {
+    # List of errors that occurred executing the mutation.
+  errors: [Error!]
+    # Returns how many objects were affected.
+  count: Int!
+}
+
+type MenuCountableConnection {
+    # Pagination data for this connection.
+  pageInfo: PageInfo!
+    edges: [MenuCountableEdge!]!
+    # A total count of items in the collection
+  totalCount: Int
+}
+
+type MenuCountableEdge {
+    # The item at the end of the edge
+  node: Menu!
+    # A cursor for use in pagination
+  cursor: String!
+}
+
+  # Creates a new Menu
+type MenuCreate {
+    # List of errors that occurred executing the mutation.
+  errors: [Error!]
+    menu: Menu
+}
+
+input MenuCreateInput {
+    # Name of the menu.
+  name: String
+    # List of menu items.
+  items: [MenuItemInput]
+}
+
+  # Deletes a menu.
+type MenuDelete {
+    # List of errors that occurred executing the mutation.
+  errors: [Error!]
+    menu: Menu
+}
+
+input MenuInput {
+    # Name of the menu.
+  name: String
+}
+
+  # Represents a single item of the related menu.         Can store
+# categories, collection or pages.
+type MenuItem implements Node {
+    # The ID of the object.
+  id: ID!
+    sortOrder: Int
+    menu: Menu!
+    name: String!
+    parent: MenuItem
+    category: Category
+    collection: Collection
+    page: Page
+    level: Int!
+    children: [MenuItem]
+    # URL to the menu item.
+  url: String
+    # Returns translated Menu item fields for the given language code.
+  translation(  # A language code to return the translation for.
+  languageCode: LanguageCodeEnum!): MenuItemTranslation
+}
+
+  # Deletes menu items.
+type MenuItemBulkDelete {
+    # List of errors that occurred executing the mutation.
+  errors: [Error!]
+    # Returns how many objects were affected.
+  count: Int!
+}
+
+type MenuItemCountableConnection {
+    # Pagination data for this connection.
+  pageInfo: PageInfo!
+    edges: [MenuItemCountableEdge!]!
+    # A total count of items in the collection
+  totalCount: Int
+}
+
+type MenuItemCountableEdge {
+    # The item at the end of the edge
+  node: MenuItem!
+    # A cursor for use in pagination
+  cursor: String!
+}
+
+  # Creates a new Menu
+type MenuItemCreate {
+    # List of errors that occurred executing the mutation.
+  errors: [Error!]
+    menuItem: MenuItem
+}
+
+input MenuItemCreateInput {
+    # Name of the menu item.
+  name: String
+    # URL of the pointed item.
+  url: String
+    # Category to which item points.
+  category: ID
+    # Collection to which item points.
+  collection: ID
+    # Page to which item points.
+  page: ID
+    # Menu to which item belongs to.
+  menu: ID!
+    #          ID of the parent menu. If empty, menu will be top level
+# menu.
+  parent: ID
+}
+
+  # Deletes a menu item.
+type MenuItemDelete {
+    # List of errors that occurred executing the mutation.
+  errors: [Error!]
+    menuItem: MenuItem
+}
+
+input MenuItemInput {
+    # Name of the menu item.
+  name: String
+    # URL of the pointed item.
+  url: String
+    # Category to which item points.
+  category: ID
+    # Collection to which item points.
+  collection: ID
+    # Page to which item points.
+  page: ID
+}
+
+  # Moves items of menus
+type MenuItemMove {
+    # List of errors that occurred executing the mutation.
+  errors: [Error!]
+    # Assigned menu to move within.
+  menu: Menu
+}
+
+input MenuItemMoveInput {
+    # The menu item ID to move.
+  itemId: ID!
+    # ID of the parent menu. If empty, menu will be top level menu.
+  parentId: ID
+    # Sorting position of the menu item (from 0 to x).
+  sortOrder: Int
+}
+
+  # Creates/Updates translations for Menu Item.
+type MenuItemTranslate {
+    # List of errors that occurred executing the mutation.
+  errors: [Error!]
+    menuItem: MenuItem
+}
+
+type MenuItemTranslation implements Node {
+    # The ID of the object.
+  id: ID!
+    name: String!
+    # Translation's language
+  language: LanguageDisplay!
+}
+
+  # Updates a menu item.
+type MenuItemUpdate {
+    # List of errors that occurred executing the mutation.
+  errors: [Error!]
+    menuItem: MenuItem
+}
+
+  # Updates a menu.
+type MenuUpdate {
+    # List of errors that occurred executing the mutation.
+  errors: [Error!]
+    menu: Menu
+}
+
+  # Represents amount of money in specific currency.
+type Money {
+    # Currency code.
+  currency: String!
+    # Amount of money.
+  amount: Float!
+    # Money formatted according to the current locale.
+  localized: String!
+}
+
+  # Represents a range of amounts of money.
+type MoneyRange {
+    # Lower bound of a price range.
+  start: Money
+    # Upper bound of a price range.
+  stop: Money
+}
+
+input MoveProductInput {
+    # The ID of the product to move.
+  productId: ID!
+    # The relative sorting position of the product (from -inf to +inf)
+# starting from the first given product's actual position.
+  sortOrder: Int
+}
+
+type Mutations {
+    # Adds an authorization key.
+  authorizationKeyAdd(  # Fields required to create an authorization key.
+  input: AuthorizationKeyInput!,   # Type of an authorization key to add.
+  keyType: AuthorizationKeyType!): AuthorizationKeyAdd
+    # Deletes an authorization key.
+  authorizationKeyDelete(  # Type of a key to delete.
+  keyType: AuthorizationKeyType!): AuthorizationKeyDelete
+    # Updates homepage collection of the shop
+  homepageCollectionUpdate(  # Collection displayed on homepage
+  collection: ID): HomepageCollectionUpdate
+    # Updates site domain of the shop
+  shopDomainUpdate(  # Fields required to update site
+  input: SiteDomainInput): ShopDomainUpdate
+    # Updates shop settings
+  shopSettingsUpdate(  # Fields required to update shop settings.
+  input: ShopSettingsInput!): ShopSettingsUpdate
+    # Fetch tax rates
+  shopFetchTaxRates: ShopFetchTaxRates
+    # Creates/Updates translations for Shop Settings.
+  shopSettingsTranslate(  # Fields required to update shop settings translations.
+  input: ShopSettingsTranslationInput!,   # Translation language code
+  languageCode: LanguageCodeEnum!): ShopSettingsTranslate
+    # Update shop address
+  shopAddressUpdate(  # Fields required to update shop address
+  input: AddressInput): ShopAddressUpdate
+    # Creates a new shipping price.
+  shippingPriceCreate(  # Fields required to create a shipping price
+  input: ShippingPriceInput!): ShippingPriceCreate
+    # Deletes a shipping price.
+  shippingPriceDelete(  # ID of a shipping price to delete.
+  id: ID!): ShippingPriceDelete
+    # Deletes shipping prices.
+  shippingPriceBulkDelete(  # List of shipping price IDs to delete.
+  ids: [ID]!): ShippingPriceBulkDelete
+    # Updates a new shipping price.
+  shippingPriceUpdate(  # ID of a shipping price to update.
+  id: ID!,   # Fields required to update a shipping price
+  input: ShippingPriceInput!): ShippingPriceUpdate
+    # Creates/Updates translations for Shipping Method.
+  shippingPriceTranslate(  # Shipping Method ID
+  id: ID!,   input: NameTranslationInput!,   # Translation language code
+  languageCode: LanguageCodeEnum!): ShippingPriceTranslate
+    # Creates a new shipping zone.
+  shippingZoneCreate(  # Fields required to create a shipping zone.
+  input: ShippingZoneInput!): ShippingZoneCreate
+    # Deletes a shipping zone.
+  shippingZoneDelete(  # ID of a shipping zone to delete.
+  id: ID!): ShippingZoneDelete
+    # Deletes shipping zones.
+  shippingZoneBulkDelete(  # List of shipping zone IDs to delete.
+  ids: [ID]!): ShippingZoneBulkDelete
+    # Updates a new shipping zone.
+  shippingZoneUpdate(  # ID of a shipping zone to update.
+  id: ID!,   # Fields required to update a shipping zone.
+  input: ShippingZoneInput!): ShippingZoneUpdate
+    # Creates an attribute.
+  attributeCreate(  # ID of the ProductType to create an attribute for.
+  id: ID!,   # Fields required to create an attribute.
+  input: AttributeCreateInput!,   # Type of an Attribute, if should be created for Products or Variants
+# of this ProductType.
+  type: AttributeTypeEnum!): AttributeCreate
+    # Deletes an attribute.
+  attributeDelete(  # ID of an attribute to delete.
+  id: ID!): AttributeDelete
+    # Deletes attributes.
+  attributeBulkDelete(  # List of attribute IDs to delete.
+  ids: [ID]!): AttributeBulkDelete
+    # Updates attribute.
+  attributeUpdate(  # ID of an attribute to update.
+  id: ID!,   # Fields required to update an attribute.
+  input: AttributeUpdateInput!): AttributeUpdate
+    # Creates/Updates translations for Attribute.
+  attributeTranslate(  # Attribute ID
+  id: ID!,   input: NameTranslationInput!,   # Translation language code
+  languageCode: LanguageCodeEnum!): AttributeTranslate
+    # Creates a value for an attribute.
+  attributeValueCreate(  # Attribute to which value will be assigned.
+  attribute: ID!,   # Fields required to create an AttributeValue.
+  input: AttributeValueCreateInput!): AttributeValueCreate
+    # Deletes a value of an attribute.
+  attributeValueDelete(  # ID of a value to delete.
+  id: ID!): AttributeValueDelete
+    # Deletes values of attributes.
+  attributeValueBulkDelete(  # List of attribute value IDs to delete.
+  ids: [ID]!): AttributeValueBulkDelete
+    # Updates value of an attribute.
+  attributeValueUpdate(  # ID of an AttributeValue to update.
+  id: ID!,   # Fields required to update an AttributeValue.
+  input: AttributeValueCreateInput!): AttributeValueUpdate
+    # Creates/Updates translations for Attribute Value.
+  attributeValueTranslate(  # Attribute Value ID
+  id: ID!,   input: NameTranslationInput!,   # Translation language code
+  languageCode: LanguageCodeEnum!): AttributeValueTranslate
+    # Creates a new category.
+  categoryCreate(  # Fields required to create a category.
+  input: CategoryInput!,   #                  ID of the parent category. If empty, category will
+# be top level                 category.
+  parent: ID): CategoryCreate
+    # Deletes a category.
+  categoryDelete(  # ID of a category to delete.
+  id: ID!): CategoryDelete
+    # Deletes categories.
+  categoryBulkDelete(  # List of category IDs to delete.
+  ids: [ID]!): CategoryBulkDelete
+    # Updates a category.
+  categoryUpdate(  # ID of a category to update.
+  id: ID!,   # Fields required to update a category.
+  input: CategoryInput!): CategoryUpdate
+    # Creates/Updates translations for Category.
+  categoryTranslate(  # Category ID
+  id: ID!,   input: TranslationInput!,   # Translation language code
+  languageCode: LanguageCodeEnum!): CategoryTranslate
+    # Adds products to a collection.
+  collectionAddProducts(  # ID of a collection.
+  collectionId: ID!,   # List of product IDs.
+  products: [ID]!): CollectionAddProducts
+    # Creates a new collection.
+  collectionCreate(  # Fields required to create a collection.
+  input: CollectionCreateInput!): CollectionCreate
+    # Deletes a collection.
+  collectionDelete(  # ID of a collection to delete.
+  id: ID!): CollectionDelete
+    # Reorder the products of a collection
+  collectionReorderProducts(  # ID of a collection.
+  collectionId: ID!,   # The collection products position operations.
+  moves: [MoveProductInput]!): CollectionReorderProducts
+    # Deletes collections.
+  collectionBulkDelete(  # List of collection IDs to delete.
+  ids: [ID]!): CollectionBulkDelete
+    # Publish collections.
+  collectionBulkPublish(  # List of collections IDs to (un)publish.
+  ids: [ID]!,   # Determine if collections will be published or not.
+  isPublished: Boolean!): CollectionBulkPublish
+    # Remove products from a collection.
+  collectionRemoveProducts(  # ID of a collection.
+  collectionId: ID!,   # List of product IDs.
+  products: [ID]!): CollectionRemoveProducts
+    # Updates a collection.
+  collectionUpdate(  # ID of a collection to update.
+  id: ID!,   # Fields required to update a collection.
+  input: CollectionInput!): CollectionUpdate
+    # Creates/Updates translations for Collection.
+  collectionTranslate(  # Collection ID
+  id: ID!,   input: TranslationInput!,   # Translation language code
+  languageCode: LanguageCodeEnum!): CollectionTranslate
+    # Creates a new product.
+  productCreate(  # Fields required to create a product.
+  input: ProductCreateInput!): ProductCreate
+    # Deletes a product.
+  productDelete(  # ID of a product to delete.
+  id: ID!): ProductDelete
+    # Deletes products.
+  productBulkDelete(  # List of product IDs to delete.
+  ids: [ID]!): ProductBulkDelete
+    # Publish products.
+  productBulkPublish(  # List of products IDs to publish.
+  ids: [ID]!,   # Determine if products will be published or not.
+  isPublished: Boolean!): ProductBulkPublish
+    # Updates an existing product.
+  productUpdate(  # ID of a product to update.
+  id: ID!,   # Fields required to update a product.
+  input: ProductInput!): ProductUpdate
+    # Creates/Updates translations for Product.
+  productTranslate(  # Product ID
+  id: ID!,   input: TranslationInput!,   # Translation language code
+  languageCode: LanguageCodeEnum!): ProductTranslate
+    # Create a product image. This mutation must be         sent as a
+# `multipart` request. More detailed specs of the upload format
+# can be found here:         https://github.com/jaydenseric/graphql-
+# multipart-request-spec
+  productImageCreate(  # Fields required to create a product image.
+  input: ProductImageCreateInput!): ProductImageCreate
+    # Deletes a product image.
+  productImageDelete(  # ID of a product image to delete.
+  id: ID!): ProductImageDelete
+    # Deletes product images.
+  productImageBulkDelete(  # List of product image IDs to delete.
+  ids: [ID]!): ProductImageBulkDelete
+    # Changes ordering of the product image.
+  productImageReorder(  # IDs of a product images in the desired order.
+  imagesIds: [ID]!,   # Id of product that images order will be altered.
+  productId: ID!): ProductImageReorder
+    # Updates a product image.
+  productImageUpdate(  # ID of a product image to update.
+  id: ID!,   # Fields required to update a product image.
+  input: ProductImageUpdateInput!): ProductImageUpdate
+    # Creates a new product type.
+  productTypeCreate(  # Fields required to create a product type.
+  input: ProductTypeInput!): ProductTypeCreate
+    # Deletes a product type.
+  productTypeDelete(  # ID of a product type to delete.
+  id: ID!): ProductTypeDelete
+    # Deletes product types.
+  productTypeBulkDelete(  # List of product type IDs to delete.
+  ids: [ID]!): ProductTypeBulkDelete
+    # Updates an existing product type.
+  productTypeUpdate(  # ID of a product type to update.
+  id: ID!,   # Fields required to update a product type.
+  input: ProductTypeInput!): ProductTypeUpdate
+    # Create new digital content. This mutation must         be sent as a
+# `multipart` request. More detailed specs of the upload
+# format can be found here:
+# https://github.com/jaydenseric/graphql-multipart-request-spec
+  digitalContentCreate(  # Fields required to create a digital content.
+  input: DigitalContentUploadInput!,   # ID of a product variant to upload digital content.
+  variantId: ID!): DigitalContentCreate
+    # Remove digital content assigned to given variant
+  digitalContentDelete(  # ID of a product variant with digital content to remove.
+  variantId: ID!): DigitalContentDelete
+    # Update digital content
+  digitalContentUpdate(  # Fields required to update a digital content.
+  input: DigitalContentInput!,   # ID of a product variant with digital content to update.
+  variantId: ID!): DigitalContentUpdate
+    # Generate new url to digital content
+  digitalContentUrlCreate(  # Fields required to create a new url.
+  input: DigitalContentUrlCreateInput!): DigitalContentUrlCreate
+    # Creates a new variant for a product
+  productVariantCreate(  # Fields required to create a product variant.
+  input: ProductVariantCreateInput!): ProductVariantCreate
+    # Deletes a product variant.
+  productVariantDelete(  # ID of a product variant to delete.
+  id: ID!): ProductVariantDelete
+    # Deletes product variants.
+  productVariantBulkDelete(  # List of product variant IDs to delete.
+  ids: [ID]!): ProductVariantBulkDelete
+    # Updates an existing variant for product
+  productVariantUpdate(  # ID of a product variant to update.
+  id: ID!,   # Fields required to update a product variant.
+  input: ProductVariantInput!): ProductVariantUpdate
+    # Creates/Updates translations for Product Variant.
+  productVariantTranslate(  # Product Variant ID
+  id: ID!,   input: NameTranslationInput!,   # Translation language code
+  languageCode: LanguageCodeEnum!): ProductVariantTranslate
+    # Assign an image to a product variant
+  variantImageAssign(  # ID of a product image to assign to a variant.
+  imageId: ID!,   # ID of a product variant.
+  variantId: ID!): VariantImageAssign
+    # Unassign an image from a product variant
+  variantImageUnassign(  # ID of a product image to unassign from a variant.
+  imageId: ID!,   # ID of a product variant.
+  variantId: ID!): VariantImageUnassign
+    # Captures the authorized payment amount
+  paymentCapture(  # Transaction amount
+  amount: Decimal,   # Payment ID
+  paymentId: ID!): PaymentCapture
+    # Refunds the captured payment amount
+  paymentRefund(  # Transaction amount
+  amount: Decimal,   # Payment ID
+  paymentId: ID!): PaymentRefund
+    # Voids the authorized payment
+  paymentVoid(  # Payment ID
+  paymentId: ID!): PaymentVoid
+    # Creates a new page.
+  pageCreate(  # Fields required to create a page.
+  input: PageInput!): PageCreate
+    # Deletes a page.
+  pageDelete(  # ID of a page to delete.
+  id: ID!): PageDelete
+    # Deletes pages.
+  pageBulkDelete(  # List of page IDs to delete.
+  ids: [ID]!): PageBulkDelete
+    # Publish pages.
+  pageBulkPublish(  # List of page IDs to (un)publish.
+  ids: [ID]!,   # Determine if pages will be published or not.
+  isPublished: Boolean!): PageBulkPublish
+    # Updates an existing page.
+  pageUpdate(  # ID of a page to update.
+  id: ID!,   # Fields required to update a page.
+  input: PageInput!): PageUpdate
+    # Creates/Updates translations for Page.
+  pageTranslate(  # Page ID
+  id: ID!,   input: PageTranslationInput!,   # Translation language code
+  languageCode: LanguageCodeEnum!): PageTranslate
+    # Completes creating an order.
+  draftOrderComplete(  # ID of the order that will be completed.
+  id: ID!): DraftOrderComplete
+    # Creates a new draft order.
+  draftOrderCreate(  # Fields required to create an order.
+  input: DraftOrderCreateInput!): DraftOrderCreate
+    # Deletes a draft order.
+  draftOrderDelete(  # ID of a draft order to delete.
+  id: ID!): DraftOrderDelete
+    # Deletes draft orders.
+  draftOrderBulkDelete(  # List of draft order IDs to delete.
+  ids: [ID]!): DraftOrderBulkDelete
+    # Deletes order lines.
+  draftOrderLinesBulkDelete(  # List of order lines IDs to delete.
+  ids: [ID]!): DraftOrderLinesBulkDelete
+    # Create order lines for a draft order.
+  draftOrderLinesCreate(  # ID of the draft order to add the lines to.
+  id: ID!,   # Fields required to add order lines.
+  input: [OrderLineCreateInput]!): DraftOrderLinesCreate
+    # Deletes an order line from a draft order.
+  draftOrderLineDelete(  # ID of the order line to delete.
+  id: ID!): DraftOrderLineDelete
+    # Updates an order line of a draft order.
+  draftOrderLineUpdate(  # ID of the order line to update.
+  id: ID!,   # Fields required to update an order line
+  input: OrderLineInput!): DraftOrderLineUpdate
+    # Updates a draft order.
+  draftOrderUpdate(  # ID of an order to update.
+  id: ID!,   # Fields required to update an order.
+  input: DraftOrderInput!): DraftOrderUpdate
+    # Adds note to the order.
+  orderAddNote(  # ID of the order to add a note for.
+  order: ID!,   # Fields required to create a note for the order.
+  input: OrderAddNoteInput!): OrderAddNote
+    # Cancel an order.
+  orderCancel(  # ID of the order to cancel.
+  id: ID!,   # Determine if lines will be restocked or not.
+  restock: Boolean!): OrderCancel
+    # Capture an order.
+  orderCapture(  # Amount of money to capture.
+  amount: Decimal!,   # ID of the order to capture.
+  id: ID!): OrderCapture
+    # Cancels existing fulfillment         and optionally restocks items.
+  orderFulfillmentCancel(  # ID of an fulfillment to cancel.
+  id: ID!,   # Fields required to cancel an fulfillment.
+  input: FulfillmentCancelInput!): FulfillmentCancel
+    # Creates a new fulfillment for an order.
+  orderFulfillmentCreate(  # Fields required to create an fulfillment.
+  input: FulfillmentCreateInput!,   # ID of the order to be fulfilled.
+  order: ID): FulfillmentCreate
+    # Updates a fulfillment for an order.
+  orderFulfillmentUpdateTracking(  # ID of an fulfillment to update.
+  id: ID!,   # Fields required to update an fulfillment.
+  input: FulfillmentUpdateTrackingInput!): FulfillmentUpdateTracking
+    # Mark order as manually paid.
+  orderMarkAsPaid(  # ID of the order to mark paid.
+  id: ID!): OrderMarkAsPaid
+    # Refund an order.
+  orderRefund(  # Amount of money to refund.
+  amount: Decimal!,   # ID of the order to refund.
+  id: ID!): OrderRefund
+    # Updates an order.
+  orderUpdate(  # ID of an order to update.
+  id: ID!,   # Fields required to update an order.
+  input: OrderUpdateInput!): OrderUpdate
+    # Updates a shipping method of the order.
+  orderUpdateShipping(  # ID of the order to update a shipping method.
+  order: ID!,   # Fields required to change shipping method of the order.
+  input: OrderUpdateShippingInput): OrderUpdateShipping
+    # Void an order.
+  orderVoid(  # ID of the order to void.
+  id: ID!): OrderVoid
+    # Cancels orders.
+  orderBulkCancel(  # List of orders IDs to cancel.
+  ids: [ID]!,   # Determine if lines will be restocked or not.
+  restock: Boolean!): OrderBulkCancel
+    # Assigns storefront's navigation menus.
+  assignNavigation(  # ID of the menu.
+  menu: ID,   # Type of the navigation bar to assign the menu to.
+  navigationType: NavigationType!): AssignNavigation
+    # Creates a new Menu
+  menuCreate(  # Fields required to create a menu.
+  input: MenuCreateInput!): MenuCreate
+    # Deletes a menu.
+  menuDelete(  # ID of a menu to delete.
+  id: ID!): MenuDelete
+    # Deletes menus.
+  menuBulkDelete(  # List of menu IDs to delete.
+  ids: [ID]!): MenuBulkDelete
+    # Updates a menu.
+  menuUpdate(  # ID of a menu to update.
+  id: ID!,   # Fields required to update a menu.
+  input: MenuInput!): MenuUpdate
+    # Creates a new Menu
+  menuItemCreate(  # Fields required to update a menu item.             Only one of
+# 'url', 'category', 'page', 'collection' is allowed             per
+# item
+  input: MenuItemCreateInput!): MenuItemCreate
+    # Deletes a menu item.
+  menuItemDelete(  # ID of a menu item to delete.
+  id: ID!): MenuItemDelete
+    # Deletes menu items.
+  menuItemBulkDelete(  # List of menu item IDs to delete.
+  ids: [ID]!): MenuItemBulkDelete
+    # Updates a menu item.
+  menuItemUpdate(  # ID of a menu item to update.
+  id: ID!,   # Fields required to update a menu item.             Only one of
+# 'url', 'category', 'page', 'collection' is allowed             per
+# item
+  input: MenuItemInput!): MenuItemUpdate
+    # Creates/Updates translations for Menu Item.
+  menuItemTranslate(  # Menu Item ID
+  id: ID!,   input: NameTranslationInput!,   # Translation language code
+  languageCode: LanguageCodeEnum!): MenuItemTranslate
+    # Moves items of menus
+  menuItemMove(  # ID of the menu.
+  menu: ID!,   # The menu position data
+  moves: [MenuItemMoveInput]!): MenuItemMove
+    # Activate a gift card.
+  giftCardActivate(  # ID of a gift card to activate.
+  id: ID!): GiftCardActivate
+    # Creates a new gift card
+  giftCardCreate(  # Fields required to create a gift card.
+  input: GiftCardCreateInput!): GiftCardCreate
+    # Deactivate a gift card.
+  giftCardDeactivate(  # ID of a gift card to deactivate.
+  id: ID!): GiftCardDeactivate
+    # Update a gift card.
+  giftCardUpdate(  # ID of a gift card to update.
+  id: ID!,   # Fields required to update a gift card.
+  input: GiftCardUpdateInput!): GiftCardUpdate
+    # Creates a new sale.
+  saleCreate(  # Fields required to create a sale.
+  input: SaleInput!): SaleCreate
+    # Deletes a sale.
+  saleDelete(  # ID of a sale to delete.
+  id: ID!): SaleDelete
+    # Deletes sales.
+  saleBulkDelete(  # List of sale IDs to delete.
+  ids: [ID]!): SaleBulkDelete
+    # Updates a sale.
+  saleUpdate(  # ID of a sale to update.
+  id: ID!,   # Fields required to update a sale.
+  input: SaleInput!): SaleUpdate
+    # Adds products, categories, collections to a voucher.
+  saleCataloguesAdd(  # ID of a sale.
+  id: ID!,   # Fields required to modify catalogue IDs of sale.
+  input: CatalogueInput!): SaleAddCatalogues
+    # Removes products, categories, collections from a sale.
+  saleCataloguesRemove(  # ID of a sale.
+  id: ID!,   # Fields required to modify catalogue IDs of sale.
+  input: CatalogueInput!): SaleRemoveCatalogues
+    # Creates/updates translations for a sale.
+  saleTranslate(  # Voucher ID
+  id: ID!,   input: NameTranslationInput!,   # Translation language code
+  languageCode: LanguageCodeEnum!): SaleTranslate
+    # Creates a new voucher.
+  voucherCreate(  # Fields required to create a voucher.
+  input: VoucherInput!): VoucherCreate
+    # Deletes a voucher.
+  voucherDelete(  # ID of a voucher to delete.
+  id: ID!): VoucherDelete
+    # Deletes vouchers.
+  voucherBulkDelete(  # List of voucher IDs to delete.
+  ids: [ID]!): VoucherBulkDelete
+    # Updates a voucher.
+  voucherUpdate(  # ID of a voucher to update.
+  id: ID!,   # Fields required to update a voucher.
+  input: VoucherInput!): VoucherUpdate
+    # Adds products, categories, collections to a voucher.
+  voucherCataloguesAdd(  # ID of a voucher.
+  id: ID!,   # Fields required to modify catalogue IDs of voucher.
+  input: CatalogueInput!): VoucherAddCatalogues
+    # Removes products, categories, collections from a voucher.
+  voucherCataloguesRemove(  # ID of a voucher.
+  id: ID!,   # Fields required to modify catalogue IDs of voucher.
+  input: CatalogueInput!): VoucherRemoveCatalogues
+    # Creates/Updates translations for Voucher.
+  voucherTranslate(  # Voucher ID
+  id: ID!,   input: NameTranslationInput!,   # Translation language code
+  languageCode: LanguageCodeEnum!): VoucherTranslate
+    # Mutation that authenticates a user and returns token and user data.
+# It overrides the default graphql_jwt.ObtainJSONWebToken to wrap
+# potential authentication errors in our Error type, which is
+# consistent to how rest of the mutation works.
+  tokenCreate(  email: String!,   password: String!): CreateToken
+    tokenRefresh(  token: String!): Refresh
+    # Mutation that confirm if token is valid and also return user data.
+  tokenVerify(  token: String!): VerifyToken
+    # Adds a gift card or a voucher to a checkout.
+  checkoutAddPromoCode(  # Checkout ID
+  checkoutId: ID!,   # Gift card code or voucher code
+  promoCode: String!): CheckoutAddPromoCode
+    # Update billing address in the existing Checkout.
+  checkoutBillingAddressUpdate(  # The billing address of the checkout.
+  billingAddress: AddressInput!,   # ID of the Checkout.
+  checkoutId: ID!): CheckoutBillingAddressUpdate
+    # Completes the checkout. As a result a new order is created and a
+# payment charge is made. This action requires a successful payment
+# before it can be performed.
+  checkoutComplete(  # Checkout ID
+  checkoutId: ID!,   # Determines whether to store the payment source for future usage.
+  storeSource: Boolean = false): CheckoutComplete
+    # Create a new checkout.
+  checkoutCreate(  # Fields required to create checkout.
+  input: CheckoutCreateInput!): CheckoutCreate
+    # Sets the customer as the owner of the Checkout.
+  checkoutCustomerAttach(  # ID of the Checkout.
+  checkoutId: ID!,   # The ID of the customer.
+  customerId: ID!): CheckoutCustomerAttach
+    # Removes the user assigned as the owner of the checkout.
+  checkoutCustomerDetach(  # Checkout ID
+  checkoutId: ID!): CheckoutCustomerDetach
+    # Updates email address in the existing Checkout object.
+  checkoutEmailUpdate(  # Checkout ID
+  checkoutId: ID,   # email
+  email: String!): CheckoutEmailUpdate
+    # Deletes a CheckoutLine.
+  checkoutLineDelete(  # The ID of the Checkout.
+  checkoutId: ID!,   # ID of the CheckoutLine to delete.
+  lineId: ID): CheckoutLineDelete
+    # Adds a checkout line to the existing checkout.
+  checkoutLinesAdd(  # The ID of the Checkout.
+  checkoutId: ID!,   # A list of checkout lines, each containing information about an item
+# in the checkout.
+  lines: [CheckoutLineInput]!): CheckoutLinesAdd
+    # Updates CheckoutLine in the existing Checkout.
+  checkoutLinesUpdate(  # The ID of the Checkout.
+  checkoutId: ID!,   # A list of checkout lines, each containing information about an item
+# in the checkout.
+  lines: [CheckoutLineInput]!): CheckoutLinesUpdate
+    # Remove a gift card or a voucher from a checkout.
+  checkoutRemovePromoCode(  # Checkout ID
+  checkoutId: ID!,   # Gift card code or voucher code
+  promoCode: String!): CheckoutRemovePromoCode
+    # Create a new payment for given checkout.
+  checkoutPaymentCreate(  # Checkout ID.
+  checkoutId: ID!,   # Data required to create a new payment.
+  input: PaymentInput!): CheckoutPaymentCreate
+    # Update shipping address in the existing Checkout.
+  checkoutShippingAddressUpdate(  # ID of the Checkout.
+  checkoutId: ID!,   # The mailing address to where the checkout will be shipped.
+  shippingAddress: AddressInput!): CheckoutShippingAddressUpdate
+    # Updates the shipping address of the checkout.
+  checkoutShippingMethodUpdate(  # Checkout ID
+  checkoutId: ID,   # Shipping method
+  shippingMethodId: ID!): CheckoutShippingMethodUpdate
+    # DEPRECATED: Use CheckoutAddPromoCode or CheckoutRemovePromoCode
+# instead. Adds voucher to the checkout. Query it without voucher_code
+# field to remove voucher from checkout.
+  checkoutUpdateVoucher(  # Checkout ID
+  checkoutId: ID!,   # Voucher code
+  voucherCode: String): CheckoutUpdateVoucher
+    # Sends password reset email
+  passwordReset(  # Email
+  email: String!): PasswordReset
+    # Sets user password.
+  setPassword(  # ID of a user to set password whom.
+  id: ID!,   # Fields required to set password.
+  input: SetPasswordInput!): SetPassword
+    # Creates a new customer.
+  customerCreate(  # Fields required to create a customer.
+  input: UserCreateInput!): CustomerCreate
+    # Deletes a customer.
+  customerDelete(  # ID of a customer to delete.
+  id: ID!): CustomerDelete
+    # Deletes customers.
+  customerBulkDelete(  # List of sale IDs to delete.
+  ids: [ID]!): CustomerBulkDelete
+    # Resets the customer's password.
+  customerPasswordReset(  # Fields required to reset customer's password
+  input: CustomerPasswordResetInput!): CustomerPasswordReset
+    # Register a new user.
+  customerRegister(  # Fields required to create a user.
+  input: CustomerRegisterInput!): CustomerRegister
+    # Updates an existing customer.
+  customerUpdate(  # ID of a customer to update.
+  id: ID!,   # Fields required to update a customer.
+  input: CustomerInput!): CustomerUpdate
+    # Create a new address for the customer.
+  customerAddressCreate(  # Fields required to create address
+  input: AddressInput!,   # A type of address. If provided, the new address will be
+# automatically assigned as the customer's default address of that
+# type.
+  type: AddressTypeEnum): CustomerAddressCreate
+    # Sets a default address for the authenticated user.
+  customerSetDefaultAddress(  # ID of the address to set as default.
+  id: ID!,   # The type of address.
+  type: AddressTypeEnum!): CustomerSetDefaultAddress
+    # Updates data of the logged in user.
+  loggedUserUpdate(  # Fields required to update logged in user.
+  input: UserAddressInput!): LoggedUserUpdate
+    # Creates a new staff user.
+  staffCreate(  # Fields required to create a staff user.
+  input: StaffCreateInput!): StaffCreate
+    # Deletes a staff user.
+  staffDelete(  # ID of a staff user to delete.
+  id: ID!): StaffDelete
+    # Deletes staff users.
+  staffBulkDelete(  # List of sale IDs to delete.
+  ids: [ID]!): StaffBulkDelete
+    # Updates an existing staff user.
+  staffUpdate(  # ID of a staff user to update.
+  id: ID!,   # Fields required to update a staff user.
+  input: StaffInput!): StaffUpdate
+    # Creates user address
+  addressCreate(  # Fields required to create address
+  input: AddressInput!,   # ID of a user to create address for
+  userId: ID!): AddressCreate
+    # Deletes an address
+  addressDelete(  # ID of the address to delete.
+  id: ID!): AddressDelete
+    # Updates an address
+  addressUpdate(  # ID of the address to update
+  id: ID!,   # Fields required to update address
+  input: AddressInput!): AddressUpdate
+    # Sets a default address for the given user.
+  addressSetDefault(  # ID of the address.
+  addressId: ID!,   # The type of address.
+  type: AddressTypeEnum!,   # ID of the user to change the address for.
+  userId: ID!): AddressSetDefault
+    #              Create a user avatar. Only for staff members. This
+# mutation must             be sent as a `multipart` request. More
+# detailed specs of the             upload format can be found here:
+# https://github.com/jaydenseric/graphql-multipart-request-spec
+  userAvatarUpdate(  # Represents an image file in a multipart request.
+  image: Upload!): UserAvatarUpdate
+    # Deletes a user avatar. Only for staff members.
+  userAvatarDelete: UserAvatarDelete
+    # Activate or deactivate users.
+  userBulkSetActive(  # List of user IDs to (de)activate).
+  ids: [ID]!,   # Determine if users will be set active or not.
+  isActive: Boolean!): UserBulkSetActive
+}
+
+input NameTranslationInput {
+    name: String
+}
+
+  # Represents shop's navigation menus.
+type Navigation {
+    # Main navigation bar.
+  main: Menu
+    # Secondary navigation bar.
+  secondary: Menu
+}
+
+enum NavigationType {
+  MAIN
+  SECONDARY
+}
+
+interface Node {
+    # The ID of the object.
+  id: ID!
+}
+
+  # Represents an order in the shop.
+type Order implements Node {
+    # The ID of the object.
+  id: ID!
+    created: DateTime!
+    status: OrderStatus!
+    user: User
+    languageCode: String!
+    trackingClientId: String!
+    billingAddress: Address
+    shippingAddress: Address
+    shippingMethod: ShippingMethod
+    # Total price of shipping.
+  shippingPrice: TaxedMoney
+    shippingMethodName: String
+    token: String!
+    voucher: Voucher
+    # List of userd gift cards
+  giftCards: [GiftCard]
+    discountAmount: Money
+    discountName: String!
+    translatedDiscountName: String!
+    displayGrossPrices: Boolean!
+    customerNote: String!
+    weight: Weight
+    # List of shipments for the order.
+  fulfillments: [Fulfillment]!
+    # List of order lines.
+  lines: [OrderLine]!
+    # List of actions that can be performed in         the current state
+# of an order.
+  actions: [OrderAction]!
+    # Shipping methods that can be used with this order.
+  availableShippingMethods: [ShippingMethod]
+    # User-friendly number of an order.
+  number: String
+    # Informs if an order is fully paid.
+  isPaid: Boolean
+    # Internal payment status.
+  paymentStatus: PaymentChargeStatusEnum
+    # User-friendly payment status.
+  paymentStatusDisplay: String
+    # List of payments for the order
+  payments: [Payment]
+    # Total amount of the order.
+  total: TaxedMoney
+    # The sum of line prices not including shipping.
+  subtotal: TaxedMoney
+    # User-friendly order status.
+  statusDisplay: String
+    # Informs whether a draft order can be finalized(turned into a regular
+# order).
+  canFinalize: Boolean!
+    # Amount authorized for the order.
+  totalAuthorized: Money
+    # Amount captured by payment.
+  totalCaptured: Money
+    # List of events associated with the order.
+  events: [OrderEvent]
+    # The difference between the paid and the order total         amount.
+  totalBalance: Money!
+    # Email address of the customer.
+  userEmail: String
+    # Returns True, if order requires shipping.
+  isShippingRequired: Boolean!
+}
+
+enum OrderAction {
+  CAPTURE
+  MARK_AS_PAID
+  REFUND
+  VOID
+}
+
+  # Adds note to the order.
+type OrderAddNote {
+    # List of errors that occurred executing the mutation.
+  errors: [Error!]
+    # Order with the note added.
+  order: Order
+    # Order note created.
+  event: OrderEvent
+}
+
+input OrderAddNoteInput {
+    # Note message.
+  message: String
+}
+
+  # Cancels orders.
+type OrderBulkCancel {
+    # List of errors that occurred executing the mutation.
+  errors: [Error!]
+    # Returns how many objects were affected.
+  count: Int!
+}
+
+  # Cancel an order.
+type OrderCancel {
+    # List of errors that occurred executing the mutation.
+  errors: [Error!]
+    # Canceled order.
+  order: Order
+}
+
+  # Capture an order.
+type OrderCapture {
+    # List of errors that occurred executing the mutation.
+  errors: [Error!]
+    # Captured order.
+  order: Order
+}
+
+type OrderCountableConnection {
+    # Pagination data for this connection.
+  pageInfo: PageInfo!
+    edges: [OrderCountableEdge!]!
+    # A total count of items in the collection
+  totalCount: Int
+}
+
+type OrderCountableEdge {
+    # The item at the end of the edge
+  node: Order!
+    # A cursor for use in pagination
+  cursor: String!
+}
+
+enum OrderDirection {
+  ASC
+  DESC
+}
+
+input OrderDraftFilterInput {
+    customer: String
+    created: DateRangeInput
+}
+
+  # History log of the order.
+type OrderEvent implements Node {
+    # The ID of the object.
+  id: ID!
+    # Date when event happened at in ISO 8601 format.
+  date: DateTime
+    # Order event type
+  type: OrderEventsEnum
+    # User who performed the action.
+  user(  id: ID): User
+    # Content of the event.
+  message: String
+    # Email of the customer
+  email: String
+    # Type of an email sent to the customer
+  emailType: OrderEventsEmailsEnum
+    # Amount of money.
+  amount: Float
+    # The payment ID from the payment gateway
+  paymentId: String
+    # The payment gateway of the payment.
+  paymentGateway: String
+    # Number of items.
+  quantity: Int
+    # Composed id of the Fulfillment.
+  composedId: String
+    # User-friendly number of an order.
+  orderNumber: String
+    # List of oversold lines names.
+  oversoldItems: [String]
+    # The concerned lines.
+  lines: [OrderEventOrderLineObject]
+    # The lines fulfilled.
+  fulfilledItems: [FulfillmentLine]
+}
+
+type OrderEventCountableConnection {
+    # Pagination data for this connection.
+  pageInfo: PageInfo!
+    edges: [OrderEventCountableEdge!]!
+    # A total count of items in the collection
+  totalCount: Int
+}
+
+type OrderEventCountableEdge {
+    # The item at the end of the edge
+  node: OrderEvent!
+    # A cursor for use in pagination
+  cursor: String!
+}
+
+type OrderEventOrderLineObject {
+    # The variant quantity.
+  quantity: Int
+    # The order line.
+  orderLine: OrderLine
+    # The variant name.
+  itemName: String
+}
+
+enum OrderEventsEmailsEnum {
+  PAYMENT_CONFIRMATION
+  SHIPPING_CONFIRMATION
+  TRACKING_UPDATED
+  ORDER_CONFIRMATION
+  FULFILLMENT_CONFIRMATION
+  DIGITAL_LINKS
+}
+
+enum OrderEventsEnum {
+  DRAFT_CREATED
+  DRAFT_ADDED_PRODUCTS
+  DRAFT_REMOVED_PRODUCTS
+  PLACED
+  PLACED_FROM_DRAFT
+  OVERSOLD_ITEMS
+  CANCELED
+  ORDER_MARKED_AS_PAID
+  ORDER_FULLY_PAID
+  UPDATED_ADDRESS
+  EMAIL_SENT
+  PAYMENT_CAPTURED
+  PAYMENT_REFUNDED
+  PAYMENT_VOIDED
+  PAYMENT_FAILED
+  FULFILLMENT_CANCELED
+  FULFILLMENT_RESTOCKED_ITEMS
+  FULFILLMENT_FULFILLED_ITEMS
+  TRACKING_UPDATED
+  NOTE_ADDED
+  OTHER
+}
+
+input OrderFilterInput {
+    paymentStatus: [PaymentChargeStatusEnum]
+    status: [OrderStatusFilter]
+    customer: String
+    created: DateRangeInput
+}
+
+  # Represents order line of particular order.
+type OrderLine implements Node {
+    # The ID of the object.
+  id: ID!
+    productName: String!
+    translatedProductName: String!
+    productSku: String!
+    isShippingRequired: Boolean!
+    quantity: Int!
+    quantityFulfilled: Int!
+    taxRate: Float!
+    digitalContentUrl: DigitalContentUrl
+    # The URL of a main thumbnail for the ordered product.
+  thumbnailUrl(  # Size of the image
+  size: Int): String @deprecated(reason: "thumbnailUrl is deprecated, use thumbnail instead")
+    # The main thumbnail for the ordered product.
+  thumbnail(  # Size of thumbnail
+  size: Int): Image
+    # Price of the single item in the order line.
+  unitPrice: TaxedMoney
+    #              A purchased product variant. Note: this field may be
+# null if the             variant has been removed from stock at all.
+  variant: ProductVariant
+}
+
+input OrderLineCreateInput {
+    # Number of variant items ordered.
+  quantity: Int!
+    # Product variant ID.
+  variantId: ID!
+}
+
+input OrderLineInput {
+    # Number of variant items ordered.
+  quantity: Int!
+}
+
+  # Mark order as manually paid.
+type OrderMarkAsPaid {
+    # List of errors that occurred executing the mutation.
+  errors: [Error!]
+    # Order marked as paid.
+  order: Order
+}
+
+  # Refund an order.
+type OrderRefund {
+    # List of errors that occurred executing the mutation.
+  errors: [Error!]
+    # A refunded order.
+  order: Order
+}
+
+enum OrderStatus {
+  DRAFT
+  UNFULFILLED
+  PARTIALLY_FULFILLED
+  FULFILLED
+  CANCELED
+}
+
+enum OrderStatusFilter {
+  READY_TO_FULFILL
+  READY_TO_CAPTURE
+  UNFULFILLED
+  PARTIALLY_FULFILLED
+  FULFILLED
+  CANCELED
+}
+
+  # Updates an order.
+type OrderUpdate {
+    # List of errors that occurred executing the mutation.
+  errors: [Error!]
+    order: Order
+}
+
+input OrderUpdateInput {
+    # Billing address of the customer.
+  billingAddress: AddressInput
+    # Email address of the customer.
+  userEmail: String
+    # Shipping address of the customer.
+  shippingAddress: AddressInput
+}
+
+  # Updates a shipping method of the order.
+type OrderUpdateShipping {
+    # List of errors that occurred executing the mutation.
+  errors: [Error!]
+    # Order with updated shipping method.
+  order: Order
+}
+
+input OrderUpdateShippingInput {
+    # ID of the selected shipping method.
+  shippingMethod: ID
+}
+
+  # Void an order.
+type OrderVoid {
+    # List of errors that occurred executing the mutation.
+  errors: [Error!]
+    # A voided order.
+  order: Order
+}
+
+  # A static page that can be manually added by a shop
+# operator through the dashboard.
+type Page implements Node {
+    publicationDate: Date
+    isPublished: Boolean!
+    seoTitle: String
+    seoDescription: String
+    # The ID of the object.
+  id: ID!
+    slug: String!
+    title: String!
+    content: String!
+    contentJson: JSONString!
+    created: DateTime!
+    availableOn: Date @deprecated(reason: "availableOn is deprecated, use publicationDate instead")
+    isVisible: Boolean @deprecated(reason: "isVisible is deprecated, use isPublished instead")
+    # Returns translated Page fields for the given language code.
+  translation(  # A language code to return the translation for.
+  languageCode: LanguageCodeEnum!): PageTranslation
+}
+
+  # Deletes pages.
+type PageBulkDelete {
+    # List of errors that occurred executing the mutation.
+  errors: [Error!]
+    # Returns how many objects were affected.
+  count: Int!
+}
+
+  # Publish pages.
+type PageBulkPublish {
+    # List of errors that occurred executing the mutation.
+  errors: [Error!]
+    # Returns how many objects were affected.
+  count: Int!
+}
+
+type PageCountableConnection {
+    # Pagination data for this connection.
+  pageInfo: PageInfo!
+    edges: [PageCountableEdge!]!
+    # A total count of items in the collection
+  totalCount: Int
+}
+
+type PageCountableEdge {
+    # The item at the end of the edge
+  node: Page!
+    # A cursor for use in pagination
+  cursor: String!
+}
+
+  # Creates a new page.
+type PageCreate {
+    # List of errors that occurred executing the mutation.
+  errors: [Error!]
+    page: Page
+}
+
+  # Deletes a page.
+type PageDelete {
+    # List of errors that occurred executing the mutation.
+  errors: [Error!]
+    page: Page
+}
+
+  # The Relay compliant `PageInfo` type, containing data necessary to
+# paginate this connection.
+type PageInfo {
+    # When paginating forwards, are there more items?
+  hasNextPage: Boolean!
+    # When paginating backwards, are there more items?
+  hasPreviousPage: Boolean!
+    # When paginating backwards, the cursor to continue.
+  startCursor: String
+    # When paginating forwards, the cursor to continue.
+  endCursor: String
+}
+
+input PageInput {
+    # Page internal name.
+  slug: String
+    # Page title.
+  title: String
+    # Page content. May consists of ordinary text, HTML and images.
+  content: String
+    # Page content in JSON format.
+  contentJson: JSONString
+    # Determines if page is visible in the storefront
+  isPublished: Boolean
+    # Publication date. ISO 8601 standard.
+  publicationDate: String
+    # Search engine optimization fields.
+  seo: SeoInput
+}
+
+  # Creates/Updates translations for Page.
+type PageTranslate {
+    # List of errors that occurred executing the mutation.
+  errors: [Error!]
+    page: Page
+}
+
+type PageTranslation implements Node {
+    seoTitle: String
+    seoDescription: String
+    # The ID of the object.
+  id: ID!
+    title: String!
+    content: String!
+    contentJson: JSONString!
+    # Translation's language
+  language: LanguageDisplay!
+}
+
+input PageTranslationInput {
+    seoTitle: String
+    seoDescription: String
+    title: String
+    content: String
+    contentJson: JSONString
+}
+
+  # Updates an existing page.
+type PageUpdate {
+    # List of errors that occurred executing the mutation.
+  errors: [Error!]
+    page: Page
+}
+
+  # Sends password reset email
+type PasswordReset {
+    # List of errors that occurred executing the mutation.
+  errors: [Error!]
+}
+
+  # Represents a payment of a given type.
+type Payment implements Node {
+    # The ID of the object.
+  id: ID!
+    gateway: String!
+    isActive: Boolean!
+    created: DateTime!
+    modified: DateTime!
+    token: String!
+    checkout: Checkout
+    order: Order
+    billingEmail: String!
+    customerIpAddress: String
+    extraData: String!
+    # Internal payment status.
+  chargeStatus: PaymentChargeStatusEnum!
+    # List of actions that can be performed in         the current state
+# of a payment.
+  actions: [OrderAction]!
+    # Total amount of the payment.
+  total: Money
+    # Total amount captured for this payment.
+  capturedAmount: Money
+    # Customer billing address.
+  billingAddress: Address
+    # List of all transactions within this payment.
+  transactions: [Transaction]
+    # Maximum amount of money that can be captured.
+  availableCaptureAmount: Money
+    # Maximum amount of money that can be refunded.
+  availableRefundAmount: Money
+    # The details of the card used for this payment.
+  creditCard: CreditCard
+}
+
+  # Captures the authorized payment amount
+type PaymentCapture {
+    # List of errors that occurred executing the mutation.
+  errors: [Error!]
+    # Updated payment
+  payment: Payment
+}
+
+enum PaymentChargeStatusEnum {
+  NOT_CHARGED
+  PARTIALLY_CHARGED
+  FULLY_CHARGED
+  PARTIALLY_REFUNDED
+  FULLY_REFUNDED
+}
+
+type PaymentCountableConnection {
+    # Pagination data for this connection.
+  pageInfo: PageInfo!
+    edges: [PaymentCountableEdge!]!
+    # A total count of items in the collection
+  totalCount: Int
+}
+
+type PaymentCountableEdge {
+    # The item at the end of the edge
+  node: Payment!
+    # A cursor for use in pagination
+  cursor: String!
+}
+
+input PaymentInput {
+    # A gateway to use with that payment.
+  gateway: GatewaysEnum!
+    # Client-side generated payment token, representing customer's billing
+# data in a secure manner.
+  token: String!
+    # Total amount of the transaction, including all taxes and discounts.
+# If no amount is provided, the checkout total will be used.
+  amount: Decimal
+    # Billing address. If empty, the billing address associated with
+# the checkout instance will be used.
+  billingAddress: AddressInput
+}
+
+  # Refunds the captured payment amount
+type PaymentRefund {
+    # List of errors that occurred executing the mutation.
+  errors: [Error!]
+    # Updated payment
+  payment: Payment
+}
+
+  # Represents a payment source stored for user in payment gateway, such
+# as credit card.
+type PaymentSource {
+    # Payment gateway name
+  gateway: String!
+    # Stored credit card details if available
+  creditCardInfo: CreditCard
+}
+
+  # Voids the authorized payment
+type PaymentVoid {
+    # List of errors that occurred executing the mutation.
+  errors: [Error!]
+    # Updated payment
+  payment: Payment
+}
+
+  # Represents a permission object in a friendly form.
+type PermissionDisplay {
+    # Internal code for permission.
+  code: PermissionEnum!
+    # Describe action(s) allowed to do by permission.
+  name: String!
+}
+
+enum PermissionEnum {
+  MANAGE_USERS
+  MANAGE_STAFF
+  IMPERSONATE_USERS
+  MANAGE_DISCOUNTS
+  MANAGE_GIFT_CARD
+  MANAGE_MENUS
+  MANAGE_ORDERS
+  MANAGE_PAGES
+  MANAGE_PRODUCTS
+  MANAGE_SHIPPING
+  MANAGE_SETTINGS
+  MANAGE_TRANSLATIONS
+}
+
+input PriceRangeInput {
+    # Price greater than or equal
+  gte: Float
+    # Price less than or equal
+  lte: Float
+}
+
+  # Represents an individual item for sale in the         storefront.
+type Product implements Node {
+    # The ID of the object.
+  id: ID!
+    publicationDate: Date
+    isPublished: Boolean!
+    seoTitle: String
+    seoDescription: String
+    productType: ProductType!
+    name: String!
+    description: String!
+    descriptionJson: JSONString!
+    category: Category!
+    updatedAt: DateTime
+    chargeTaxes: Boolean!
+    weight: Weight
+    # The storefront URL for the product.
+  url: String!
+    # The URL of a main thumbnail for a product.
+  thumbnailUrl(  # Size of thumbnail
+  size: Int): String @deprecated(reason: "thumbnailUrl is deprecated, use\\n         thumbnail instead")
+    # The main thumbnail for a product.
+  thumbnail(  # Size of thumbnail
+  size: Int): Image
+    # Informs about product's availability in the
+# storefront, current price and discounts.
+  availability: ProductPricingInfo @deprecated(reason: "Has been renamed to 'pricing'.")
+    # Lists the storefront product's pricing,             the current
+# price and discounts, only meant for displaying.
+  pricing: ProductPricingInfo
+    # Whether the product is in stock and visible or not.
+  isAvailable: Boolean
+    # The product's default base price.
+  basePrice: Money
+    # The product's default base price.
+  price: Money @deprecated(reason: "Has been replaced by 'basePrice'")
+    # A type of tax rate.
+  taxRate: TaxRateType @deprecated(reason: "taxRate is deprecated. Use taxType to obtain taxCode for given tax gateway")
+    # A type of tax. Assigned by enabled tax gateway
+  taxType: TaxType
+    # List of attributes assigned to this product.
+  attributes: [SelectedAttribute!]!
+    purchaseCost: MoneyRange
+    margin: Margin
+    # Get a single product image by ID
+  imageById(  # ID of a product image.
+  id: ID): ProductImage
+    # List of variants for the product
+  variants: [ProductVariant]
+    # List of images for the product
+  images: [ProductImage]
+    # List of collections for the product
+  collections: [Collection]
+    availableOn: Date @deprecated(reason: "availableOn is deprecated, use publicationDate instead")
+    # Returns translated Product fields for the given language code.
+  translation(  # A language code to return the translation for.
+  languageCode: LanguageCodeEnum!): ProductTranslation
+}
+
+  # Deletes products.
+type ProductBulkDelete {
+    # List of errors that occurred executing the mutation.
+  errors: [Error!]
+    # Returns how many objects were affected.
+  count: Int!
+}
+
+  # Publish products.
+type ProductBulkPublish {
+    # List of errors that occurred executing the mutation.
+  errors: [Error!]
+    # Returns how many objects were affected.
+  count: Int!
+}
+
+type ProductCountableConnection {
+    # Pagination data for this connection.
+  pageInfo: PageInfo!
+    edges: [ProductCountableEdge!]!
+    # A total count of items in the collection
+  totalCount: Int
+}
+
+type ProductCountableEdge {
+    # The item at the end of the edge
+  node: Product!
+    # A cursor for use in pagination
+  cursor: String!
+}
+
+  # Creates a new product.
+type ProductCreate {
+    # List of errors that occurred executing the mutation.
+  errors: [Error!]
+    product: Product
+}
+
+input ProductCreateInput {
+    # List of attributes.
+  attributes: [AttributeValueInput]
+    # Publication date. ISO 8601 standard.
+  publicationDate: Date
+    # ID of the product's category.
+  category: ID
+    # Determine if taxes are being charged for the product.
+  chargeTaxes: Boolean
+    # List of IDs of collections that the product belongs to.
+  collections: [ID]
+    # Product description (HTML/text).
+  description: String
+    # Product description (JSON).
+  descriptionJson: JSONString
+    # Determines if product is visible to customers.
+  isPublished: Boolean
+    # Product name.
+  name: String
+    #          Product price. Note: this field is deprecated, use
+# basePrice instead.
+  price: Decimal
+    # Product price.
+  basePrice: Decimal
+    # Tax rate.
+  taxRate: TaxRateType
+    # Tax rate for enabled tax gateway
+  taxCode: String
+    # Search engine optimization fields.
+  seo: SeoInput
+    # Weight of the Product.
+  weight: WeightScalar
+    # Stock keeping unit of a product. Note: this         field is only
+# used if a product doesn't use variants.
+  sku: String
+    # The total quantity of a product available for         sale. Note:
+# this field is only used if a product doesn't         use variants.
+  quantity: Int
+    # Determines if the inventory of this product         should be
+# tracked. If false, the quantity won't change when customers
+# buy this item. Note: this field is only used if a product doesn't
+# use variants.
+  trackInventory: Boolean
+    # ID of the type that product belongs to.
+  productType: ID!
+}
+
+  # Deletes a product.
+type ProductDelete {
+    # List of errors that occurred executing the mutation.
+  errors: [Error!]
+    product: Product
+}
+
+input ProductFilterInput {
+    isPublished: Boolean
+    collections: [ID]
+    categories: [ID]
+    price: PriceRangeInput
+    attributes: [AttributeInput]
+    stockAvailability: StockAvailability
+    productType: ID
+    search: String
+}
+
+  # Represents a product image.
+type ProductImage implements Node {
+    sortOrder: Int
+    # The ID of the object.
+  id: ID!
+    alt: String!
+    # The URL of the image.
+  url(  # Size of the image
+  size: Int): String!
+}
+
+  # Deletes product images.
+type ProductImageBulkDelete {
+    # List of errors that occurred executing the mutation.
+  errors: [Error!]
+    # Returns how many objects were affected.
+  count: Int!
+}
+
+  # Create a product image. This mutation must be         sent as a
+# `multipart` request. More detailed specs of the upload format
+# can be found here:         https://github.com/jaydenseric/graphql-
+# multipart-request-spec
+type ProductImageCreate {
+    # List of errors that occurred executing the mutation.
+  errors: [Error!]
+    product: Product
+    image: ProductImage
+}
+
+input ProductImageCreateInput {
+    # Alt text for an image.
+  alt: String
+    # Represents an image file in a multipart request.
+  image: Upload!
+    # ID of an product.
+  product: ID!
+}
+
+  # Deletes a product image.
+type ProductImageDelete {
+    # List of errors that occurred executing the mutation.
+  errors: [Error!]
+    product: Product
+    image: ProductImage
+}
+
+  # Changes ordering of the product image.
+type ProductImageReorder {
+    # List of errors that occurred executing the mutation.
+  errors: [Error!]
+    product: Product
+    images: [ProductImage]
+}
+
+  # Updates a product image.
+type ProductImageUpdate {
+    # List of errors that occurred executing the mutation.
+  errors: [Error!]
+    product: Product
+    image: ProductImage
+}
+
+input ProductImageUpdateInput {
+    # Alt text for an image.
+  alt: String
+}
+
+input ProductInput {
+    # List of attributes.
+  attributes: [AttributeValueInput]
+    # Publication date. ISO 8601 standard.
+  publicationDate: Date
+    # ID of the product's category.
+  category: ID
+    # Determine if taxes are being charged for the product.
+  chargeTaxes: Boolean
+    # List of IDs of collections that the product belongs to.
+  collections: [ID]
+    # Product description (HTML/text).
+  description: String
+    # Product description (JSON).
+  descriptionJson: JSONString
+    # Determines if product is visible to customers.
+  isPublished: Boolean
+    # Product name.
+  name: String
+    #          Product price. Note: this field is deprecated, use
+# basePrice instead.
+  price: Decimal
+    # Product price.
+  basePrice: Decimal
+    # Tax rate.
+  taxRate: TaxRateType
+    # Tax rate for enabled tax gateway
+  taxCode: String
+    # Search engine optimization fields.
+  seo: SeoInput
+    # Weight of the Product.
+  weight: WeightScalar
+    # Stock keeping unit of a product. Note: this         field is only
+# used if a product doesn't use variants.
+  sku: String
+    # The total quantity of a product available for         sale. Note:
+# this field is only used if a product doesn't         use variants.
+  quantity: Int
+    # Determines if the inventory of this product         should be
+# tracked. If false, the quantity won't change when customers
+# buy this item. Note: this field is only used if a product doesn't
+# use variants.
+  trackInventory: Boolean
+}
+
+input ProductOrder {
+    # Sort products by the selected field.
+  field: ProductOrderField!
+    # Specifies the direction in which to sort products
+  direction: OrderDirection!
+}
+
+enum ProductOrderField {
+  NAME
+  PRICE
+  DATE
+}
+
+  # Represents availability of a product in the storefront.
+type ProductPricingInfo {
+    # Whether it is in stock and visible or not.
+  available: Boolean @deprecated(reason: "This has been moved to the parent type as 'is_available'.")
+    # Whether it is in sale or not.
+  onSale: Boolean
+    # The discount amount if in sale (null otherwise).
+  discount: TaxedMoney
+    # The discount amount in the local currency.
+  discountLocalCurrency: TaxedMoney
+    # The discounted price range of the product variants.
+  priceRange: TaxedMoneyRange
+    # The undiscounted price range of the product variants.
+  priceRangeUndiscounted: TaxedMoneyRange
+    # The discounted price range of the product variants in the local
+# currency.
+  priceRangeLocalCurrency: TaxedMoneyRange
+}
+
+  # Creates/Updates translations for Product.
+type ProductTranslate {
+    # List of errors that occurred executing the mutation.
+  errors: [Error!]
+    product: Product
+}
+
+type ProductTranslation implements Node {
+    # The ID of the object.
+  id: ID!
+    seoTitle: String
+    seoDescription: String
+    name: String!
+    description: String!
+    descriptionJson: JSONString!
+    # Translation's language
+  language: LanguageDisplay!
+}
+
+  # Represents a type of product. It defines what         attributes are
+# available to products of this type.
+type ProductType implements Node {
+    # The ID of the object.
+  id: ID!
+    name: String!
+    hasVariants: Boolean!
+    isShippingRequired: Boolean!
+    isDigital: Boolean!
+    weight: Weight
+    # List of products of this type.
+  products(  before: String,   after: String,   first: Int,   last: Int): ProductCountableConnection
+    # A type of tax rate.
+  taxRate: TaxRateType
+    # A type of tax. Assigned by enabled tax gateway
+  taxType: TaxType
+    # Variant attributes of that product type.
+  variantAttributes: [Attribute]
+    # Product attributes of that product type.
+  productAttributes: [Attribute]
+}
+
+  # Deletes product types.
+type ProductTypeBulkDelete {
+    # List of errors that occurred executing the mutation.
+  errors: [Error!]
+    # Returns how many objects were affected.
+  count: Int!
+}
+
+enum ProductTypeConfigurable {
+  CONFIGURABLE
+  SIMPLE
+}
+
+type ProductTypeCountableConnection {
+    # Pagination data for this connection.
+  pageInfo: PageInfo!
+    edges: [ProductTypeCountableEdge!]!
+    # A total count of items in the collection
+  totalCount: Int
+}
+
+type ProductTypeCountableEdge {
+    # The item at the end of the edge
+  node: ProductType!
+    # A cursor for use in pagination
+  cursor: String!
+}
+
+  # Creates a new product type.
+type ProductTypeCreate {
+    # List of errors that occurred executing the mutation.
+  errors: [Error!]
+    productType: ProductType
+}
+
+  # Deletes a product type.
+type ProductTypeDelete {
+    # List of errors that occurred executing the mutation.
+  errors: [Error!]
+    productType: ProductType
+}
+
+enum ProductTypeEnum {
+  DIGITAL
+  SHIPPABLE
+}
+
+input ProductTypeFilterInput {
+    configurable: ProductTypeConfigurable
+    productType: ProductTypeEnum
+}
+
+input ProductTypeInput {
+    # Name of the product type.
+  name: String
+    # Determines if product of this type has multiple         variants.
+# This option mainly simplifies product management         in the
+# dashboard. There is always at least one variant created under
+# the hood.
+  hasVariants: Boolean
+    # List of attributes shared among all product variants.
+  productAttributes: [ID]
+    # List of attributes used to distinguish between         different
+# variants of a product.
+  variantAttributes: [ID]
+    # Determines if shipping is required for products         of this
+# variant.
+  isShippingRequired: Boolean
+    # Determines if products are digital.
+  isDigital: Boolean
+    # Weight of the ProductType items.
+  weight: WeightScalar
+    # Tax rate.
+  taxRate: TaxRateType
+    # Tax rate for enabled tax gateway
+  taxCode: String
+}
+
+  # Updates an existing product type.
+type ProductTypeUpdate {
+    # List of errors that occurred executing the mutation.
+  errors: [Error!]
+    productType: ProductType
+}
+
+  # Updates an existing product.
+type ProductUpdate {
+    # List of errors that occurred executing the mutation.
+  errors: [Error!]
+    product: Product
+}
+
+  # Represents a version of a product such as         different size or
+# color.
+type ProductVariant implements Node {
+    # The ID of the object.
+  id: ID!
+    sku: String!
+    name: String!
+    product: Product!
+    trackInventory: Boolean!
+    quantity: Int!
+    quantityAllocated: Int!
+    weight: Weight
+    # Quantity of a product available for sale.
+  stockQuantity: Int!
+    #                 Override the base price of a product if necessary.
+# A value of `null` indicates that the default product
+# price is used.
+  priceOverride: Money
+    # Price of the product variant.
+  price: Money @deprecated(reason: "Has been replaced by 'pricing.price_undiscounted'")
+    # Informs about variant's availability in the
+# storefront, current price and discounted price.
+  availability: VariantPricingInfo @deprecated(reason: "Has been renamed to 'pricing'.")
+    # Lists the storefront variant's pricing,             the current
+# price and discounts, only meant for displaying
+  pricing: VariantPricingInfo
+    # Whether the variant is in stock and visible or not.
+  isAvailable: Boolean
+    # List of attributes assigned to this variant.
+  attributes: [SelectedAttribute!]!
+    # Cost price of the variant.
+  costPrice: Money
+    # Gross margin percentage value.
+  margin: Int
+    # Total quantity ordered.
+  quantityOrdered: Int
+    # Total revenue generated by a variant in given         period of
+# time. Note: this field should be queried using
+# `reportProductSales` query as it uses optimizations suitable
+# for such calculations.
+  revenue(  period: ReportingPeriod): TaxedMoney
+    # List of images for the product variant
+  images: [ProductImage]
+    # Returns translated Product Variant fields for the given language
+# code.
+  translation(  # A language code to return the translation for.
+  languageCode: LanguageCodeEnum!): ProductVariantTranslation
+    # Digital content for the product variant
+  digitalContent: DigitalContent
+}
+
+  # Deletes product variants.
+type ProductVariantBulkDelete {
+    # List of errors that occurred executing the mutation.
+  errors: [Error!]
+    # Returns how many objects were affected.
+  count: Int!
+}
+
+type ProductVariantCountableConnection {
+    # Pagination data for this connection.
+  pageInfo: PageInfo!
+    edges: [ProductVariantCountableEdge!]!
+    # A total count of items in the collection
+  totalCount: Int
+}
+
+type ProductVariantCountableEdge {
+    # The item at the end of the edge
+  node: ProductVariant!
+    # A cursor for use in pagination
+  cursor: String!
+}
+
+  # Creates a new variant for a product
+type ProductVariantCreate {
+    # List of errors that occurred executing the mutation.
+  errors: [Error!]
+    productVariant: ProductVariant
+}
+
+input ProductVariantCreateInput {
+    # List of attributes specific to this variant.
+  attributes: [AttributeValueInput]!
+    # Cost price of the variant.
+  costPrice: Decimal
+    # Special price of the particular variant.
+  priceOverride: Decimal
+    # Stock keeping unit.
+  sku: String
+    # The total quantity of this variant available for sale.
+  quantity: Int
+    # Determines if the inventory of this variant should                be
+# tracked. If false, the quantity won't change when customers
+# buy this item.
+  trackInventory: Boolean
+    # Weight of the Product Variant.
+  weight: WeightScalar
+    # Product ID of which type is the variant.
+  product: ID!
+}
+
+  # Deletes a product variant.
+type ProductVariantDelete {
+    # List of errors that occurred executing the mutation.
+  errors: [Error!]
+    productVariant: ProductVariant
+}
+
+input ProductVariantInput {
+    # List of attributes specific to this variant.
+  attributes: [AttributeValueInput]
+    # Cost price of the variant.
+  costPrice: Decimal
+    # Special price of the particular variant.
+  priceOverride: Decimal
+    # Stock keeping unit.
+  sku: String
+    # The total quantity of this variant available for sale.
+  quantity: Int
+    # Determines if the inventory of this variant should                be
+# tracked. If false, the quantity won't change when customers
+# buy this item.
+  trackInventory: Boolean
+    # Weight of the Product Variant.
+  weight: WeightScalar
+}
+
+  # Creates/Updates translations for Product Variant.
+type ProductVariantTranslate {
+    # List of errors that occurred executing the mutation.
+  errors: [Error!]
+    productVariant: ProductVariant
+}
+
+type ProductVariantTranslation implements Node {
+    # The ID of the object.
+  id: ID!
+    name: String!
+    # Translation's language
+  language: LanguageDisplay!
+}
+
+  # Updates an existing variant for product
+type ProductVariantUpdate {
+    # List of errors that occurred executing the mutation.
+  errors: [Error!]
+    productVariant: ProductVariant
+}
+
+type Query {
+    # Returns list of all translatable items of a given kind.
+  translations(  # Kind of objects to retrieve.
+  kind: TranslatableKinds!,   before: String,   after: String,   first: Int,   last: Int): TranslatableItemConnection
+    # Represents a shop resources.
+  shop: Shop
+    # Lookup a shipping zone by ID.
+  shippingZone(  id: ID!): ShippingZone
+    # List of the shop's shipping zones.
+  shippingZones(  before: String,   after: String,   first: Int,   last: Int): ShippingZoneCountableConnection
+    digitalContent(  id: ID!): DigitalContent
+    # List of the digital contents.
+  digitalContents(  query: String,   level: Int,   before: String,   after: String,   first: Int,   last: Int): DigitalContentCountableConnection
+    # List of the shop's attributes.
+  attributes(  # Supported filter parameters: * name * slug
+  query: String,   # Return attributes for products             belonging to the given
+# category.
+  inCategory: ID,   # Return attributes for products             belonging to the given
+# collection.
+  inCollection: ID,   before: String,   after: String,   first: Int,   last: Int): AttributeCountableConnection
+    # List of the shop's categories.
+  categories(  # Supported filter parameters: * name * slug * description *
+# parent__name
+  query: String,   level: Int,   before: String,   after: String,   first: Int,   last: Int): CategoryCountableConnection
+    # Lookup a category by ID.
+  category(  id: ID!): Category
+    # Lookup a collection by ID.
+  collection(  id: ID!): Collection
+    # List of the shop's collections.
+  collections(  filter: CollectionFilterInput,   # Supported filter parameters: * name * slug
+  query: String,   before: String,   after: String,   first: Int,   last: Int): CollectionCountableConnection
+    # Lookup a product by ID.
+  product(  id: ID!): Product
+    # List of the shop's products.
+  products(  filter: ProductFilterInput,   # Filter products by attributes.
+  attributes: [AttributeScalar],   # Filter products by category.
+  categories: [ID],   # Filter products by collections.
+  collections: [ID],   # Filter by price less than or equal to the given value.
+  priceLte: Float,   # Filter by price greater than or equal to the given value.
+  priceGte: Float,   # Sort products.
+  sortBy: ProductOrder,   # Filter products by the stock availability
+  stockAvailability: StockAvailability,   # Supported filter parameters: * name * description
+  query: String,   before: String,   after: String,   first: Int,   last: Int): ProductCountableConnection
+    # Lookup a product type by ID.
+  productType(  id: ID!): ProductType
+    # List of the shop's product types.
+  productTypes(  filter: ProductTypeFilterInput,   before: String,   after: String,   first: Int,   last: Int): ProductTypeCountableConnection
+    # Lookup a variant by ID.
+  productVariant(  id: ID!): ProductVariant
+    # Lookup multiple variants by ID
+  productVariants(  ids: [ID],   before: String,   after: String,   first: Int,   last: Int): ProductVariantCountableConnection
+    # List of top selling products.
+  reportProductSales(  # Span of time.
+  period: ReportingPeriod!,   before: String,   after: String,   first: Int,   last: Int): ProductVariantCountableConnection
+    payment(  id: ID): Payment
+    # List of payments
+  payments(  before: String,   after: String,   first: Int,   last: Int): PaymentCountableConnection
+    paymentClientToken(  gateway: GatewaysEnum): String
+    # Lookup a page by ID or by slug.
+  page(  id: ID,   slug: String): Page
+    # List of the shop's pages.
+  pages(  # Supported filter parameters: * content * slug * title
+  query: String,   before: String,   after: String,   first: Int,   last: Int): PageCountableConnection
+    # List of activity events to display on         homepage (at the
+# moment it only contains order-events).
+  homepageEvents(  before: String,   after: String,   first: Int,   last: Int): OrderEventCountableConnection
+    # Lookup an order by ID.
+  order(  id: ID!): Order
+    # List of the shop's orders.
+  orders(  filter: OrderFilterInput,   # Supported filter parameters: * id * discount_name * token *
+# user_email * user__email
+  query: String,   # Filter orders from a selected timespan.
+  created: ReportingPeriod,   # Filter order by status
+  status: OrderStatusFilter,   before: String,   after: String,   first: Int,   last: Int): OrderCountableConnection
+    # List of the shop's draft orders.
+  draftOrders(  filter: OrderDraftFilterInput,   # Supported filter parameters: * id * discount_name * token *
+# user_email * user__email
+  query: String,   # Filter draft orders from a selected timespan.
+  created: ReportingPeriod,   before: String,   after: String,   first: Int,   last: Int): OrderCountableConnection
+    # Total sales.
+  ordersTotal(  # Get total sales for selected span of time.
+  period: ReportingPeriod): TaxedMoney
+    # Lookup an order by token.
+  orderByToken(  token: String!): Order
+    # Lookup a menu by ID or name.
+  menu(  id: ID,   # Menu name.
+  name: String): Menu
+    # List of the shop's menus.
+  menus(  # Supported filter parameters: * name
+  query: String,   before: String,   after: String,   first: Int,   last: Int): MenuCountableConnection
+    # Lookup a menu item by ID.
+  menuItem(  id: ID!): MenuItem
+    # List of the shop's menu items.
+  menuItems(  # Supported filter parameters: * name
+  query: String,   before: String,   after: String,   first: Int,   last: Int): MenuItemCountableConnection
+    # Lookup a gift card by ID.
+  giftCard(  id: ID!): GiftCard
+    # List of gift cards
+  giftCards(  before: String,   after: String,   first: Int,   last: Int): GiftCardCountableConnection
+    # Lookup a sale by ID.
+  sale(  id: ID!): Sale
+    # List of the shop's sales.
+  sales(  filter: SaleFilterInput,   # Search sales by name, value or type.
+  query: String,   before: String,   after: String,   first: Int,   last: Int): SaleCountableConnection
+    # Lookup a voucher by ID.
+  voucher(  id: ID!): Voucher
+    # List of the shop's vouchers.
+  vouchers(  filter: VoucherFilterInput,   # Search vouchers by name or code.
+  query: String,   before: String,   after: String,   first: Int,   last: Int): VoucherCountableConnection
+    # List of all tax rates available from tax gateway
+  taxTypes: [TaxType]
+    # Single checkout.
+  checkout(  token: UUID): Checkout
+    # List of checkouts.
+  checkouts(  before: String,   after: String,   first: Int,   last: Int): CheckoutCountableConnection
+    # Single checkout line.
+  checkoutLine(  id: ID): CheckoutLine
+    # List of checkout lines
+  checkoutLines(  before: String,   after: String,   first: Int,   last: Int): CheckoutLineCountableConnection
+    addressValidationRules(  countryCode: CountryCode,   countryArea: String,   cityArea: String): AddressValidationData
+    # List of the shop's customers.
+  customers(  filter: CustomerFilterInput,   # Supported filter parameters: * email * first_name * last_name *
+# default_shipping_address__first_name *
+# default_shipping_address__last_name * default_shipping_address__city
+# * default_shipping_address__country
+  query: String,   before: String,   after: String,   first: Int,   last: Int): UserCountableConnection
+    # Logged in user data.
+  me: User
+    # List of the shop's staff users.
+  staffUsers(  filter: StaffUserInput,   # Supported filter parameters: * email * first_name * last_name *
+# default_shipping_address__first_name *
+# default_shipping_address__last_name * default_shipping_address__city
+# * default_shipping_address__country
+  query: String,   before: String,   after: String,   first: Int,   last: Int): UserCountableConnection
+    # Lookup an user by ID.
+  user(  id: ID!): User
+    # The ID of the object
+  node(  id: ID!): Node
+}
+
+  # Represents a reduced VAT rate for a particular type of goods.
+type ReducedRate {
+    # Reduced VAT rate in percent.
+  rate: Float!
+    # A type of goods.
+  rateType: TaxRateType!
+}
+
+type Refresh {
+    token: String
+    payload: GenericScalar
+}
+
+enum ReportingPeriod {
+  TODAY
+  THIS_MONTH
+}
+
+  #          Sales allow creating discounts for categories, collections
+# or         products and are visible to all the customers.
+type Sale implements Node {
+    # The ID of the object.
+  id: ID!
+    name: String!
+    type: SaleType!
+    value: Float!
+    startDate: DateTime!
+    endDate: DateTime
+    # List of categories this sale applies to.
+  categories(  before: String,   after: String,   first: Int,   last: Int): CategoryCountableConnection
+    # List of collections this sale applies to.
+  collections(  before: String,   after: String,   first: Int,   last: Int): CollectionCountableConnection
+    # List of products this sale applies to.
+  products(  before: String,   after: String,   first: Int,   last: Int): ProductCountableConnection
+    # Returns translated sale fields for the given language code.
+  translation(  # A language code to return the translation for.
+  languageCode: LanguageCodeEnum!): SaleTranslation
+}
+
+  # Adds products, categories, collections to a voucher.
+type SaleAddCatalogues {
+    # List of errors that occurred executing the mutation.
+  errors: [Error!]
+    # Sale of which catalogue IDs will be modified.
+  sale: Sale
+}
+
+  # Deletes sales.
+type SaleBulkDelete {
+    # List of errors that occurred executing the mutation.
+  errors: [Error!]
+    # Returns how many objects were affected.
+  count: Int!
+}
+
+type SaleCountableConnection {
+    # Pagination data for this connection.
+  pageInfo: PageInfo!
+    edges: [SaleCountableEdge!]!
+    # A total count of items in the collection
+  totalCount: Int
+}
+
+type SaleCountableEdge {
+    # The item at the end of the edge
+  node: Sale!
+    # A cursor for use in pagination
+  cursor: String!
+}
+
+  # Creates a new sale.
+type SaleCreate {
+    # List of errors that occurred executing the mutation.
+  errors: [Error!]
+    sale: Sale
+}
+
+  # Deletes a sale.
+type SaleDelete {
+    # List of errors that occurred executing the mutation.
+  errors: [Error!]
+    sale: Sale
+}
+
+input SaleFilterInput {
+    status: [DiscountStatusEnum]
+    saleType: DiscountValueTypeEnum
+    started: DateTimeRangeInput
+    search: String
+}
+
+input SaleInput {
+    # Voucher name.
+  name: String
+    # Fixed or percentage.
+  type: DiscountValueTypeEnum
+    # Value of the voucher.
+  value: Decimal
+    # Products related to the discount.
+  products: [ID]
+    # Categories related to the discount.
+  categories: [ID]
+    # Collections related to the discount.
+  collections: [ID]
+    # Start date of the voucher in ISO 8601 format.
+  startDate: DateTime
+    # End date of the voucher in ISO 8601 format.
+  endDate: DateTime
+}
+
+  # Removes products, categories, collections from a sale.
+type SaleRemoveCatalogues {
+    # List of errors that occurred executing the mutation.
+  errors: [Error!]
+    # Sale of which catalogue IDs will be modified.
+  sale: Sale
+}
+
+  # Creates/updates translations for a sale.
+type SaleTranslate {
+    # List of errors that occurred executing the mutation.
+  errors: [Error!]
+    sale: Sale
+}
+
+type SaleTranslation implements Node {
+    # The ID of the object.
+  id: ID!
+    name: String
+    # Translation's language
+  language: LanguageDisplay!
+}
+
+enum SaleType {
+  FIXED
+  PERCENTAGE
+}
+
+  # Updates a sale.
+type SaleUpdate {
+    # List of errors that occurred executing the mutation.
+  errors: [Error!]
+    sale: Sale
+}
+
+  # Represents a custom attribute.
+type SelectedAttribute {
+    # Name of an attribute displayed in the interface.
+  attribute: Attribute!
+    # Value of an attribute.
+  value: AttributeValue!
+}
+
+input SeoInput {
+    # SEO title.
+  title: String
+    # SEO description.
+  description: String
+}
+
+  # Sets user password.
+type SetPassword {
+    # List of errors that occurred executing the mutation.
+  errors: [Error!]
+    user: User
+}
+
+input SetPasswordInput {
+    # A one-time token required to set the password.
+  token: String!
+    # Password
+  password: String!
+}
+
+  #              Shipping method are the methods you'll use to get
+# customer's orders to them.             They are directly exposed to
+# the customers.
+type ShippingMethod implements Node {
+    # The ID of the object.
+  id: ID!
+    name: String!
+    price: Money
+    minimumOrderPrice: Money
+    maximumOrderPrice: Money
+    minimumOrderWeight: Weight
+    maximumOrderWeight: Weight
+    # Type of the shipping method.
+  type: ShippingMethodTypeEnum
+    # Returns translated Shipping Method fields for the given language
+# code.
+  translation(  # A language code to return the translation for.
+  languageCode: LanguageCodeEnum!): ShippingMethodTranslation
+}
+
+type ShippingMethodTranslation implements Node {
+    # The ID of the object.
+  id: ID!
+    name: String
+    # Translation's language
+  language: LanguageDisplay!
+}
+
+enum ShippingMethodTypeEnum {
+  PRICE
+  WEIGHT
+}
+
+  # Deletes shipping prices.
+type ShippingPriceBulkDelete {
+    # List of errors that occurred executing the mutation.
+  errors: [Error!]
+    # Returns how many objects were affected.
+  count: Int!
+}
+
+  # Creates a new shipping price.
+type ShippingPriceCreate {
+    # List of errors that occurred executing the mutation.
+  errors: [Error!]
+    # A shipping zone to which the shipping method belongs.
+  shippingZone: ShippingZone
+    shippingMethod: ShippingMethod
+}
+
+  # Deletes a shipping price.
+type ShippingPriceDelete {
+    # List of errors that occurred executing the mutation.
+  errors: [Error!]
+    # A shipping method to delete.
+  shippingMethod: ShippingMethod
+    # A shipping zone to which the shipping method belongs.
+  shippingZone: ShippingZone
+}
+
+input ShippingPriceInput {
+    # Name of the shipping method.
+  name: String
+    # Shipping price of the shipping method.
+  price: Decimal
+    # Minimum order price to use this shipping method
+  minimumOrderPrice: Decimal
+    # Maximum order price to use this shipping method
+  maximumOrderPrice: Decimal
+    # Minimum order weight to use this shipping method
+  minimumOrderWeight: WeightScalar
+    # Maximum order weight to use this shipping method
+  maximumOrderWeight: WeightScalar
+    # Shipping type: price or weight based.
+  type: ShippingMethodTypeEnum
+    # Shipping zone this method belongs to.
+  shippingZone: ID
+}
+
+  # Creates/Updates translations for Shipping Method.
+type ShippingPriceTranslate {
+    # List of errors that occurred executing the mutation.
+  errors: [Error!]
+    shippingMethod: ShippingMethod
+}
+
+  # Updates a new shipping price.
+type ShippingPriceUpdate {
+    # List of errors that occurred executing the mutation.
+  errors: [Error!]
+    # A shipping zone to which the shipping method belongs.
+  shippingZone: ShippingZone
+    shippingMethod: ShippingMethod
+}
+
+  #              Represents a shipping zone in the shop. Zones are the
+# concept             used only for grouping shipping methods in the
+# dashboard,             and are never exposed to the customers
+# directly.
+type ShippingZone implements Node {
+    # The ID of the object.
+  id: ID!
+    name: String!
+    default: Boolean!
+    # Lowest and highest prices for the shipping.
+  priceRange: MoneyRange
+    # List of countries available for the method.
+  countries: [CountryDisplay]
+    # List of shipping methods available for orders shipped to countries
+# within this shipping zone.
+  shippingMethods: [ShippingMethod]
+}
+
+  # Deletes shipping zones.
+type ShippingZoneBulkDelete {
+    # List of errors that occurred executing the mutation.
+  errors: [Error!]
+    # Returns how many objects were affected.
+  count: Int!
+}
+
+type ShippingZoneCountableConnection {
+    # Pagination data for this connection.
+  pageInfo: PageInfo!
+    edges: [ShippingZoneCountableEdge!]!
+    # A total count of items in the collection
+  totalCount: Int
+}
+
+type ShippingZoneCountableEdge {
+    # The item at the end of the edge
+  node: ShippingZone!
+    # A cursor for use in pagination
+  cursor: String!
+}
+
+  # Creates a new shipping zone.
+type ShippingZoneCreate {
+    # List of errors that occurred executing the mutation.
+  errors: [Error!]
+    shippingZone: ShippingZone
+}
+
+  # Deletes a shipping zone.
+type ShippingZoneDelete {
+    # List of errors that occurred executing the mutation.
+  errors: [Error!]
+    shippingZone: ShippingZone
+}
+
+input ShippingZoneInput {
+    # Shipping zone's name. Visible only to the staff.
+  name: String
+    # List of countries in this shipping zone.
+  countries: [String]
+    #              Is default shipping zone, that will be used
+# for countries not covered by other zones.
+  default: Boolean
+}
+
+  # Updates a new shipping zone.
+type ShippingZoneUpdate {
+    # List of errors that occurred executing the mutation.
+  errors: [Error!]
+    shippingZone: ShippingZone
+}
+
+  #          Represents a shop resource containing general shop's data
+# and configuration.
+type Shop {
+    # Customer's geolocalization data.
+  geolocalization: Geolocalization
+    # List of configured authorization keys. Authorization
+# keys are used to enable third party OAuth authorization
+# (currently Facebook or Google).
+  authorizationKeys: [AuthorizationKey]!
+    # List of countries available in the shop.
+  countries: [CountryDisplay]!
+    # List of available currencies.
+  currencies: [String]!
+    # Default shop's currency.
+  defaultCurrency: String!
+    # Default shop's country
+  defaultCountry: CountryDisplay
+    # Shop's description.
+  description: String
+    # Shop's domain data.
+  domain: Domain!
+    # Collection displayed on homepage
+  homepageCollection: Collection
+    # List of the shops's supported languages.
+  languages: [LanguageDisplay]!
+    # Shop's name.
+  name: String!
+    # Shop's navigation.
+  navigation: Navigation
+    # List of available permissions.
+  permissions: [PermissionDisplay]!
+    # List of possible phone prefixes.
+  phonePrefixes: [String]!
+    # Header text
+  headerText: String
+    # Include taxes in prices
+  includeTaxesInPrices: Boolean!
+    # Display prices with tax in store
+  displayGrossPrices: Boolean!
+    # Charge taxes on shipping
+  chargeTaxesOnShipping: Boolean!
+    # Enable inventory tracking
+  trackInventoryByDefault: Boolean
+    # Default weight unit
+  defaultWeightUnit: WeightUnitsEnum
+    # Returns translated Shop fields for the given language code.
+  translation(  # A language code to return the translation for.
+  languageCode: LanguageCodeEnum!): ShopTranslation
+    # Enable automatic fulfillment for all digital products
+  automaticFulfillmentDigitalProducts: Boolean
+    # Default number of max downloads per digital content url
+  defaultDigitalMaxDownloads: Int
+    # Default number of days which digital content url will be valid
+  defaultDigitalUrlValidDays: Int
+    # Company address
+  companyAddress: Address
+}
+
+  # Update shop address
+type ShopAddressUpdate {
+    # List of errors that occurred executing the mutation.
+  errors: [Error!]
+    # Updated Shop
+  shop: Shop
+}
+
+  # Updates site domain of the shop
+type ShopDomainUpdate {
+    # List of errors that occurred executing the mutation.
+  errors: [Error!]
+    # Updated Shop
+  shop: Shop
+}
+
+  # Fetch tax rates
+type ShopFetchTaxRates {
+    # List of errors that occurred executing the mutation.
+  errors: [Error!]
+    # Updated Shop
+  shop: Shop
+}
+
+input ShopSettingsInput {
+    # Header text
+  headerText: String
+    # SEO description
+  description: String
+    # Include taxes in prices
+  includeTaxesInPrices: Boolean
+    # Display prices with tax in store
+  displayGrossPrices: Boolean
+    # Charge taxes on shipping
+  chargeTaxesOnShipping: Boolean
+    # Enable inventory tracking
+  trackInventoryByDefault: Boolean
+    # Default weight unit
+  defaultWeightUnit: WeightUnitsEnum
+    # Enable automatic fulfillment for all digital products
+  automaticFulfillmentDigitalProducts: Boolean
+    # Default number of max downloads per digital content url
+  defaultDigitalMaxDownloads: Int
+    # Default number of days which digital content url will be valid
+  defaultDigitalUrlValidDays: Int
+}
+
+  # Creates/Updates translations for Shop Settings.
+type ShopSettingsTranslate {
+    # List of errors that occurred executing the mutation.
+  errors: [Error!]
+    # Updated Shop
+  shop: Shop
+}
+
+input ShopSettingsTranslationInput {
+    headerText: String
+    description: String
+}
+
+  # Updates shop settings
+type ShopSettingsUpdate {
+    # List of errors that occurred executing the mutation.
+  errors: [Error!]
+    # Updated Shop
+  shop: Shop
+}
+
+type ShopTranslation implements Node {
+    # The ID of the object.
+  id: ID!
+    headerText: String!
+    description: String!
+    # Translation's language
+  language: LanguageDisplay!
+}
+
+input SiteDomainInput {
+    # Domain name for shop
+  domain: String
+    # Shop site name
+  name: String
+}
+
+  # Deletes staff users.
+type StaffBulkDelete {
+    # List of errors that occurred executing the mutation.
+  errors: [Error!]
+    # Returns how many objects were affected.
+  count: Int!
+}
+
+  # Creates a new staff user.
+type StaffCreate {
+    # List of errors that occurred executing the mutation.
+  errors: [Error!]
+    user: User
+}
+
+input StaffCreateInput {
+    # Given name.
+  firstName: String
+    # Family name.
+  lastName: String
+    # The unique email address of the user.
+  email: String
+    # User account is active.
+  isActive: Boolean
+    # A note about the user.
+  note: String
+    # List of permission code names to assign to this user.
+  permissions: [PermissionEnum]
+    # Send an email with a link to set a password
+  sendPasswordEmail: Boolean
+}
+
+  # Deletes a staff user.
+type StaffDelete {
+    # List of errors that occurred executing the mutation.
+  errors: [Error!]
+    user: User
+}
+
+input StaffInput {
+    # Given name.
+  firstName: String
+    # Family name.
+  lastName: String
+    # The unique email address of the user.
+  email: String
+    # User account is active.
+  isActive: Boolean
+    # A note about the user.
+  note: String
+    # List of permission code names to assign to this user.
+  permissions: [PermissionEnum]
+}
+
+enum StaffMemberStatus {
+  ACTIVE
+  DEACTIVATED
+}
+
+  # Updates an existing staff user.
+type StaffUpdate {
+    # List of errors that occurred executing the mutation.
+  errors: [Error!]
+    user: User
+}
+
+input StaffUserInput {
+    status: StaffMemberStatus
+    search: String
+}
+
+enum StockAvailability {
+  IN_STOCK
+  OUT_OF_STOCK
+}
+
+enum TaxRateType {
+  ACCOMMODATION
+  ADMISSION_TO_CULTURAL_EVENTS
+  ADMISSION_TO_ENTERTAINMENT_EVENTS
+  ADMISSION_TO_SPORTING_EVENTS
+  ADVERTISING
+  AGRICULTURAL_SUPPLIES
+  BABY_FOODSTUFFS
+  BIKES
+  BOOKS
+  CHILDRENS_CLOTHING
+  DOMESTIC_FUEL
+  DOMESTIC_SERVICES
+  E_BOOKS
+  FOODSTUFFS
+  HOTELS
+  MEDICAL
+  NEWSPAPERS
+  PASSENGER_TRANSPORT
+  PHARMACEUTICALS
+  PROPERTY_RENOVATIONS
+  RESTAURANTS
+  SOCIAL_HOUSING
+  STANDARD
+  WATER
+  WINE
+}
+
+  # Representation of tax types fetched from tax gateway
+type TaxType {
+    # Description of the tax type
+  description: String
+    # External tax code used to identify given tax group
+  taxCode: String
+}
+
+  # Represents a monetary value with taxes. In         case when taxes
+# were not applied, net and gross values will be equal.
+type TaxedMoney {
+    # Currency code.
+  currency: String!
+    # Amount of money including taxes.
+  gross: Money!
+    # Amount of money without taxes.
+  net: Money!
+    # Amount of taxes.
+  tax: Money!
+}
+
+  # Represents a range of monetary values.
+type TaxedMoneyRange {
+    # Lower bound of a price range.
+  start: TaxedMoney
+    # Upper bound of a price range.
+  stop: TaxedMoney
+}
+
+  # An object representing a single payment.
+type Transaction implements Node {
+    # The ID of the object.
+  id: ID!
+    created: DateTime!
+    payment: Payment!
+    token: String!
+    kind: TransactionKind!
+    isSuccess: Boolean!
+    error: TransactionError
+    gatewayResponse: JSONString!
+    # Total amount of the transaction.
+  amount: Money
+}
+
+enum TransactionError {
+  TRANSACTIONERROR_INCORRECT_NUMBER
+  TRANSACTIONERROR_INVALID_NUMBER
+  TRANSACTIONERROR_INCORRECT_CVV
+  TRANSACTIONERROR_INVALID_CVV
+  TRANSACTIONERROR_INCORRECT_ZIP
+  TRANSACTIONERROR_INCORRECT_ADDRESS
+  TRANSACTIONERROR_INVALID_EXPIRY_DATE
+  TRANSACTIONERROR_EXPIRED
+  TRANSACTIONERROR_PROCESSING_ERROR
+  TRANSACTIONERROR_DECLINED
+}
+
+enum TransactionKind {
+  AUTH
+  REFUND
+  CAPTURE
+  VOID
+}
+
+union TranslatableItem = Product | Category | Collection | Attribute | AttributeValue | ProductVariant | Page | ShippingMethod | Sale | Voucher | MenuItem
+
+type TranslatableItemConnection {
+    # Pagination data for this connection.
+  pageInfo: PageInfo!
+    edges: [TranslatableItemEdge!]!
+    # A total count of items in the collection
+  totalCount: Int
+}
+
+type TranslatableItemEdge {
+    # The item at the end of the edge
+  node: TranslatableItem!
+    # A cursor for use in pagination
+  cursor: String!
+}
+
+enum TranslatableKinds {
+  ATTRIBUTE
+  ATTRIBUTE_VALUE
+  CATEGORY
+  COLLECTION
+  MENU_ITEM
+  PAGE
+  PRODUCT
+  SALE
+  SHIPPING_METHOD
+  VARIANT
+  VOUCHER
+}
+
+input TranslationInput {
+    seoTitle: String
+    seoDescription: String
+    name: String
+    description: String
+    descriptionJson: JSONString
+}
+
+scalar UUID
+
+scalar Upload
+
+  # Represents user data.
+type User implements Node {
+    # The ID of the object.
+  id: ID!
+    lastLogin: DateTime
+    email: String!
+    firstName: String!
+    lastName: String!
+    isStaff: Boolean!
+    token: UUID!
+    isActive: Boolean!
+    # A note about the customer
+  note: String
+    dateJoined: DateTime!
+    defaultShippingAddress: Address
+    defaultBillingAddress: Address
+    # List of all user's addresses.
+  addresses: [Address]
+    # Returns the last open checkout of this user.
+  checkout: Checkout
+    # List of the user gift cards.
+  giftCards(  before: String,   after: String,   first: Int,   last: Int): GiftCardCountableConnection
+    # List of user's orders.
+  orders(  before: String,   after: String,   first: Int,   last: Int): OrderCountableConnection
+    # List of user's permissions.
+  permissions: [PermissionDisplay]
+    avatar(  # Size of the avatar.
+  size: Int): Image
+    # List of events associated with the user.
+  events: [CustomerEvent]
+    # List of stored payment sources
+  storedPaymentSources: [PaymentSource]
+}
+
+input UserAddressInput {
+    # Billing address of the customer.
+  defaultBillingAddress: AddressInput
+    # Shipping address of the customer.
+  defaultShippingAddress: AddressInput
+}
+
+  # Deletes a user avatar. Only for staff members.
+type UserAvatarDelete {
+    # List of errors that occurred executing the mutation.
+  errors: [Error!]
+    # An updated user instance.
+  user: User
+}
+
+  #              Create a user avatar. Only for staff members. This
+# mutation must             be sent as a `multipart` request. More
+# detailed specs of the             upload format can be found here:
+# https://github.com/jaydenseric/graphql-multipart-request-spec
+type UserAvatarUpdate {
+    # List of errors that occurred executing the mutation.
+  errors: [Error!]
+    # An updated user instance.
+  user: User
+}
+
+  # Activate or deactivate users.
+type UserBulkSetActive {
+    # List of errors that occurred executing the mutation.
+  errors: [Error!]
+    # Returns how many objects were affected.
+  count: Int!
+}
+
+type UserCountableConnection {
+    # Pagination data for this connection.
+  pageInfo: PageInfo!
+    edges: [UserCountableEdge!]!
+    # A total count of items in the collection
+  totalCount: Int
+}
+
+type UserCountableEdge {
+    # The item at the end of the edge
+  node: User!
+    # A cursor for use in pagination
+  cursor: String!
+}
+
+input UserCreateInput {
+    # Billing address of the customer.
+  defaultBillingAddress: AddressInput
+    # Shipping address of the customer.
+  defaultShippingAddress: AddressInput
+    # Given name.
+  firstName: String
+    # Family name.
+  lastName: String
+    # The unique email address of the user.
+  email: String
+    # User account is active.
+  isActive: Boolean
+    # A note about the user.
+  note: String
+    # Send an email with a link to set a password
+  sendPasswordEmail: Boolean
+}
+
+  # Represents a VAT rate for a country.
+type VAT {
+    # Country code.
+  countryCode: String!
+    # Standard VAT rate in percent.
+  standardRate: Float
+    # Country's VAT rate exceptions for specific types of goods.
+  reducedRates: [ReducedRate]!
+}
+
+  # Assign an image to a product variant
+type VariantImageAssign {
+    # List of errors that occurred executing the mutation.
+  errors: [Error!]
+    productVariant: ProductVariant
+    image: ProductImage
+}
+
+  # Unassign an image from a product variant
+type VariantImageUnassign {
+    # List of errors that occurred executing the mutation.
+  errors: [Error!]
+    productVariant: ProductVariant
+    image: ProductImage
+}
+
+  # Represents availability of a variant in the storefront.
+type VariantPricingInfo {
+    # Whether it is in stock and visible or not.
+  available: Boolean @deprecated(reason: "This has been moved to the parent type as 'is_available'.")
+    # Whether it is in sale or not.
+  onSale: Boolean
+    # The discount amount if in sale (null otherwise).
+  discount: TaxedMoney
+    # The discount amount in the local currency.
+  discountLocalCurrency: TaxedMoney
+    # The price, with any discount subtracted.
+  price: TaxedMoney
+    # The price without any discount.
+  priceUndiscounted: TaxedMoney
+    # The discounted price in the local currency.
+  priceLocalCurrency: TaxedMoney
+}
+
+  # Mutation that confirm if token is valid and also return user data.
+type VerifyToken {
+    payload: GenericScalar
+    user: User
+}
+
+  #          Vouchers allow giving discounts to particular customers on
+# categories,         collections or specific products. They can be
+# used during checkout by         providing valid voucher codes.
+type Voucher implements Node {
+    # The ID of the object.
+  id: ID!
+    # Determines a type of voucher
+  type: VoucherTypeEnum!
+    name: String
+    code: String!
+    usageLimit: Int
+    used: Int!
+    startDate: DateTime!
+    endDate: DateTime
+    applyOncePerOrder: Boolean!
+    # Determines a type of discount for voucher - value or percentage
+  discountValueType: DiscountValueTypeEnum!
+    discountValue: Float!
+    minAmountSpent: Money
+    minCheckoutItemsQuantity: Int
+    # List of categories this voucher applies to.
+  categories(  before: String,   after: String,   first: Int,   last: Int): CategoryCountableConnection
+    # List of collections this voucher applies to.
+  collections(  before: String,   after: String,   first: Int,   last: Int): CollectionCountableConnection
+    # List of products this voucher applies to.
+  products(  before: String,   after: String,   first: Int,   last: Int): ProductCountableConnection
+    # List of countries available for the shipping voucher.
+  countries: [CountryDisplay]
+    # Returns translated Voucher fields for the given language code.
+  translation(  # A language code to return the translation for.
+  languageCode: LanguageCodeEnum!): VoucherTranslation
+}
+
+  # Adds products, categories, collections to a voucher.
+type VoucherAddCatalogues {
+    # List of errors that occurred executing the mutation.
+  errors: [Error!]
+    # Voucher of which catalogue IDs will be modified.
+  voucher: Voucher
+}
+
+  # Deletes vouchers.
+type VoucherBulkDelete {
+    # List of errors that occurred executing the mutation.
+  errors: [Error!]
+    # Returns how many objects were affected.
+  count: Int!
+}
+
+type VoucherCountableConnection {
+    # Pagination data for this connection.
+  pageInfo: PageInfo!
+    edges: [VoucherCountableEdge!]!
+    # A total count of items in the collection
+  totalCount: Int
+}
+
+type VoucherCountableEdge {
+    # The item at the end of the edge
+  node: Voucher!
+    # A cursor for use in pagination
+  cursor: String!
+}
+
+  # Creates a new voucher.
+type VoucherCreate {
+    # List of errors that occurred executing the mutation.
+  errors: [Error!]
+    voucher: Voucher
+}
+
+  # Deletes a voucher.
+type VoucherDelete {
+    # List of errors that occurred executing the mutation.
+  errors: [Error!]
+    voucher: Voucher
+}
+
+enum VoucherDiscountType {
+  FIXED
+  PERCENTAGE
+  SHIPPING
+}
+
+input VoucherFilterInput {
+    status: [DiscountStatusEnum]
+    timesUsed: IntRangeInput
+    discountType: [VoucherDiscountType]
+    started: DateTimeRangeInput
+    search: String
+}
+
+input VoucherInput {
+    # Voucher type: PRODUCT, CATEGORY SHIPPING or ENTIRE_ORDER. Deprecated
+# fields: PRODUCT, COLLECTION, CATEGORY use SPECIFIC_PRODUCT instead.
+# VALUE use ENTIRE_ORDER instead.
+  type: VoucherTypeEnum
+    # Voucher name.
+  name: String
+    code: String
+    # Start date of the voucher in ISO 8601 format.
+  startDate: DateTime
+    # End date of the voucher in ISO 8601 format.
+  endDate: DateTime
+    # Choices: fixed or percentage.
+  discountValueType: DiscountValueTypeEnum
+    # Value of the voucher.
+  discountValue: Decimal
+    # Products discounted by the voucher.
+  products: [ID]
+    # Collections discounted by the voucher.
+  collections: [ID]
+    # Categories discounted by the voucher.
+  categories: [ID]
+    # Min purchase amount required to apply the voucher.
+  minAmountSpent: Decimal
+    # Minimal quantity of checkout items required to apply the voucher.
+  minCheckoutItemsQuantity: Int
+    # Country codes that can be used with the shipping voucher.
+  countries: [String]
+    # Voucher should be applied to the cheapest item or entire order.
+  applyOncePerOrder: Boolean
+    # Limit number of times this voucher can be used in total
+  usageLimit: Int
+}
+
+  # Removes products, categories, collections from a voucher.
+type VoucherRemoveCatalogues {
+    # List of errors that occurred executing the mutation.
+  errors: [Error!]
+    # Voucher of which catalogue IDs will be modified.
+  voucher: Voucher
+}
+
+  # Creates/Updates translations for Voucher.
+type VoucherTranslate {
+    # List of errors that occurred executing the mutation.
+  errors: [Error!]
+    voucher: Voucher
+}
+
+type VoucherTranslation implements Node {
+    # The ID of the object.
+  id: ID!
+    name: String
+    # Translation's language
+  language: LanguageDisplay!
+}
+
+enum VoucherTypeEnum {
+  PRODUCT
+  COLLECTION
+  CATEGORY
+  SHIPPING
+  VALUE
+  ENTIRE_ORDER
+  SPECIFIC_PRODUCT
+}
+
+  # Updates a voucher.
+type VoucherUpdate {
+    # List of errors that occurred executing the mutation.
+  errors: [Error!]
+    voucher: Voucher
+}
+
+  # Represents weight value in a specific weight unit.
+type Weight {
+    # Weight unit
+  unit: String!
+    # Weight value
+  value: Float!
+}
+
+scalar WeightScalar
+
+enum WeightUnitsEnum {
+  KG
+  LB
+  OZ
+  G
+}

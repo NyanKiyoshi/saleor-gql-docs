@@ -2823,7 +2823,7 @@
             </a>
             GraphQL Schema definition
         </h2>
-        <code class="highlight"><ul class="code" style="padding-left:28px"><li><span class="keyword operator ts">type</span> <span class="identifier">PaymentError</span> {</li><li></li><li><span class="tab"><span class="meta">field</span>: <a class="support type" href="string.doc.html">String</a> </span></li><li></li><li><span class="tab"><span class="meta">message</span>: <a class="support type" href="string.doc.html">String</a> </span></li><li></li><li><span class="tab"><span class="meta">code</span>: <a class="support type" href="paymenterrorcode.doc.html">PaymentErrorCode</a> </span></li><li>}</li></ul></code>
+        <code class="highlight"><ul class="code" style="padding-left:42px"><li><span class="keyword operator ts">type</span> <span class="identifier">PaymentError</span> {</li><li></li><li><span class="tab"><span class="comment line">#   Name of a field that caused the error. A value of `null` indicates</span></span></li><li><span class="tab"><span class="comment line">#   that the error isn't associated with a particular field.</span></span></li><li><span class="tab"><span class="meta">field</span>: <a class="support type" href="string.doc.html">String</a> </span></li><li></li><li><span class="tab"><span class="comment line">#   The error message.</span></span></li><li><span class="tab"><span class="meta">message</span>: <a class="support type" href="string.doc.html">String</a> </span></li><li></li><li><span class="tab"><span class="comment line">#   The error code.</span></span></li><li><span class="tab"><span class="meta">code</span>: <a class="support type" href="paymenterrorcode.doc.html">PaymentErrorCode</a> </span></li><li>}</li></ul></code>
     </div>
 </section>
 <section>
@@ -2834,7 +2834,7 @@
             </a>
             Require by
         </h2>
-        <ul class="require-by"><li><a href="checkoutpaymentcreate.doc.html" title="CheckoutPaymentCreate - ">CheckoutPaymentCreate<em></em></a><li><li><a href="paymentcapture.doc.html" title="PaymentCapture - ">PaymentCapture<em></em></a><li><li><a href="paymentrefund.doc.html" title="PaymentRefund - ">PaymentRefund<em></em></a><li><li><a href="paymentsecureconfirm.doc.html" title="PaymentSecureConfirm - ">PaymentSecureConfirm<em></em></a><li><li><a href="paymentvoid.doc.html" title="PaymentVoid - ">PaymentVoid<em></em></a><li></ul>
+        <ul class="require-by"><li><a href="checkoutpaymentcreate.doc.html" title="CheckoutPaymentCreate - Create a new payment for given checkout.">CheckoutPaymentCreate<em>Create a new payment for given checkout.</em></a><li><li><a href="paymentcapture.doc.html" title="PaymentCapture - Captures the authorized payment amount.">PaymentCapture<em>Captures the authorized payment amount.</em></a><li><li><a href="paymentrefund.doc.html" title="PaymentRefund - Refunds the captured payment amount.">PaymentRefund<em>Refunds the captured payment amount.</em></a><li><li><a href="paymentsecureconfirm.doc.html" title="PaymentSecureConfirm - Confirms payment in a two-step process like 3D secure">PaymentSecureConfirm<em>Confirms payment in a two-step process like 3D secure</em></a><li><li><a href="paymentvoid.doc.html" title="PaymentVoid - Voids the authorized payment.">PaymentVoid<em>Voids the authorized payment.</em></a><li></ul>
     </div>
 </section>
 <footer>

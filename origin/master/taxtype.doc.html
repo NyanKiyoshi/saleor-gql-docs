@@ -2812,7 +2812,8 @@
     <div class="container">
         <p class="slds-text-title--caps slds-text-color--weak">OBJECT</p>
         <h1 class="slds-text-heading--large">TaxType</h1>
-        <div class="slds-text-body--regular"></div>
+        <div class="slds-text-body--regular"><p>Representation of tax types fetched from tax gateway.</p>
+</div>
     </div>
 </section>
 <section>
@@ -2823,7 +2824,7 @@
             </a>
             GraphQL Schema definition
         </h2>
-        <code class="highlight"><ul class="code" style="padding-left:28px"><li><span class="keyword operator ts">type</span> <span class="identifier">TaxType</span> {</li><li></li><li><span class="tab"><span class="meta">description</span>: <a class="support type" href="string.doc.html">String</a> </span></li><li></li><li><span class="tab"><span class="meta">taxCode</span>: <a class="support type" href="string.doc.html">String</a> </span></li><li>}</li></ul></code>
+        <code class="highlight"><ul class="code" style="padding-left:28px"><li><span class="keyword operator ts">type</span> <span class="identifier">TaxType</span> {</li><li></li><li><span class="tab"><span class="comment line">#   Description of the tax type.</span></span></li><li><span class="tab"><span class="meta">description</span>: <a class="support type" href="string.doc.html">String</a> </span></li><li></li><li><span class="tab"><span class="comment line">#   External tax code used to identify given tax group.</span></span></li><li><span class="tab"><span class="meta">taxCode</span>: <a class="support type" href="string.doc.html">String</a> </span></li><li>}</li></ul></code>
     </div>
 </section>
 <section>
@@ -2834,7 +2835,9 @@
             </a>
             Require by
         </h2>
-        <ul class="require-by"><li><a href="product.doc.html" title="Product - ">Product<em></em></a><li><li><a href="producttype.doc.html" title="ProductType - ">ProductType<em></em></a><li><li><a href="query.doc.html" title="Query - ">Query<em></em></a><li></ul>
+        <ul class="require-by"><li><a href="product.doc.html" title="Product - Represents an individual item for sale in the storefront.">Product<em>Represents an individual item for sale in the storefront.</em></a><li><li><a href="producttype.doc.html" title="ProductType - Represents a type of product. It defines what attributes are
+available to products of this type.">ProductType<em>Represents a type of product. It defines what attributes are
+available to products of this type.</em></a><li><li><a href="query.doc.html" title="Query - ">Query<em></em></a><li></ul>
     </div>
 </section>
 <footer>

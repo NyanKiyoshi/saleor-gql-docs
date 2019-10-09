@@ -2812,7 +2812,8 @@
     <div class="container">
         <p class="slds-text-title--caps slds-text-color--weak">OBJECT</p>
         <h1 class="slds-text-heading--large">SelectedAttribute</h1>
-        <div class="slds-text-body--regular"></div>
+        <div class="slds-text-body--regular"><p>Represents a custom attribute.</p>
+</div>
     </div>
 </section>
 <section>
@@ -2823,7 +2824,7 @@
             </a>
             GraphQL Schema definition
         </h2>
-        <code class="highlight"><ul class="code" style="padding-left:28px"><li><span class="keyword operator ts">type</span> <span class="identifier">SelectedAttribute</span> {</li><li></li><li><span class="tab"><span class="meta">attribute</span>: <a class="support type" href="attribute.doc.html">Attribute</a>! </span></li><li></li><li><span class="tab"><span class="meta">value</span>: <a class="support type" href="attributevalue.doc.html">AttributeValue</a> <span class="keyword operator ts">@deprecated</span>( reason: <span class="string">"DEPRECATED: Will be removed in Saleor 2.10, use values instead." </span> )</span></li><li></li><li><span class="tab"><span class="meta">values</span>: [<a class="support type" href="attributevalue.doc.html">AttributeValue</a>]! </span></li><li>}</li></ul></code>
+        <code class="highlight"><ul class="code" style="padding-left:42px"><li><span class="keyword operator ts">type</span> <span class="identifier">SelectedAttribute</span> {</li><li></li><li><span class="tab"><span class="comment line">#   Name of an attribute displayed in the interface.</span></span></li><li><span class="tab"><span class="meta">attribute</span>: <a class="support type" href="attribute.doc.html">Attribute</a>! </span></li><li></li><li><span class="tab"><span class="comment line">#   The value or the first value of an attribute.</span></span></li><li><span class="tab"><span class="meta">value</span>: <a class="support type" href="attributevalue.doc.html">AttributeValue</a> <span class="keyword operator ts">@deprecated</span>( reason: <span class="string">"DEPRECATED: Will be removed in Saleor 2.10, use values instead." </span> )</span></li><li></li><li><span class="tab"><span class="comment line">#   Values of an attribute.</span></span></li><li><span class="tab"><span class="meta">values</span>: [<a class="support type" href="attributevalue.doc.html">AttributeValue</a>]! </span></li><li>}</li></ul></code>
     </div>
 </section>
 <section>
@@ -2834,7 +2835,7 @@
             </a>
             Require by
         </h2>
-        <ul class="require-by"><li><a href="product.doc.html" title="Product - ">Product<em></em></a><li><li><a href="productvariant.doc.html" title="ProductVariant - ">ProductVariant<em></em></a><li></ul>
+        <ul class="require-by"><li><a href="product.doc.html" title="Product - Represents an individual item for sale in the storefront.">Product<em>Represents an individual item for sale in the storefront.</em></a><li><li><a href="productvariant.doc.html" title="ProductVariant - Represents a version of a product such as different size or color.">ProductVariant<em>Represents a version of a product such as different size or color.</em></a><li></ul>
     </div>
 </section>
 <footer>

@@ -2812,7 +2812,9 @@
     <div class="container">
         <p class="slds-text-title--caps slds-text-color--weak">OBJECT</p>
         <h1 class="slds-text-heading--large">PaymentGateway</h1>
-        <div class="slds-text-body--regular"></div>
+        <div class="slds-text-body--regular"><p>Available payment gateway backend with configuration necessary to
+setup client.</p>
+</div>
     </div>
 </section>
 <section>
@@ -2823,7 +2825,7 @@
             </a>
             GraphQL Schema definition
         </h2>
-        <code class="highlight"><ul class="code" style="padding-left:28px"><li><span class="keyword operator ts">type</span> <span class="identifier">PaymentGateway</span> {</li><li></li><li><span class="tab"><span class="meta">name</span>: <a class="support type" href="string.doc.html">String</a>! </span></li><li></li><li><span class="tab"><span class="meta">config</span>: [<a class="support type" href="gatewayconfigline.doc.html">GatewayConfigLine</a>!]! </span></li><li>}</li></ul></code>
+        <code class="highlight"><ul class="code" style="padding-left:28px"><li><span class="keyword operator ts">type</span> <span class="identifier">PaymentGateway</span> {</li><li></li><li><span class="tab"><span class="comment line">#   Payment gateway name.</span></span></li><li><span class="tab"><span class="meta">name</span>: <a class="support type" href="string.doc.html">String</a>! </span></li><li></li><li><span class="tab"><span class="comment line">#   Payment gateway client configuration.</span></span></li><li><span class="tab"><span class="meta">config</span>: [<a class="support type" href="gatewayconfigline.doc.html">GatewayConfigLine</a>!]! </span></li><li>}</li></ul></code>
     </div>
 </section>
 <section>
@@ -2834,7 +2836,7 @@
             </a>
             Require by
         </h2>
-        <ul class="require-by"><li><a href="checkout.doc.html" title="Checkout - ">Checkout<em></em></a><li></ul>
+        <ul class="require-by"><li><a href="checkout.doc.html" title="Checkout - Checkout object.">Checkout<em>Checkout object.</em></a><li></ul>
     </div>
 </section>
 <footer>

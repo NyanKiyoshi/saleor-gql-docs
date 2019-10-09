@@ -2823,7 +2823,7 @@
             </a>
             GraphQL Schema definition
         </h2>
-        <code class="highlight"><ul class="code" style="padding-left:28px"><li><span class="keyword operator ts">type</span> <span class="identifier">CategoryCountableConnection</span> {</li><li></li><li><span class="tab"><span class="meta">pageInfo</span>: <a class="support type" href="pageinfo.doc.html">PageInfo</a>! </span></li><li></li><li><span class="tab"><span class="meta">edges</span>: [<a class="support type" href="categorycountableedge.doc.html">CategoryCountableEdge</a>!]! </span></li><li></li><li><span class="tab"><span class="meta">totalCount</span>: <a class="support type" href="int.doc.html">Int</a> </span></li><li>}</li></ul></code>
+        <code class="highlight"><ul class="code" style="padding-left:42px"><li><span class="keyword operator ts">type</span> <span class="identifier">CategoryCountableConnection</span> {</li><li></li><li><span class="tab"><span class="comment line">#   Pagination data for this connection.</span></span></li><li><span class="tab"><span class="meta">pageInfo</span>: <a class="support type" href="pageinfo.doc.html">PageInfo</a>! </span></li><li></li><li><span class="tab"><span class="meta">edges</span>: [<a class="support type" href="categorycountableedge.doc.html">CategoryCountableEdge</a>!]! </span></li><li></li><li><span class="tab"><span class="comment line">#   A total count of items in the collection.</span></span></li><li><span class="tab"><span class="meta">totalCount</span>: <a class="support type" href="int.doc.html">Int</a> </span></li><li>}</li></ul></code>
     </div>
 </section>
 <section>
@@ -2834,7 +2834,17 @@
             </a>
             Require by
         </h2>
-        <ul class="require-by"><li><a href="category.doc.html" title="Category - ">Category<em></em></a><li><li><a href="query.doc.html" title="Query - ">Query<em></em></a><li><li><a href="sale.doc.html" title="Sale - ">Sale<em></em></a><li><li><a href="voucher.doc.html" title="Voucher - ">Voucher<em></em></a><li></ul>
+        <ul class="require-by"><li><a href="category.doc.html" title="Category - Represents a single category of products. Categories allow to
+organize products in a tree-hierarchies which can be used for
+navigation in the storefront.">Category<em>Represents a single category of products. Categories allow to
+organize products in a tree-hierarchies which can be used for
+navigation in the storefront.</em></a><li><li><a href="query.doc.html" title="Query - ">Query<em></em></a><li><li><a href="sale.doc.html" title="Sale - Sales allow creating discounts for categories, collections or
+products and are visible to all the customers.">Sale<em>Sales allow creating discounts for categories, collections or
+products and are visible to all the customers.</em></a><li><li><a href="voucher.doc.html" title="Voucher - Vouchers allow giving discounts to particular customers on
+categories, collections or specific products. They can be used
+during checkout by providing valid voucher codes.">Voucher<em>Vouchers allow giving discounts to particular customers on
+categories, collections or specific products. They can be used
+during checkout by providing valid voucher codes.</em></a><li></ul>
     </div>
 </section>
 <footer>

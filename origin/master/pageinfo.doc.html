@@ -2812,7 +2812,9 @@
     <div class="container">
         <p class="slds-text-title--caps slds-text-color--weak">OBJECT</p>
         <h1 class="slds-text-heading--large">PageInfo</h1>
-        <div class="slds-text-body--regular"></div>
+        <div class="slds-text-body--regular"><p>The Relay compliant <code>PageInfo</code> type, containing data necessary to
+paginate this connection.</p>
+</div>
     </div>
 </section>
 <section>
@@ -2823,7 +2825,7 @@
             </a>
             GraphQL Schema definition
         </h2>
-        <code class="highlight"><ul class="code" style="padding-left:42px"><li><span class="keyword operator ts">type</span> <span class="identifier">PageInfo</span> {</li><li></li><li><span class="tab"><span class="meta">hasNextPage</span>: <a class="support type" href="boolean.doc.html">Boolean</a>! </span></li><li></li><li><span class="tab"><span class="meta">hasPreviousPage</span>: <a class="support type" href="boolean.doc.html">Boolean</a>! </span></li><li></li><li><span class="tab"><span class="meta">startCursor</span>: <a class="support type" href="string.doc.html">String</a> </span></li><li></li><li><span class="tab"><span class="meta">endCursor</span>: <a class="support type" href="string.doc.html">String</a> </span></li><li>}</li></ul></code>
+        <code class="highlight"><ul class="code" style="padding-left:42px"><li><span class="keyword operator ts">type</span> <span class="identifier">PageInfo</span> {</li><li></li><li><span class="tab"><span class="comment line">#   When paginating forwards, are there more items?</span></span></li><li><span class="tab"><span class="meta">hasNextPage</span>: <a class="support type" href="boolean.doc.html">Boolean</a>! </span></li><li></li><li><span class="tab"><span class="comment line">#   When paginating backwards, are there more items?</span></span></li><li><span class="tab"><span class="meta">hasPreviousPage</span>: <a class="support type" href="boolean.doc.html">Boolean</a>! </span></li><li></li><li><span class="tab"><span class="comment line">#   When paginating backwards, the cursor to continue.</span></span></li><li><span class="tab"><span class="meta">startCursor</span>: <a class="support type" href="string.doc.html">String</a> </span></li><li></li><li><span class="tab"><span class="comment line">#   When paginating forwards, the cursor to continue.</span></span></li><li><span class="tab"><span class="meta">endCursor</span>: <a class="support type" href="string.doc.html">String</a> </span></li><li>}</li></ul></code>
     </div>
 </section>
 <section>

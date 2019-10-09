@@ -2182,7 +2182,9 @@
     <div class="container">
         <p class="slds-text-title--caps slds-text-color--weak">OBJECT</p>
         <h1 class="slds-text-heading--large">PaymentSource</h1>
-        <div class="slds-text-body--regular"></div>
+        <div class="slds-text-body--regular"><p>Represents a payment source stored for user in payment gateway, such
+as credit card.</p>
+</div>
     </div>
 </section>
 <section>
@@ -2193,7 +2195,7 @@
             </a>
             GraphQL Schema definition
         </h2>
-        <code class="highlight"><ul class="code" style="padding-left:28px"><li><span class="keyword operator ts">type</span> <span class="identifier">PaymentSource</span> {</li><li></li><li><span class="tab"><span class="meta">gateway</span>: <a class="support type" href="string.doc.html">String</a>! </span></li><li></li><li><span class="tab"><span class="meta">creditCardInfo</span>: <a class="support type" href="creditcard.doc.html">CreditCard</a> </span></li><li>}</li></ul></code>
+        <code class="highlight"><ul class="code" style="padding-left:28px"><li><span class="keyword operator ts">type</span> <span class="identifier">PaymentSource</span> {</li><li></li><li><span class="tab"><span class="comment line">#   Payment gateway name</span></span></li><li><span class="tab"><span class="meta">gateway</span>: <a class="support type" href="string.doc.html">String</a>! </span></li><li></li><li><span class="tab"><span class="comment line">#   Stored credit card details if available</span></span></li><li><span class="tab"><span class="meta">creditCardInfo</span>: <a class="support type" href="creditcard.doc.html">CreditCard</a> </span></li><li>}</li></ul></code>
     </div>
 </section>
 <section>
@@ -2204,7 +2206,7 @@
             </a>
             Require by
         </h2>
-        <ul class="require-by"><li><a href="user.doc.html" title="User - ">User<em></em></a><li></ul>
+        <ul class="require-by"><li><a href="user.doc.html" title="User - Represents user data.">User<em>Represents user data.</em></a><li></ul>
     </div>
 </section>
 <footer>

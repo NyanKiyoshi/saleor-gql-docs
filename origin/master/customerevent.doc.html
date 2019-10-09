@@ -2812,7 +2812,8 @@
     <div class="container">
         <p class="slds-text-title--caps slds-text-color--weak">OBJECT</p>
         <h1 class="slds-text-heading--large">CustomerEvent</h1>
-        <div class="slds-text-body--regular"></div>
+        <div class="slds-text-body--regular"><p>History log of the customer.</p>
+</div>
     </div>
 </section>
 <section>
@@ -2823,7 +2824,7 @@
             </a>
             GraphQL Schema definition
         </h2>
-        <code class="highlight"><ul class="code" style="padding-left:42px"><li><span class="keyword operator ts">type</span> <span class="identifier">CustomerEvent</span> <span class="keyword operator ts">implements</span> <a class="support type" href="node.doc.html">Node</a> {</li><li></li><li><span class="tab"><span class="meta">id</span>: <a class="support type" href="id.doc.html">ID</a>! </span></li><li></li><li><span class="tab"><span class="meta">date</span>: <a class="support type" href="datetime.doc.html">DateTime</a> </span></li><li></li><li><span class="tab"><span class="meta">type</span>: <a class="support type" href="customereventsenum.doc.html">CustomerEventsEnum</a> </span></li><li></li><li><span class="tab"><span class="comment line"># Arguments</span></span></li><li><span class="tab"><span class="comment line">#   <strong>id</strong>: </span></span></li><li><span class="tab"><span class="meta">user</span>(<span class="meta">id</span>: <a class="support type" href="id.doc.html">ID</a>): <a class="support type" href="user.doc.html">User</a> </span></li><li></li><li><span class="tab"><span class="meta">message</span>: <a class="support type" href="string.doc.html">String</a> </span></li><li></li><li><span class="tab"><span class="meta">count</span>: <a class="support type" href="int.doc.html">Int</a> </span></li><li></li><li><span class="tab"><span class="meta">order</span>: <a class="support type" href="order.doc.html">Order</a> </span></li><li></li><li><span class="tab"><span class="meta">orderLine</span>: <a class="support type" href="orderline.doc.html">OrderLine</a> </span></li><li>}</li></ul></code>
+        <code class="highlight"><ul class="code" style="padding-left:42px"><li><span class="keyword operator ts">type</span> <span class="identifier">CustomerEvent</span> <span class="keyword operator ts">implements</span> <a class="support type" href="node.doc.html">Node</a> {</li><li></li><li><span class="tab"><span class="comment line">#   The ID of the object.</span></span></li><li><span class="tab"><span class="meta">id</span>: <a class="support type" href="id.doc.html">ID</a>! </span></li><li></li><li><span class="tab"><span class="comment line">#   Date when event happened at in ISO 8601 format.</span></span></li><li><span class="tab"><span class="meta">date</span>: <a class="support type" href="datetime.doc.html">DateTime</a> </span></li><li></li><li><span class="tab"><span class="comment line">#   Customer event type.</span></span></li><li><span class="tab"><span class="meta">type</span>: <a class="support type" href="customereventsenum.doc.html">CustomerEventsEnum</a> </span></li><li></li><li><span class="tab"><span class="comment line">#   User who performed the action.</span></span></li><li><span class="tab"><span class="comment line"># </span></span></li><li><span class="tab"><span class="comment line"># Arguments</span></span></li><li><span class="tab"><span class="comment line">#   <strong>id</strong>: </span></span></li><li><span class="tab"><span class="meta">user</span>(<span class="meta">id</span>: <a class="support type" href="id.doc.html">ID</a>): <a class="support type" href="user.doc.html">User</a> </span></li><li></li><li><span class="tab"><span class="comment line">#   Content of the event.</span></span></li><li><span class="tab"><span class="meta">message</span>: <a class="support type" href="string.doc.html">String</a> </span></li><li></li><li><span class="tab"><span class="comment line">#   Number of objects concerned by the event.</span></span></li><li><span class="tab"><span class="meta">count</span>: <a class="support type" href="int.doc.html">Int</a> </span></li><li></li><li><span class="tab"><span class="comment line">#   The concerned order.</span></span></li><li><span class="tab"><span class="meta">order</span>: <a class="support type" href="order.doc.html">Order</a> </span></li><li></li><li><span class="tab"><span class="comment line">#   The concerned order line.</span></span></li><li><span class="tab"><span class="meta">orderLine</span>: <a class="support type" href="orderline.doc.html">OrderLine</a> </span></li><li>}</li></ul></code>
     </div>
 </section>
 <section>
@@ -2834,7 +2835,7 @@
             </a>
             Require by
         </h2>
-        <ul class="require-by"><li><a href="user.doc.html" title="User - ">User<em></em></a><li></ul>
+        <ul class="require-by"><li><a href="user.doc.html" title="User - Represents user data.">User<em>Represents user data.</em></a><li></ul>
     </div>
 </section>
 <footer>

@@ -2812,7 +2812,8 @@
     <div class="container">
         <p class="slds-text-title--caps slds-text-color--weak">OBJECT</p>
         <h1 class="slds-text-heading--large">CheckoutLine</h1>
-        <div class="slds-text-body--regular"></div>
+        <div class="slds-text-body--regular"><p>Represents an item in the checkout.</p>
+</div>
     </div>
 </section>
 <section>
@@ -2823,7 +2824,7 @@
             </a>
             GraphQL Schema definition
         </h2>
-        <code class="highlight"><ul class="code" style="padding-left:42px"><li><span class="keyword operator ts">type</span> <span class="identifier">CheckoutLine</span> <span class="keyword operator ts">implements</span> <a class="support type" href="node.doc.html">Node</a> {</li><li></li><li><span class="tab"><span class="meta">id</span>: <a class="support type" href="id.doc.html">ID</a>! </span></li><li></li><li><span class="tab"><span class="meta">variant</span>: <a class="support type" href="productvariant.doc.html">ProductVariant</a>! </span></li><li></li><li><span class="tab"><span class="meta">quantity</span>: <a class="support type" href="int.doc.html">Int</a>! </span></li><li></li><li><span class="tab"><span class="meta">totalPrice</span>: <a class="support type" href="taxedmoney.doc.html">TaxedMoney</a> </span></li><li></li><li><span class="tab"><span class="meta">requiresShipping</span>: <a class="support type" href="boolean.doc.html">Boolean</a> </span></li><li>}</li></ul></code>
+        <code class="highlight"><ul class="code" style="padding-left:42px"><li><span class="keyword operator ts">type</span> <span class="identifier">CheckoutLine</span> <span class="keyword operator ts">implements</span> <a class="support type" href="node.doc.html">Node</a> {</li><li></li><li><span class="tab"><span class="comment line">#   The ID of the object.</span></span></li><li><span class="tab"><span class="meta">id</span>: <a class="support type" href="id.doc.html">ID</a>! </span></li><li></li><li><span class="tab"><span class="meta">variant</span>: <a class="support type" href="productvariant.doc.html">ProductVariant</a>! </span></li><li></li><li><span class="tab"><span class="meta">quantity</span>: <a class="support type" href="int.doc.html">Int</a>! </span></li><li></li><li><span class="tab"><span class="comment line">#   The sum of the checkout line price, taxes and discounts.</span></span></li><li><span class="tab"><span class="meta">totalPrice</span>: <a class="support type" href="taxedmoney.doc.html">TaxedMoney</a> </span></li><li></li><li><span class="tab"><span class="comment line">#   Indicates whether the item need to be delivered.</span></span></li><li><span class="tab"><span class="meta">requiresShipping</span>: <a class="support type" href="boolean.doc.html">Boolean</a> </span></li><li>}</li></ul></code>
     </div>
 </section>
 <section>
@@ -2834,7 +2835,7 @@
             </a>
             Require by
         </h2>
-        <ul class="require-by"><li><a href="checkout.doc.html" title="Checkout - ">Checkout<em></em></a><li><li><a href="checkoutlinecountableedge.doc.html" title="CheckoutLineCountableEdge - ">CheckoutLineCountableEdge<em></em></a><li><li><a href="query.doc.html" title="Query - ">Query<em></em></a><li></ul>
+        <ul class="require-by"><li><a href="checkout.doc.html" title="Checkout - Checkout object.">Checkout<em>Checkout object.</em></a><li><li><a href="checkoutlinecountableedge.doc.html" title="CheckoutLineCountableEdge - ">CheckoutLineCountableEdge<em></em></a><li><li><a href="query.doc.html" title="Query - ">Query<em></em></a><li></ul>
     </div>
 </section>
 <footer>

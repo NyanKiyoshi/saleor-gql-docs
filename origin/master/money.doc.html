@@ -2812,7 +2812,8 @@
     <div class="container">
         <p class="slds-text-title--caps slds-text-color--weak">OBJECT</p>
         <h1 class="slds-text-heading--large">Money</h1>
-        <div class="slds-text-body--regular"></div>
+        <div class="slds-text-body--regular"><p>Represents amount of money in specific currency.</p>
+</div>
     </div>
 </section>
 <section>
@@ -2823,7 +2824,7 @@
             </a>
             GraphQL Schema definition
         </h2>
-        <code class="highlight"><ul class="code" style="padding-left:28px"><li><span class="keyword operator ts">type</span> <span class="identifier">Money</span> {</li><li></li><li><span class="tab"><span class="meta">currency</span>: <a class="support type" href="string.doc.html">String</a>! </span></li><li></li><li><span class="tab"><span class="meta">amount</span>: <a class="support type" href="float.doc.html">Float</a>! </span></li><li></li><li><span class="tab"><span class="meta">localized</span>: <a class="support type" href="string.doc.html">String</a>! </span></li><li>}</li></ul></code>
+        <code class="highlight"><ul class="code" style="padding-left:42px"><li><span class="keyword operator ts">type</span> <span class="identifier">Money</span> {</li><li></li><li><span class="tab"><span class="comment line">#   Currency code.</span></span></li><li><span class="tab"><span class="meta">currency</span>: <a class="support type" href="string.doc.html">String</a>! </span></li><li></li><li><span class="tab"><span class="comment line">#   Amount of money.</span></span></li><li><span class="tab"><span class="meta">amount</span>: <a class="support type" href="float.doc.html">Float</a>! </span></li><li></li><li><span class="tab"><span class="comment line">#   Money formatted according to the current locale.</span></span></li><li><span class="tab"><span class="meta">localized</span>: <a class="support type" href="string.doc.html">String</a>! </span></li><li>}</li></ul></code>
     </div>
 </section>
 <section>
@@ -2834,7 +2835,19 @@
             </a>
             Require by
         </h2>
-        <ul class="require-by"><li><a href="checkout.doc.html" title="Checkout - ">Checkout<em></em></a><li><li><a href="giftcard.doc.html" title="GiftCard - ">GiftCard<em></em></a><li><li><a href="moneyrange.doc.html" title="MoneyRange - ">MoneyRange<em></em></a><li><li><a href="order.doc.html" title="Order - ">Order<em></em></a><li><li><a href="payment.doc.html" title="Payment - ">Payment<em></em></a><li><li><a href="product.doc.html" title="Product - ">Product<em></em></a><li><li><a href="productvariant.doc.html" title="ProductVariant - ">ProductVariant<em></em></a><li><li><a href="shippingmethod.doc.html" title="ShippingMethod - ">ShippingMethod<em></em></a><li><li><a href="taxedmoney.doc.html" title="TaxedMoney - ">TaxedMoney<em></em></a><li><li><a href="transaction.doc.html" title="Transaction - ">Transaction<em></em></a><li><li><a href="voucher.doc.html" title="Voucher - ">Voucher<em></em></a><li></ul>
+        <ul class="require-by"><li><a href="checkout.doc.html" title="Checkout - Checkout object.">Checkout<em>Checkout object.</em></a><li><li><a href="giftcard.doc.html" title="GiftCard - A gift card is a prepaid electronic payment card accepted in stores.
+They can be used during checkout by providing a valid gift card
+codes.">GiftCard<em>A gift card is a prepaid electronic payment card accepted in stores.
+They can be used during checkout by providing a valid gift card
+codes.</em></a><li><li><a href="moneyrange.doc.html" title="MoneyRange - Represents a range of amounts of money.">MoneyRange<em>Represents a range of amounts of money.</em></a><li><li><a href="order.doc.html" title="Order - Represents an order in the shop.">Order<em>Represents an order in the shop.</em></a><li><li><a href="payment.doc.html" title="Payment - Represents a payment of a given type.">Payment<em>Represents a payment of a given type.</em></a><li><li><a href="product.doc.html" title="Product - Represents an individual item for sale in the storefront.">Product<em>Represents an individual item for sale in the storefront.</em></a><li><li><a href="productvariant.doc.html" title="ProductVariant - Represents a version of a product such as different size or color.">ProductVariant<em>Represents a version of a product such as different size or color.</em></a><li><li><a href="shippingmethod.doc.html" title="ShippingMethod - Shipping method are the methods you'll use to get customer's orders
+to them. They are directly exposed to the customers.">ShippingMethod<em>Shipping method are the methods you'll use to get customer's orders
+to them. They are directly exposed to the customers.</em></a><li><li><a href="taxedmoney.doc.html" title="TaxedMoney - Represents a monetary value with taxes. In cases where taxes were
+not applied, net and gross values will be equal.">TaxedMoney<em>Represents a monetary value with taxes. In cases where taxes were
+not applied, net and gross values will be equal.</em></a><li><li><a href="transaction.doc.html" title="Transaction - An object representing a single payment.">Transaction<em>An object representing a single payment.</em></a><li><li><a href="voucher.doc.html" title="Voucher - Vouchers allow giving discounts to particular customers on
+categories, collections or specific products. They can be used
+during checkout by providing valid voucher codes.">Voucher<em>Vouchers allow giving discounts to particular customers on
+categories, collections or specific products. They can be used
+during checkout by providing valid voucher codes.</em></a><li></ul>
     </div>
 </section>
 <footer>

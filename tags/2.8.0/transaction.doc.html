@@ -2182,7 +2182,8 @@
     <div class="container">
         <p class="slds-text-title--caps slds-text-color--weak">OBJECT</p>
         <h1 class="slds-text-heading--large">Transaction</h1>
-        <div class="slds-text-body--regular"></div>
+        <div class="slds-text-body--regular"><p>An object representing a single payment.</p>
+</div>
     </div>
 </section>
 <section>
@@ -2193,7 +2194,7 @@
             </a>
             GraphQL Schema definition
         </h2>
-        <code class="highlight"><ul class="code" style="padding-left:42px"><li><span class="keyword operator ts">type</span> <span class="identifier">Transaction</span> <span class="keyword operator ts">implements</span> <a class="support type" href="node.doc.html">Node</a> {</li><li></li><li><span class="tab"><span class="meta">id</span>: <a class="support type" href="id.doc.html">ID</a>! </span></li><li></li><li><span class="tab"><span class="meta">created</span>: <a class="support type" href="datetime.doc.html">DateTime</a>! </span></li><li></li><li><span class="tab"><span class="meta">payment</span>: <a class="support type" href="payment.doc.html">Payment</a>! </span></li><li></li><li><span class="tab"><span class="meta">token</span>: <a class="support type" href="string.doc.html">String</a>! </span></li><li></li><li><span class="tab"><span class="meta">kind</span>: <a class="support type" href="transactionkind.doc.html">TransactionKind</a>! </span></li><li></li><li><span class="tab"><span class="meta">isSuccess</span>: <a class="support type" href="boolean.doc.html">Boolean</a>! </span></li><li></li><li><span class="tab"><span class="meta">error</span>: <a class="support type" href="transactionerror.doc.html">TransactionError</a> </span></li><li></li><li><span class="tab"><span class="meta">gatewayResponse</span>: <a class="support type" href="jsonstring.doc.html">JSONString</a>! </span></li><li></li><li><span class="tab"><span class="meta">amount</span>: <a class="support type" href="money.doc.html">Money</a> </span></li><li>}</li></ul></code>
+        <code class="highlight"><ul class="code" style="padding-left:42px"><li><span class="keyword operator ts">type</span> <span class="identifier">Transaction</span> <span class="keyword operator ts">implements</span> <a class="support type" href="node.doc.html">Node</a> {</li><li></li><li><span class="tab"><span class="comment line">#   The ID of the object.</span></span></li><li><span class="tab"><span class="meta">id</span>: <a class="support type" href="id.doc.html">ID</a>! </span></li><li></li><li><span class="tab"><span class="meta">created</span>: <a class="support type" href="datetime.doc.html">DateTime</a>! </span></li><li></li><li><span class="tab"><span class="meta">payment</span>: <a class="support type" href="payment.doc.html">Payment</a>! </span></li><li></li><li><span class="tab"><span class="meta">token</span>: <a class="support type" href="string.doc.html">String</a>! </span></li><li></li><li><span class="tab"><span class="meta">kind</span>: <a class="support type" href="transactionkind.doc.html">TransactionKind</a>! </span></li><li></li><li><span class="tab"><span class="meta">isSuccess</span>: <a class="support type" href="boolean.doc.html">Boolean</a>! </span></li><li></li><li><span class="tab"><span class="meta">error</span>: <a class="support type" href="transactionerror.doc.html">TransactionError</a> </span></li><li></li><li><span class="tab"><span class="meta">gatewayResponse</span>: <a class="support type" href="jsonstring.doc.html">JSONString</a>! </span></li><li></li><li><span class="tab"><span class="comment line">#   Total amount of the transaction.</span></span></li><li><span class="tab"><span class="meta">amount</span>: <a class="support type" href="money.doc.html">Money</a> </span></li><li>}</li></ul></code>
     </div>
 </section>
 <section>
@@ -2204,7 +2205,7 @@
             </a>
             Require by
         </h2>
-        <ul class="require-by"><li><a href="payment.doc.html" title="Payment - ">Payment<em></em></a><li></ul>
+        <ul class="require-by"><li><a href="payment.doc.html" title="Payment - Represents a payment of a given type.">Payment<em>Represents a payment of a given type.</em></a><li></ul>
     </div>
 </section>
 <footer>

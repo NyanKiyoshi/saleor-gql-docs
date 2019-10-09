@@ -2812,7 +2812,9 @@
     <div class="container">
         <p class="slds-text-title--caps slds-text-color--weak">OBJECT</p>
         <h1 class="slds-text-heading--large">TaxedMoney</h1>
-        <div class="slds-text-body--regular"></div>
+        <div class="slds-text-body--regular"><p>Represents a monetary value with taxes. In cases where taxes were
+not applied, net and gross values will be equal.</p>
+</div>
     </div>
 </section>
 <section>
@@ -2823,7 +2825,7 @@
             </a>
             GraphQL Schema definition
         </h2>
-        <code class="highlight"><ul class="code" style="padding-left:42px"><li><span class="keyword operator ts">type</span> <span class="identifier">TaxedMoney</span> {</li><li></li><li><span class="tab"><span class="meta">currency</span>: <a class="support type" href="string.doc.html">String</a>! </span></li><li></li><li><span class="tab"><span class="meta">gross</span>: <a class="support type" href="money.doc.html">Money</a>! </span></li><li></li><li><span class="tab"><span class="meta">net</span>: <a class="support type" href="money.doc.html">Money</a>! </span></li><li></li><li><span class="tab"><span class="meta">tax</span>: <a class="support type" href="money.doc.html">Money</a>! </span></li><li>}</li></ul></code>
+        <code class="highlight"><ul class="code" style="padding-left:42px"><li><span class="keyword operator ts">type</span> <span class="identifier">TaxedMoney</span> {</li><li></li><li><span class="tab"><span class="comment line">#   Currency code.</span></span></li><li><span class="tab"><span class="meta">currency</span>: <a class="support type" href="string.doc.html">String</a>! </span></li><li></li><li><span class="tab"><span class="comment line">#   Amount of money including taxes.</span></span></li><li><span class="tab"><span class="meta">gross</span>: <a class="support type" href="money.doc.html">Money</a>! </span></li><li></li><li><span class="tab"><span class="comment line">#   Amount of money without taxes.</span></span></li><li><span class="tab"><span class="meta">net</span>: <a class="support type" href="money.doc.html">Money</a>! </span></li><li></li><li><span class="tab"><span class="comment line">#   Amount of taxes.</span></span></li><li><span class="tab"><span class="meta">tax</span>: <a class="support type" href="money.doc.html">Money</a>! </span></li><li>}</li></ul></code>
     </div>
 </section>
 <section>
@@ -2834,7 +2836,7 @@
             </a>
             Require by
         </h2>
-        <ul class="require-by"><li><a href="checkout.doc.html" title="Checkout - ">Checkout<em></em></a><li><li><a href="checkoutline.doc.html" title="CheckoutLine - ">CheckoutLine<em></em></a><li><li><a href="order.doc.html" title="Order - ">Order<em></em></a><li><li><a href="orderline.doc.html" title="OrderLine - ">OrderLine<em></em></a><li><li><a href="productpricinginfo.doc.html" title="ProductPricingInfo - ">ProductPricingInfo<em></em></a><li><li><a href="productvariant.doc.html" title="ProductVariant - ">ProductVariant<em></em></a><li><li><a href="query.doc.html" title="Query - ">Query<em></em></a><li><li><a href="taxedmoneyrange.doc.html" title="TaxedMoneyRange - ">TaxedMoneyRange<em></em></a><li><li><a href="variantpricinginfo.doc.html" title="VariantPricingInfo - ">VariantPricingInfo<em></em></a><li></ul>
+        <ul class="require-by"><li><a href="checkout.doc.html" title="Checkout - Checkout object.">Checkout<em>Checkout object.</em></a><li><li><a href="checkoutline.doc.html" title="CheckoutLine - Represents an item in the checkout.">CheckoutLine<em>Represents an item in the checkout.</em></a><li><li><a href="order.doc.html" title="Order - Represents an order in the shop.">Order<em>Represents an order in the shop.</em></a><li><li><a href="orderline.doc.html" title="OrderLine - Represents order line of particular order.">OrderLine<em>Represents order line of particular order.</em></a><li><li><a href="productpricinginfo.doc.html" title="ProductPricingInfo - Represents availability of a product in the storefront.">ProductPricingInfo<em>Represents availability of a product in the storefront.</em></a><li><li><a href="productvariant.doc.html" title="ProductVariant - Represents a version of a product such as different size or color.">ProductVariant<em>Represents a version of a product such as different size or color.</em></a><li><li><a href="query.doc.html" title="Query - ">Query<em></em></a><li><li><a href="taxedmoneyrange.doc.html" title="TaxedMoneyRange - Represents a range of monetary values.">TaxedMoneyRange<em>Represents a range of monetary values.</em></a><li><li><a href="variantpricinginfo.doc.html" title="VariantPricingInfo - Represents availability of a variant in the storefront.">VariantPricingInfo<em>Represents availability of a variant in the storefront.</em></a><li></ul>
     </div>
 </section>
 <footer>

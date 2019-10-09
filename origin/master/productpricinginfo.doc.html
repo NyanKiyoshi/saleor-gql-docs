@@ -2812,7 +2812,8 @@
     <div class="container">
         <p class="slds-text-title--caps slds-text-color--weak">OBJECT</p>
         <h1 class="slds-text-heading--large">ProductPricingInfo</h1>
-        <div class="slds-text-body--regular"></div>
+        <div class="slds-text-body--regular"><p>Represents availability of a product in the storefront.</p>
+</div>
     </div>
 </section>
 <section>
@@ -2823,7 +2824,7 @@
             </a>
             GraphQL Schema definition
         </h2>
-        <code class="highlight"><ul class="code" style="padding-left:42px"><li><span class="keyword operator ts">type</span> <span class="identifier">ProductPricingInfo</span> {</li><li></li><li><span class="tab"><span class="meta">available</span>: <a class="support type" href="boolean.doc.html">Boolean</a> <span class="keyword operator ts">@deprecated</span>( reason: <span class="string">"DEPRECATED: Will be removed in Saleor 2.10, this has been moved to the parent type as 'isAvailable'." </span> )</span></li><li></li><li><span class="tab"><span class="meta">onSale</span>: <a class="support type" href="boolean.doc.html">Boolean</a> </span></li><li></li><li><span class="tab"><span class="meta">discount</span>: <a class="support type" href="taxedmoney.doc.html">TaxedMoney</a> </span></li><li></li><li><span class="tab"><span class="meta">discountLocalCurrency</span>: <a class="support type" href="taxedmoney.doc.html">TaxedMoney</a> </span></li><li></li><li><span class="tab"><span class="meta">priceRange</span>: <a class="support type" href="taxedmoneyrange.doc.html">TaxedMoneyRange</a> </span></li><li></li><li><span class="tab"><span class="meta">priceRangeUndiscounted</span>: <a class="support type" href="taxedmoneyrange.doc.html">TaxedMoneyRange</a> </span></li><li></li><li><span class="tab"><span class="meta">priceRangeLocalCurrency</span>: <a class="support type" href="taxedmoneyrange.doc.html">TaxedMoneyRange</a> </span></li><li>}</li></ul></code>
+        <code class="highlight"><ul class="code" style="padding-left:42px"><li><span class="keyword operator ts">type</span> <span class="identifier">ProductPricingInfo</span> {</li><li></li><li><span class="tab"><span class="comment line">#   Whether it is in stock and visible or not.</span></span></li><li><span class="tab"><span class="meta">available</span>: <a class="support type" href="boolean.doc.html">Boolean</a> <span class="keyword operator ts">@deprecated</span>( reason: <span class="string">"DEPRECATED: Will be removed in Saleor 2.10, this has been moved to the parent type as 'isAvailable'." </span> )</span></li><li></li><li><span class="tab"><span class="comment line">#   Whether it is in sale or not.</span></span></li><li><span class="tab"><span class="meta">onSale</span>: <a class="support type" href="boolean.doc.html">Boolean</a> </span></li><li></li><li><span class="tab"><span class="comment line">#   The discount amount if in sale (null otherwise).</span></span></li><li><span class="tab"><span class="meta">discount</span>: <a class="support type" href="taxedmoney.doc.html">TaxedMoney</a> </span></li><li></li><li><span class="tab"><span class="comment line">#   The discount amount in the local currency.</span></span></li><li><span class="tab"><span class="meta">discountLocalCurrency</span>: <a class="support type" href="taxedmoney.doc.html">TaxedMoney</a> </span></li><li></li><li><span class="tab"><span class="comment line">#   The discounted price range of the product variants.</span></span></li><li><span class="tab"><span class="meta">priceRange</span>: <a class="support type" href="taxedmoneyrange.doc.html">TaxedMoneyRange</a> </span></li><li></li><li><span class="tab"><span class="comment line">#   The undiscounted price range of the product variants.</span></span></li><li><span class="tab"><span class="meta">priceRangeUndiscounted</span>: <a class="support type" href="taxedmoneyrange.doc.html">TaxedMoneyRange</a> </span></li><li></li><li><span class="tab"><span class="comment line">#   The discounted price range of the product variants in the local</span></span></li><li><span class="tab"><span class="comment line">#   currency.</span></span></li><li><span class="tab"><span class="meta">priceRangeLocalCurrency</span>: <a class="support type" href="taxedmoneyrange.doc.html">TaxedMoneyRange</a> </span></li><li>}</li></ul></code>
     </div>
 </section>
 <section>
@@ -2834,7 +2835,7 @@
             </a>
             Require by
         </h2>
-        <ul class="require-by"><li><a href="product.doc.html" title="Product - ">Product<em></em></a><li></ul>
+        <ul class="require-by"><li><a href="product.doc.html" title="Product - Represents an individual item for sale in the storefront.">Product<em>Represents an individual item for sale in the storefront.</em></a><li></ul>
     </div>
 </section>
 <footer>
