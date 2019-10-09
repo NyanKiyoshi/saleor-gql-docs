@@ -1,19 +1,31 @@
 dist: xenial
 sudo: required
+
+language: python
+python: 3.7
+
 cache:
   pip: true
   directories:
     - node_modules
+
 env:
   global:
     - BUILD_PATH=gh-pages-build
-    - SRC_BRANCHES='demo master'
+
 install:
   - nvm install 10
   - npm i
+  - curl -Lo gql.tar.gz https://github.com/NyanKiyoshi/graphql-core/archive/v2.2.1-custom.tar.gz
+  - tar -xf gql.tar.gz
+  - cd graphql-core-*
+  - python3 ./setup.py develop
+  - cd ..
+
 script:
   - mkdir -pv $BUILD_PATH
   - ./build.sh "$SRC_BRANCHES" $PWD/$BUILD_PATH
+
 deploy:
   provider: pages
   local-dir: $BUILD_PATH
