@@ -12,15 +12,14 @@ cache:
 env:
   global:
     - BUILD_PATH=gh-pages-build
+    - GQL_PKG_PATH=/tmp/graphql
 
 install:
   - nvm install 10
   - npm i
   - curl -Lo gql.tar.gz https://github.com/NyanKiyoshi/graphql-core/archive/v2.2.1-custom.tar.gz
   - tar -xf gql.tar.gz
-  - cd graphql-core-*
-  - python3 ./setup.py develop
-  - cd ..
+  - mv graphql-core-* $GQL_PKG_PATH
 
 script:
   - mkdir -pv $BUILD_PATH

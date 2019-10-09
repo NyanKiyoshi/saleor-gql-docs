@@ -56,15 +56,28 @@ for refname in ${cleaned_target_refs}; do
     pip install -r requirements.txt > /dev/null \
         || failed install saleor
 
+    pip uninstall -y graphql-core \
+        || failed uninstall GraphQL
+    cd ${GQL_PKG_PATH} \
+        && python3 ./setup.py develop > /dev/null \
+        && cd $BASE_CWD \
+        || failed install GraphQL fork
+
+    cd saleor || failed cd back to saleor
+
     SECRET_KEY=blah python manage.py get_graphql_schema > ${GRAPHQL_OUT_PATH} \
         || failed generate GraphQL schema
 
-     cd $BASE_CWD \
+    out_dir="${OUT_DIR_PATH}/${refname}"
+
+    cd $BASE_CWD \
         && graphdoc \
-                -t ./template/slds \
-                -s ${GRAPHQL_OUT_PATH} \
-                -o "${OUT_DIR_PATH}/${refname}" \
-                --force > /dev/null
+            -t ./template/slds \
+            -s ${GRAPHQL_OUT_PATH} \
+            -o "${out_dir}" \
+            --force > /dev/null
+
+    cp ${GRAPHQL_OUT_PATH} "${out_dir}/schema.txt"
     [ $? -ne 0 ] && exit 1
 done
 
