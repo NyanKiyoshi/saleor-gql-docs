@@ -6955,7 +6955,7 @@ enum WebhookErrorCode {
   # Webhook event.
 type WebhookEvent {
     # Name of the event type.
-  eventType: String
+  eventType: WebhookEventTypeEnum
 }
 
 enum WebhookEventTypeEnum {
