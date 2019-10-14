@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link type="text/css" rel="stylesheet" href="./styles/graphdoc.css" />
-    <title>ProductVariantBulkCreate</title>
+    <title>WebhookFilterInput</title>
     <link href="https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700" rel="stylesheet"><link type="text/css" rel="stylesheet" href="./assets/code.css" /><link type="text/css" rel="stylesheet" href="./assets/require-by.css" />
 </head>
 <body class="slds-scrollable--y">
@@ -1710,7 +1710,7 @@
                 ProductVariant
             </a>
         </li>
-        <li class="slds-is-active" title="ProductVariantBulkCreate">
+        <li  title="ProductVariantBulkCreate">
             <a href="productvariantbulkcreate.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
                 ProductVariantBulkCreate
             </a>
@@ -2765,7 +2765,7 @@
                 WebhookCreateInput
             </a>
         </li>
-        <li  title="WebhookFilterInput">
+        <li class="slds-is-active" title="WebhookFilterInput">
             <a href="webhookfilterinput.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
                 WebhookFilterInput
             </a>
@@ -2815,10 +2815,9 @@
         </div>
     </div>
     <div class="container">
-        <p class="slds-text-title--caps slds-text-color--weak">OBJECT</p>
-        <h1 class="slds-text-heading--large">ProductVariantBulkCreate</h1>
-        <div class="slds-text-body--regular"><p>Creates product variants for a given product.</p>
-</div>
+        <p class="slds-text-title--caps slds-text-color--weak">INPUT_OBJECT</p>
+        <h1 class="slds-text-heading--large">WebhookFilterInput</h1>
+        <div class="slds-text-body--regular"></div>
     </div>
 </section>
 <section>
@@ -2829,7 +2828,7 @@
             </a>
             GraphQL Schema definition
         </h2>
-        <code class="highlight"><ul class="code" style="padding-left:42px"><li><span class="keyword operator ts">type</span> <span class="identifier">ProductVariantBulkCreate</span> {</li><li></li><li><span class="tab"><span class="comment line">#   List of errors that occurred executing the mutation.</span></span></li><li><span class="tab"><span class="meta">errors</span>: [<a class="support type" href="error.doc.html">Error</a>!] </span></li><li></li><li><span class="tab"><span class="comment line">#   Returns how many objects were created.</span></span></li><li><span class="tab"><span class="meta">count</span>: <a class="support type" href="int.doc.html">Int</a>! </span></li><li></li><li><span class="tab"><span class="comment line">#   List of the created variants.</span></span></li><li><span class="tab"><span class="meta">productVariants</span>: [<a class="support type" href="productvariant.doc.html">ProductVariant</a>!]! </span></li><li></li><li><span class="tab"><span class="meta">bulkProductErrors</span>: [<a class="support type" href="bulkproducterror.doc.html">BulkProductError</a>!] </span></li><li>}</li></ul></code>
+        <code class="highlight"><ul class="code" style="padding-left:28px"><li><span class="keyword operator ts">input</span> <span class="identifier">WebhookFilterInput</span> {</li><li><span class="tab"><li><span class="tab"><span class="meta">search</span>: <a class="support type" href="string.doc.html">String</a></span></li></span></li><li><span class="tab"><li><span class="tab"><span class="meta">isActive</span>: <a class="support type" href="boolean.doc.html">Boolean</a></span></li></span></li><li>}</li></ul></code>
     </div>
 </section>
 <section>
@@ -2840,7 +2839,7 @@
             </a>
             Require by
         </h2>
-        <ul class="require-by"><li><a href="mutations.doc.html" title="Mutations - ">Mutations<em></em></a><li></ul>
+        <ul class="require-by"><li><a href="query.doc.html" title="Query - ">Query<em></em></a><li></ul>
     </div>
 </section>
 <footer>

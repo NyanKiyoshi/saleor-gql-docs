@@ -5195,7 +5195,8 @@ type Query {
   webhook(  # ID of the webhook.
   id: ID!): Webhook
     # List of webhooks.
-  webhooks(  # Return the elements in the list that come before the specified
+  webhooks(  # Filtering options for webhooks.
+  filter: WebhookFilterInput,   # Return the elements in the list that come before the specified
 # cursor.
   before: String,   # Return the elements in the list that come after the specified
 # cursor.
@@ -6966,6 +6967,11 @@ enum WebhookEventTypeEnum {
   ORDER_CANCELLED
   CUSTOMER_CREATED
   PRODUCT_CREATED
+}
+
+input WebhookFilterInput {
+    search: String
+    isActive: Boolean
 }
 
   # Updates a webhook subscription.
