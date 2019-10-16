@@ -571,8 +571,6 @@ type AttributeValueDelete {
 input AttributeValueInput {
     # ID of the selected attribute.
   id: ID
-    # Slug of the selected attribute.
-  slug: String
     # The value or slug of an attribute to resolve. If the passed value is
 # non-existent, it will be created.
   values: [String]!
@@ -5204,13 +5202,7 @@ type Query {
   first: Int,   # Return the last n elements from the list.
   last: Int): WebhookCountableConnection
     # List of all available webhook events.
-  webhookEvents(  # Return the elements in the list that come before the specified
-# cursor.
-  before: String,   # Return the elements in the list that come after the specified
-# cursor.
-  after: String,   # Return the first n elements from the list.
-  first: Int,   # Return the last n elements from the list.
-  last: Int): WebhookEventCountableConnection
+  webhookEvents: [WebhookEvent]
     # Retrieve a sample payload for a given webhook event based on real
 # data. It can be useful for some integrations where sample payload is
 # required.
@@ -6972,21 +6964,6 @@ type WebhookEvent {
   eventType: WebhookEventTypeEnum
     # Display name of the event.
   name: String
-}
-
-type WebhookEventCountableConnection {
-    # Pagination data for this connection.
-  pageInfo: PageInfo!
-    edges: [WebhookEventCountableEdge!]!
-    # A total count of items in the collection.
-  totalCount: Int
-}
-
-type WebhookEventCountableEdge {
-    # The item at the end of the edge.
-  node: WebhookEvent!
-    # A cursor for use in pagination.
-  cursor: String!
 }
 
 enum WebhookEventTypeEnum {
