@@ -1,6 +1,6 @@
 schema {
   query: Query
-  mutation: Mutations
+  mutation: Mutation
 }
 
   # Create a new address for the customer.
@@ -2736,7 +2736,7 @@ input MoveProductInput {
   sortOrder: Int
 }
 
-type Mutations {
+type Mutation {
     # Creates a new webhook subscription.
   webhookCreate(  # Fields required to create a webhook.
   input: WebhookCreateInput!): WebhookCreate
@@ -5580,6 +5580,8 @@ type Query {
   id: ID!): User
     # The ID of the object
   node(  id: ID!): Node
+    _entities(  representations: [_Any]): [_Entity]
+    _service: _Service
 }
 
   # Represents a reduced VAT rate for a particular type of goods.
@@ -7020,4 +7022,12 @@ enum WeightUnitsEnum {
   LB
   OZ
   G
+}
+
+scalar _Any
+
+union _Entity = Address | ServiceAccount | User | ProductVariant | Product | ProductType | Collection | Category | ProductImage
+
+type _Service {
+    sdl: String
 }

@@ -30,9 +30,9 @@
                 Query
             </a>
         </li>
-        <li  title="Mutations">
-            <a href="mutations.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
-                Mutations
+        <li  title="Mutation">
+            <a href="mutation.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                Mutation
             </a>
         </li>
     </ul>
@@ -108,6 +108,11 @@
         <li  title="WeightScalar">
             <a href="weightscalar.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
                 WeightScalar
+            </a>
+        </li>
+        <li  title="_Any">
+            <a href="_any.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                _Any
             </a>
         </li>
     </ul>
@@ -393,6 +398,11 @@
         <li  title="TranslatableItem">
             <a href="translatableitem.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
                 TranslatableItem
+            </a>
+        </li>
+        <li  title="_Entity">
+            <a href="_entity.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                _Entity
             </a>
         </li>
     </ul>
@@ -2250,6 +2260,11 @@
                 Weight
             </a>
         </li>
+        <li  title="_Service">
+            <a href="_service.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                _Service
+            </a>
+        </li>
         <li  title="__Directive">
             <a href="directive.spec.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
                 __Directive
@@ -2846,7 +2861,7 @@ found here: https://github.com/jaydenseric/graphql-multipart-
 request-spec">DigitalContentCreate<em>Create new digital content. This mutation must be sent as a
 `multipart` request. More detailed specs of the upload format can be
 found here: https://github.com/jaydenseric/graphql-multipart-
-request-spec</em></a><li><li><a href="digitalcontentdelete.doc.html" title="DigitalContentDelete - Remove digital content assigned to given variant.">DigitalContentDelete<em>Remove digital content assigned to given variant.</em></a><li><li><a href="digitalcontentupdate.doc.html" title="DigitalContentUpdate - Update digital content.">DigitalContentUpdate<em>Update digital content.</em></a><li><li><a href="orderline.doc.html" title="OrderLine - Represents order line of particular order.">OrderLine<em>Represents order line of particular order.</em></a><li><li><a href="product.doc.html" title="Product - Represents an individual item for sale in the storefront.">Product<em>Represents an individual item for sale in the storefront.</em></a><li><li><a href="productvariantbulkcreate.doc.html" title="ProductVariantBulkCreate - Creates product variants for a given product.">ProductVariantBulkCreate<em>Creates product variants for a given product.</em></a><li><li><a href="productvariantclearmeta.doc.html" title="ProductVariantClearMeta - Clears public metadata for product variant.">ProductVariantClearMeta<em>Clears public metadata for product variant.</em></a><li><li><a href="productvariantclearprivatemeta.doc.html" title="ProductVariantClearPrivateMeta - Clears private metadata for product variant.">ProductVariantClearPrivateMeta<em>Clears private metadata for product variant.</em></a><li><li><a href="productvariantcountableedge.doc.html" title="ProductVariantCountableEdge - ">ProductVariantCountableEdge<em></em></a><li><li><a href="productvariantcreate.doc.html" title="ProductVariantCreate - Creates a new variant for a product.">ProductVariantCreate<em>Creates a new variant for a product.</em></a><li><li><a href="productvariantdelete.doc.html" title="ProductVariantDelete - Deletes a product variant.">ProductVariantDelete<em>Deletes a product variant.</em></a><li><li><a href="productvarianttranslate.doc.html" title="ProductVariantTranslate - Creates/Updates translations for Product Variant.">ProductVariantTranslate<em>Creates/Updates translations for Product Variant.</em></a><li><li><a href="productvariantupdate.doc.html" title="ProductVariantUpdate - Updates an existing variant for product.">ProductVariantUpdate<em>Updates an existing variant for product.</em></a><li><li><a href="productvariantupdatemeta.doc.html" title="ProductVariantUpdateMeta - Update public metadata for product variant.">ProductVariantUpdateMeta<em>Update public metadata for product variant.</em></a><li><li><a href="productvariantupdateprivatemeta.doc.html" title="ProductVariantUpdatePrivateMeta - Update private metadata for product variant.">ProductVariantUpdatePrivateMeta<em>Update private metadata for product variant.</em></a><li><li><a href="query.doc.html" title="Query - ">Query<em></em></a><li><li><a href="translatableitem.doc.html" title="TranslatableItem - ">TranslatableItem<em></em></a><li><li><a href="variantimageassign.doc.html" title="VariantImageAssign - Assign an image to a product variant.">VariantImageAssign<em>Assign an image to a product variant.</em></a><li><li><a href="variantimageunassign.doc.html" title="VariantImageUnassign - Unassign an image from a product variant.">VariantImageUnassign<em>Unassign an image from a product variant.</em></a><li></ul>
+request-spec</em></a><li><li><a href="digitalcontentdelete.doc.html" title="DigitalContentDelete - Remove digital content assigned to given variant.">DigitalContentDelete<em>Remove digital content assigned to given variant.</em></a><li><li><a href="digitalcontentupdate.doc.html" title="DigitalContentUpdate - Update digital content.">DigitalContentUpdate<em>Update digital content.</em></a><li><li><a href="orderline.doc.html" title="OrderLine - Represents order line of particular order.">OrderLine<em>Represents order line of particular order.</em></a><li><li><a href="product.doc.html" title="Product - Represents an individual item for sale in the storefront.">Product<em>Represents an individual item for sale in the storefront.</em></a><li><li><a href="productvariantbulkcreate.doc.html" title="ProductVariantBulkCreate - Creates product variants for a given product.">ProductVariantBulkCreate<em>Creates product variants for a given product.</em></a><li><li><a href="productvariantclearmeta.doc.html" title="ProductVariantClearMeta - Clears public metadata for product variant.">ProductVariantClearMeta<em>Clears public metadata for product variant.</em></a><li><li><a href="productvariantclearprivatemeta.doc.html" title="ProductVariantClearPrivateMeta - Clears private metadata for product variant.">ProductVariantClearPrivateMeta<em>Clears private metadata for product variant.</em></a><li><li><a href="productvariantcountableedge.doc.html" title="ProductVariantCountableEdge - ">ProductVariantCountableEdge<em></em></a><li><li><a href="productvariantcreate.doc.html" title="ProductVariantCreate - Creates a new variant for a product.">ProductVariantCreate<em>Creates a new variant for a product.</em></a><li><li><a href="productvariantdelete.doc.html" title="ProductVariantDelete - Deletes a product variant.">ProductVariantDelete<em>Deletes a product variant.</em></a><li><li><a href="productvarianttranslate.doc.html" title="ProductVariantTranslate - Creates/Updates translations for Product Variant.">ProductVariantTranslate<em>Creates/Updates translations for Product Variant.</em></a><li><li><a href="productvariantupdate.doc.html" title="ProductVariantUpdate - Updates an existing variant for product.">ProductVariantUpdate<em>Updates an existing variant for product.</em></a><li><li><a href="productvariantupdatemeta.doc.html" title="ProductVariantUpdateMeta - Update public metadata for product variant.">ProductVariantUpdateMeta<em>Update public metadata for product variant.</em></a><li><li><a href="productvariantupdateprivatemeta.doc.html" title="ProductVariantUpdatePrivateMeta - Update private metadata for product variant.">ProductVariantUpdatePrivateMeta<em>Update private metadata for product variant.</em></a><li><li><a href="query.doc.html" title="Query - ">Query<em></em></a><li><li><a href="translatableitem.doc.html" title="TranslatableItem - ">TranslatableItem<em></em></a><li><li><a href="variantimageassign.doc.html" title="VariantImageAssign - Assign an image to a product variant.">VariantImageAssign<em>Assign an image to a product variant.</em></a><li><li><a href="variantimageunassign.doc.html" title="VariantImageUnassign - Unassign an image from a product variant.">VariantImageUnassign<em>Unassign an image from a product variant.</em></a><li><li><a href="_entity.doc.html" title="_Entity - ">_Entity<em></em></a><li></ul>
     </div>
 </section>
 <footer>
