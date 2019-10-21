@@ -6126,6 +6126,10 @@ type Shop {
   defaultCurrency: String!
     # Shop's default country.
   defaultCountry: CountryDisplay
+    # Default shop's email sender's name.
+  defaultMailSenderName: String
+    # Default shop's email sender's address.
+  defaultMailSenderAddress: String
     # Shop's description.
   description: String
     # Shop's domain data.
@@ -6165,6 +6169,8 @@ type Shop {
   defaultDigitalUrlValidDays: Int
     # Company address.
   companyAddress: Address
+    # URL of a view where customers can set their password.
+  customerSetPasswordUrl: String
 }
 
   # Update shop address.
@@ -6235,6 +6241,12 @@ input ShopSettingsInput {
   defaultDigitalMaxDownloads: Int
     # Default number of days which digital content URL will be valid.
   defaultDigitalUrlValidDays: Int
+    # Default email sender's name.
+  defaultMailSenderName: String
+    # Default email sender's address.
+  defaultMailSenderAddress: String
+    # URL of a view where customers can set their password.
+  customerSetPasswordUrl: String
 }
 
   # Creates/Updates translations for Shop Settings.
@@ -6305,7 +6317,9 @@ input StaffCreateInput {
   note: String
     # List of permission code names to assign to this user.
   permissions: [PermissionEnum]
-    # Send an email with a link to set the password.
+    # DEPRECATED: Will be removed in Saleor 2.10, if mutation has
+# `redirect_url` in input then staff get email with link to set a
+# password. Send an email with a link to set the password.
   sendPasswordEmail: Boolean
     # URL of a view where users should be redirected to set the password.
 # URL in RFC 1808 format.
@@ -6626,7 +6640,9 @@ input UserCreateInput {
   isActive: Boolean
     # A note about the user.
   note: String
-    # Send an email with a link to set a password.
+    # DEPRECATED: Will be removed in Saleor 2.10, if mutation has
+# `redirect_url` in input then customer get email with link to set a
+# password. Send an email with a link to set a password.
   sendPasswordEmail: Boolean
     # URL of a view where users should be redirected to set the password.
 # URL in RFC 1808 format.
