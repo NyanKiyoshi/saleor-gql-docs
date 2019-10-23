@@ -1085,6 +1085,16 @@
                 FulfillmentCancel
             </a>
         </li>
+        <li  title="FulfillmentClearMeta">
+            <a href="fulfillmentclearmeta.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                FulfillmentClearMeta
+            </a>
+        </li>
+        <li  title="FulfillmentClearPrivateMeta">
+            <a href="fulfillmentclearprivatemeta.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                FulfillmentClearPrivateMeta
+            </a>
+        </li>
         <li  title="FulfillmentCreate">
             <a href="fulfillmentcreate.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
                 FulfillmentCreate
@@ -1093,6 +1103,16 @@
         <li  title="FulfillmentLine">
             <a href="fulfillmentline.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
                 FulfillmentLine
+            </a>
+        </li>
+        <li  title="FulfillmentUpdateMeta">
+            <a href="fulfillmentupdatemeta.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                FulfillmentUpdateMeta
+            </a>
+        </li>
+        <li  title="FulfillmentUpdatePrivateMeta">
+            <a href="fulfillmentupdateprivatemeta.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                FulfillmentUpdatePrivateMeta
             </a>
         </li>
         <li  title="FulfillmentUpdateTracking">
@@ -2844,7 +2864,7 @@
             </a>
             GraphQL Schema definition
         </h2>
-        <code class="highlight"><ul class="code" style="padding-left:42px"><li><span class="keyword operator ts">type</span> <span class="identifier">Fulfillment</span> <span class="keyword operator ts">implements</span> <a class="support type" href="node.doc.html">Node</a> {</li><li></li><li><span class="tab"><span class="comment line">#   The ID of the object.</span></span></li><li><span class="tab"><span class="meta">id</span>: <a class="support type" href="id.doc.html">ID</a>! </span></li><li></li><li><span class="tab"><span class="meta">fulfillmentOrder</span>: <a class="support type" href="int.doc.html">Int</a>! </span></li><li></li><li><span class="tab"><span class="meta">status</span>: <a class="support type" href="fulfillmentstatus.doc.html">FulfillmentStatus</a>! </span></li><li></li><li><span class="tab"><span class="meta">trackingNumber</span>: <a class="support type" href="string.doc.html">String</a>! </span></li><li></li><li><span class="tab"><span class="meta">shippingDate</span>: <a class="support type" href="datetime.doc.html">DateTime</a>! </span></li><li></li><li><span class="tab"><span class="comment line">#   List of lines for the fulfillment.</span></span></li><li><span class="tab"><span class="meta">lines</span>: [<a class="support type" href="fulfillmentline.doc.html">FulfillmentLine</a>] </span></li><li></li><li><span class="tab"><span class="comment line">#   User-friendly fulfillment status.</span></span></li><li><span class="tab"><span class="meta">statusDisplay</span>: <a class="support type" href="string.doc.html">String</a> </span></li><li>}</li></ul></code>
+        <code class="highlight"><ul class="code" style="padding-left:42px"><li><span class="keyword operator ts">type</span> <span class="identifier">Fulfillment</span> <span class="keyword operator ts">implements</span> <a class="support type" href="node.doc.html">Node</a> {</li><li></li><li><span class="tab"><span class="comment line">#   The ID of the object.</span></span></li><li><span class="tab"><span class="meta">id</span>: <a class="support type" href="id.doc.html">ID</a>! </span></li><li></li><li><span class="tab"><span class="meta">fulfillmentOrder</span>: <a class="support type" href="int.doc.html">Int</a>! </span></li><li></li><li><span class="tab"><span class="meta">status</span>: <a class="support type" href="fulfillmentstatus.doc.html">FulfillmentStatus</a>! </span></li><li></li><li><span class="tab"><span class="meta">trackingNumber</span>: <a class="support type" href="string.doc.html">String</a>! </span></li><li></li><li><span class="tab"><span class="meta">shippingDate</span>: <a class="support type" href="datetime.doc.html">DateTime</a>! </span></li><li></li><li><span class="tab"><span class="comment line">#   List of privately stored metadata namespaces.</span></span></li><li><span class="tab"><span class="meta">privateMeta</span>: [<a class="support type" href="metastore.doc.html">MetaStore</a>]! </span></li><li></li><li><span class="tab"><span class="comment line">#   List of publicly stored metadata namespaces.</span></span></li><li><span class="tab"><span class="meta">meta</span>: [<a class="support type" href="metastore.doc.html">MetaStore</a>]! </span></li><li></li><li><span class="tab"><span class="comment line">#   List of lines for the fulfillment.</span></span></li><li><span class="tab"><span class="meta">lines</span>: [<a class="support type" href="fulfillmentline.doc.html">FulfillmentLine</a>] </span></li><li></li><li><span class="tab"><span class="comment line">#   User-friendly fulfillment status.</span></span></li><li><span class="tab"><span class="meta">statusDisplay</span>: <a class="support type" href="string.doc.html">String</a> </span></li><li>}</li></ul></code>
     </div>
 </section>
 <section>
@@ -2855,7 +2875,7 @@
             </a>
             Require by
         </h2>
-        <ul class="require-by"><li><a href="fulfillmentcancel.doc.html" title="FulfillmentCancel - Cancels existing fulfillment and optionally restocks items.">FulfillmentCancel<em>Cancels existing fulfillment and optionally restocks items.</em></a><li><li><a href="fulfillmentcreate.doc.html" title="FulfillmentCreate - Creates a new fulfillment for an order.">FulfillmentCreate<em>Creates a new fulfillment for an order.</em></a><li><li><a href="fulfillmentupdatetracking.doc.html" title="FulfillmentUpdateTracking - Updates a fulfillment for an order.">FulfillmentUpdateTracking<em>Updates a fulfillment for an order.</em></a><li><li><a href="order.doc.html" title="Order - Represents an order in the shop.">Order<em>Represents an order in the shop.</em></a><li></ul>
+        <ul class="require-by"><li><a href="fulfillmentcancel.doc.html" title="FulfillmentCancel - Cancels existing fulfillment and optionally restocks items.">FulfillmentCancel<em>Cancels existing fulfillment and optionally restocks items.</em></a><li><li><a href="fulfillmentclearmeta.doc.html" title="FulfillmentClearMeta - Clears metadata for fulfillment.">FulfillmentClearMeta<em>Clears metadata for fulfillment.</em></a><li><li><a href="fulfillmentclearprivatemeta.doc.html" title="FulfillmentClearPrivateMeta - Clears private metadata for fulfillment.">FulfillmentClearPrivateMeta<em>Clears private metadata for fulfillment.</em></a><li><li><a href="fulfillmentcreate.doc.html" title="FulfillmentCreate - Creates a new fulfillment for an order.">FulfillmentCreate<em>Creates a new fulfillment for an order.</em></a><li><li><a href="fulfillmentupdatemeta.doc.html" title="FulfillmentUpdateMeta - Updates metadata for fulfillment.">FulfillmentUpdateMeta<em>Updates metadata for fulfillment.</em></a><li><li><a href="fulfillmentupdateprivatemeta.doc.html" title="FulfillmentUpdatePrivateMeta - Updates metadata for fulfillment.">FulfillmentUpdatePrivateMeta<em>Updates metadata for fulfillment.</em></a><li><li><a href="fulfillmentupdatetracking.doc.html" title="FulfillmentUpdateTracking - Updates a fulfillment for an order.">FulfillmentUpdateTracking<em>Updates a fulfillment for an order.</em></a><li><li><a href="order.doc.html" title="Order - Represents an order in the shop.">Order<em>Represents an order in the shop.</em></a><li></ul>
     </div>
 </section>
 <footer>

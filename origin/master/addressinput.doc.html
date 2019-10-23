@@ -1085,6 +1085,16 @@
                 FulfillmentCancel
             </a>
         </li>
+        <li  title="FulfillmentClearMeta">
+            <a href="fulfillmentclearmeta.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                FulfillmentClearMeta
+            </a>
+        </li>
+        <li  title="FulfillmentClearPrivateMeta">
+            <a href="fulfillmentclearprivatemeta.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                FulfillmentClearPrivateMeta
+            </a>
+        </li>
         <li  title="FulfillmentCreate">
             <a href="fulfillmentcreate.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
                 FulfillmentCreate
@@ -1093,6 +1103,16 @@
         <li  title="FulfillmentLine">
             <a href="fulfillmentline.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
                 FulfillmentLine
+            </a>
+        </li>
+        <li  title="FulfillmentUpdateMeta">
+            <a href="fulfillmentupdatemeta.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                FulfillmentUpdateMeta
+            </a>
+        </li>
+        <li  title="FulfillmentUpdatePrivateMeta">
+            <a href="fulfillmentupdateprivatemeta.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                FulfillmentUpdatePrivateMeta
             </a>
         </li>
         <li  title="FulfillmentUpdateTracking">
@@ -2843,7 +2863,7 @@
             </a>
             GraphQL Schema definition
         </h2>
-        <code class="highlight"><ul class="code" style="padding-left:42px"><li><span class="keyword operator ts">input</span> <span class="identifier">AddressInput</span> {</li><li><span class="tab"><li><span class="tab"><span class="comment line">#   Given name.</span></span></li><li><span class="tab"><span class="meta">firstName</span>: <a class="support type" href="string.doc.html">String</a></span></li></span></li><li><span class="tab"><li><span class="tab"><span class="comment line">#   Family name.</span></span></li><li><span class="tab"><span class="meta">lastName</span>: <a class="support type" href="string.doc.html">String</a></span></li></span></li><li><span class="tab"><li><span class="tab"><span class="comment line">#   Company or organization.</span></span></li><li><span class="tab"><span class="meta">companyName</span>: <a class="support type" href="string.doc.html">String</a></span></li></span></li><li><span class="tab"><li><span class="tab"><span class="comment line">#   Address.</span></span></li><li><span class="tab"><span class="meta">streetAddress1</span>: <a class="support type" href="string.doc.html">String</a></span></li></span></li><li><span class="tab"><li><span class="tab"><span class="comment line">#   Address.</span></span></li><li><span class="tab"><span class="meta">streetAddress2</span>: <a class="support type" href="string.doc.html">String</a></span></li></span></li><li><span class="tab"><li><span class="tab"><span class="comment line">#   City.</span></span></li><li><span class="tab"><span class="meta">city</span>: <a class="support type" href="string.doc.html">String</a></span></li></span></li><li><span class="tab"><li><span class="tab"><span class="comment line">#   District.</span></span></li><li><span class="tab"><span class="meta">cityArea</span>: <a class="support type" href="string.doc.html">String</a></span></li></span></li><li><span class="tab"><li><span class="tab"><span class="comment line">#   Postal code.</span></span></li><li><span class="tab"><span class="meta">postalCode</span>: <a class="support type" href="string.doc.html">String</a></span></li></span></li><li><span class="tab"><li><span class="tab"><span class="comment line">#   Country.</span></span></li><li><span class="tab"><span class="meta">country</span>: <a class="support type" href="string.doc.html">String</a></span></li></span></li><li><span class="tab"><li><span class="tab"><span class="comment line">#   State or province.</span></span></li><li><span class="tab"><span class="meta">countryArea</span>: <a class="support type" href="string.doc.html">String</a></span></li></span></li><li><span class="tab"><li><span class="tab"><span class="comment line">#   Phone number.</span></span></li><li><span class="tab"><span class="meta">phone</span>: <a class="support type" href="string.doc.html">String</a></span></li></span></li><li>}</li></ul></code>
+        <code class="highlight"><ul class="code" style="padding-left:42px"><li><span class="keyword operator ts">input</span> <span class="identifier">AddressInput</span> {</li><li><span class="tab"><li><span class="tab"><span class="comment line">#   Given name.</span></span></li><li><span class="tab"><span class="meta">firstName</span>: <a class="support type" href="string.doc.html">String</a></span></li></span></li><li><span class="tab"><li><span class="tab"><span class="comment line">#   Family name.</span></span></li><li><span class="tab"><span class="meta">lastName</span>: <a class="support type" href="string.doc.html">String</a></span></li></span></li><li><span class="tab"><li><span class="tab"><span class="comment line">#   Company or organization.</span></span></li><li><span class="tab"><span class="meta">companyName</span>: <a class="support type" href="string.doc.html">String</a></span></li></span></li><li><span class="tab"><li><span class="tab"><span class="comment line">#   Address.</span></span></li><li><span class="tab"><span class="meta">streetAddress1</span>: <a class="support type" href="string.doc.html">String</a></span></li></span></li><li><span class="tab"><li><span class="tab"><span class="comment line">#   Address.</span></span></li><li><span class="tab"><span class="meta">streetAddress2</span>: <a class="support type" href="string.doc.html">String</a></span></li></span></li><li><span class="tab"><li><span class="tab"><span class="comment line">#   City.</span></span></li><li><span class="tab"><span class="meta">city</span>: <a class="support type" href="string.doc.html">String</a></span></li></span></li><li><span class="tab"><li><span class="tab"><span class="comment line">#   District.</span></span></li><li><span class="tab"><span class="meta">cityArea</span>: <a class="support type" href="string.doc.html">String</a></span></li></span></li><li><span class="tab"><li><span class="tab"><span class="comment line">#   Postal code.</span></span></li><li><span class="tab"><span class="meta">postalCode</span>: <a class="support type" href="string.doc.html">String</a></span></li></span></li><li><span class="tab"><li><span class="tab"><span class="comment line">#   Country.</span></span></li><li><span class="tab"><span class="meta">country</span>: <a class="support type" href="countrycode.doc.html">CountryCode</a></span></li></span></li><li><span class="tab"><li><span class="tab"><span class="comment line">#   State or province.</span></span></li><li><span class="tab"><span class="meta">countryArea</span>: <a class="support type" href="string.doc.html">String</a></span></li></span></li><li><span class="tab"><li><span class="tab"><span class="comment line">#   Phone number.</span></span></li><li><span class="tab"><span class="meta">phone</span>: <a class="support type" href="string.doc.html">String</a></span></li></span></li><li>}</li></ul></code>
     </div>
 </section>
 <section>

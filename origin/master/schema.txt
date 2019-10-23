@@ -182,7 +182,7 @@ input AddressInput {
     # Postal code.
   postalCode: String
     # Country.
-  country: String
+  country: CountryCode
     # State or province.
   countryArea: String
     # Phone number.
@@ -2137,6 +2137,10 @@ type Fulfillment implements Node {
     status: FulfillmentStatus!
     trackingNumber: String!
     shippingDate: DateTime!
+    # List of privately stored metadata namespaces.
+  privateMeta: [MetaStore]!
+    # List of publicly stored metadata namespaces.
+  meta: [MetaStore]!
     # List of lines for the fulfillment.
   lines: [FulfillmentLine]
     # User-friendly fulfillment status.
@@ -2157,6 +2161,20 @@ type FulfillmentCancel {
 input FulfillmentCancelInput {
     # Whether item lines are restocked.
   restock: Boolean
+}
+
+  # Clears metadata for fulfillment.
+type FulfillmentClearMeta {
+    # List of errors that occurred executing the mutation.
+  errors: [Error!]
+    fulfillment: Fulfillment
+}
+
+  # Clears private metadata for fulfillment.
+type FulfillmentClearPrivateMeta {
+    # List of errors that occurred executing the mutation.
+  errors: [Error!]
+    fulfillment: Fulfillment
 }
 
   # Creates a new fulfillment for an order.
@@ -2197,6 +2215,20 @@ input FulfillmentLineInput {
 enum FulfillmentStatus {
   FULFILLED
   CANCELED
+}
+
+  # Updates metadata for fulfillment.
+type FulfillmentUpdateMeta {
+    # List of errors that occurred executing the mutation.
+  errors: [Error!]
+    fulfillment: Fulfillment
+}
+
+  # Updates metadata for fulfillment.
+type FulfillmentUpdatePrivateMeta {
+    # List of errors that occurred executing the mutation.
+  errors: [Error!]
+    fulfillment: Fulfillment
 }
 
   # Updates a fulfillment for an order.
@@ -3198,6 +3230,22 @@ type Mutation {
   orderFulfillmentUpdateTracking(  # ID of an fulfillment to update.
   id: ID!,   # Fields required to update an fulfillment.
   input: FulfillmentUpdateTrackingInput!): FulfillmentUpdateTracking
+    # Clears metadata for fulfillment.
+  orderFulfillmentClearMeta(  # ID of a customer to update.
+  id: ID!,   # Fields required to identify stored metadata item.
+  input: MetaPath!): FulfillmentClearMeta
+    # Clears private metadata for fulfillment.
+  orderFulfillmentClearPrivateMeta(  # ID of a customer to update.
+  id: ID!,   # Fields required to identify stored metadata item.
+  input: MetaPath!): FulfillmentClearPrivateMeta
+    # Updates metadata for fulfillment.
+  orderFulfillmentUpdateMeta(  # ID of an object to update.
+  id: ID!,   # Fields required to update new or stored metadata item.
+  input: MetaInput!): FulfillmentUpdateMeta
+    # Updates metadata for fulfillment.
+  orderFulfillmentUpdatePrivateMeta(  # ID of an object to update.
+  id: ID!,   # Fields required to update new or stored metadata item.
+  input: MetaInput!): FulfillmentUpdatePrivateMeta
     # Mark order as manually paid.
   orderMarkAsPaid(  # ID of the order to mark paid.
   id: ID!): OrderMarkAsPaid
