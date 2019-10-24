@@ -122,6 +122,14 @@ type AccountUpdate {
     user: User
 }
 
+  # Updates metadata of the logged-in user.
+type AccountUpdateMeta {
+    # List of errors that occurred executing the mutation.
+  errors: [Error!]
+    accountErrors: [AccountError!]
+    user: User
+}
+
   # Represents user address data.
 type Address implements Node {
     # The ID of the object.
@@ -2801,7 +2809,8 @@ type Mutation {
   shopSettingsTranslate(  # Fields required to update shop settings translations.
   input: ShopSettingsTranslationInput!,   # Translation language code.
   languageCode: LanguageCodeEnum!): ShopSettingsTranslate
-    # Update shop address.
+    # Update the shop's address. If the `null` value is passed, the
+# currently selected address will be deleted.
   shopAddressUpdate(  # Fields required to update shop address.
   input: AddressInput): ShopAddressUpdate
     # Creates a new shipping price.
@@ -3215,9 +3224,9 @@ type Mutation {
   id: ID!,   # Fields required to identify stored metadata item.
   input: MetaPath!): OrderClearPrivateMeta
     # Clears stored metadata value.
-  orderClearMeta(  # ID of a customer to update.
-  id: ID!,   # Fields required to identify stored metadata item.
-  input: MetaPath!): OrderClearMeta
+  orderClearMeta(  # Fields required to update new or stored metadata item.
+  input: MetaPath!,   # Token of an object to clear.
+  token: UUID!): OrderClearMeta
     # Cancels existing fulfillment and optionally restocks items.
   orderFulfillmentCancel(  # ID of an fulfillment to cancel.
   id: ID!,   # Fields required to cancel an fulfillment.
@@ -3258,9 +3267,9 @@ type Mutation {
   id: ID!,   # Fields required to update an order.
   input: OrderUpdateInput!): OrderUpdate
     # Updates meta for order.
-  orderUpdateMeta(  # ID of an object to update.
-  id: ID!,   # Fields required to update new or stored metadata item.
-  input: MetaInput!): OrderUpdateMeta
+  orderUpdateMeta(  # Fields required to update new or stored metadata item.
+  input: MetaInput!,   # Token of an object to update.
+  token: UUID!): OrderUpdateMeta
     # Updates private meta for order.
   orderUpdatePrivateMeta(  # ID of an object to update.
   id: ID!,   # Fields required to update new or stored metadata item.
@@ -3484,14 +3493,6 @@ type Mutation {
   passwordChange(  # New user password.
   newPassword: String!,   # Current user password.
   oldPassword: String!): PasswordChange
-    # Updates metadata for user.
-  userUpdateMetadata(  # ID of an object to update.
-  id: ID!,   # Fields required to update new or stored metadata item.
-  input: MetaInput!): UserUpdateMeta
-    # Clear metadata for user.
-  userClearMetadata(  # ID of a customer to update.
-  id: ID!,   # Fields required to identify stored metadata item.
-  input: MetaPath!): UserClearMeta
     # Create a new address for the customer.
   accountAddressCreate(  # Fields required to create address.
   input: AddressInput!,   # A type of address. If provided, the new address will be
@@ -3523,6 +3524,9 @@ type Mutation {
   accountDelete(  # A one-time token required to remove account. Sent by email using
 # AccountRequestDeletion mutation.
   token: String!): AccountDelete
+    # Updates metadata of the logged-in user.
+  accountUpdateMeta(  # Fields required to update new or stored metadata item.
+  input: MetaInput!): AccountUpdateMeta
     # DEPRECATED: Will be removed in Saleor 2.10, use RequestPasswordReset
 # instead. Resets the customer's password.
   customerPasswordReset(  # Fields required to reset customer's password.
@@ -3602,6 +3606,14 @@ type Mutation {
   userBulkSetActive(  # List of user IDs to (de)activate).
   ids: [ID]!,   # Determine if users will be set active or not.
   isActive: Boolean!): UserBulkSetActive
+    # Updates metadata for user.
+  userUpdateMetadata(  # ID of an object to update.
+  id: ID!,   # Fields required to update new or stored metadata item.
+  input: MetaInput!): UserUpdateMeta
+    # Clear metadata for user.
+  userClearMetadata(  # ID of a customer to update.
+  id: ID!,   # Fields required to identify stored metadata item.
+  input: MetaPath!): UserClearMeta
     # Updates private metadata for user.
   userUpdatePrivateMetadata(  # ID of an object to update.
   id: ID!,   # Fields required to update new or stored metadata item.
@@ -6221,7 +6233,8 @@ type Shop {
   customerSetPasswordUrl: String
 }
 
-  # Update shop address.
+  # Update the shop's address. If the `null` value is passed, the
+# currently selected address will be deleted.
 type ShopAddressUpdate {
     # List of errors that occurred executing the mutation.
   errors: [Error!]
