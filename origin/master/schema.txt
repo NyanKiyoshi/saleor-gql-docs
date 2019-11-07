@@ -2757,7 +2757,7 @@ type Money {
     # Amount of money.
   amount: Float!
     # Money formatted according to the current locale.
-  localized: String!
+  localized: String! @deprecated(reason: "DEPRECATED: Will be removed in Saleor 2.11. Price formatting according to the current locale should be handled by the frontend client.")
 }
 
   # Represents a range of amounts of money.
