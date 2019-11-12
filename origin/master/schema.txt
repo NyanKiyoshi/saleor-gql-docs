@@ -1393,7 +1393,7 @@ type ConfigurationItem {
     # Name of the field.
   name: String!
     # Current value of the field.
-  value: String!
+  value: String
     # Type of the field.
   type: ConfigurationTypeFieldEnum
     # Help text for the field.
@@ -1406,12 +1406,14 @@ input ConfigurationItemInput {
     # Name of the field to update.
   name: String!
     # Value of the given field to update.
-  value: String!
+  value: String
 }
 
 enum ConfigurationTypeFieldEnum {
   STRING
   BOOLEAN
+  SECRET
+  PASSWORD
 }
 
 enum CountryCode {
