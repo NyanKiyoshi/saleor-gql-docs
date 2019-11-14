@@ -2033,6 +2033,8 @@ input DraftOrderCreateInput {
   shippingMethod: ID
     # ID of the voucher associated with the order.
   voucher: ID
+    # A note from a customer. Visible by customers in the order summary.
+  customerNote: String
     # Variant line input consisting of variant ID and quantity of
 # products.
   lines: [OrderLineCreateInput]
@@ -2060,6 +2062,8 @@ input DraftOrderInput {
   shippingMethod: ID
     # ID of the voucher associated with the order.
   voucher: ID
+    # A note from a customer. Visible by customers in the order summary.
+  customerNote: String
 }
 
   # Deletes an order line from a draft order.
